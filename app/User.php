@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function instruments() {
         return $this->belongsToMany('App\Instrument');
     }
+
+    public function reviews() {
+        return $this->hasMany('App\Review');
+    }
 }
