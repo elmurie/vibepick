@@ -1,6 +1,14 @@
+
+
 @extends('layouts.app')
 
 @section('content')
+@php 
+use App\Instrument;
+use App\User;
+
+$instruments = Instrument::all();
+@endphp
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -12,7 +20,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
+                            <label for="first" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
                             <div class="col-md-6">
                                 <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
@@ -79,6 +87,23 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-4 col-form-label text-md-right">{{__('Seleziona gli strumenti con cui sei specializzato')}}</div>
+                            @foreach ($instruments as $instrument)
+                            <div class="custom-control custom-checkbox">
+                                @if ($errors->any())
+                                <input {{in_array($instrument->id, old('tags', []))? "" : "checked"}} name="tags[]" value="{{$instrument->id}}" name="tags[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="tag-{{$instrument->id}}">
+                                @else
+                                <input {{$instruments->contains($instrument->id) ? "" : "checked"}} name="tags[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="tag-{{$instrument->id}}">    
+                                @endif
+                                <label class="custom-control-label" for="tag-{{$instrument->id}}">{{$instrument->name}}</label>     
+                            </div>
+                            @endforeach
+                            @error('instrument_id')
+                                <div class="alert alert-danger mt-3">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group row">
