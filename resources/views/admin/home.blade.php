@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a href="{{route('admin.users.edit', $user['id'])}}">Modifica Profilo</a>
                 </div>
             </div>
         </div>
