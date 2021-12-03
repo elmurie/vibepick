@@ -6,7 +6,7 @@
         @csrf 
         @method('PUT')
 
-        <div class="form-group row">
+        {{-- <div class="form-group row">
             <label for="first" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
             <div class="col-md-6">
@@ -18,9 +18,9 @@
                     </span>
                 @enderror
             </div>
-        </div>
+        </div> --}}
 
-        <div class="form-group row">
+        {{-- <div class="form-group row">
             <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Cognome') }}</label>
 
             <div class="col-md-6">
@@ -32,7 +32,7 @@
                     </span>
                 @enderror
             </div>
-        </div>
+        </div> --}}
 
         <div class="form-group row">
             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}</label>
@@ -86,9 +86,9 @@
                 @foreach ($instruments as $instrument)
                 <div class="custom-control custom-checkbox">
                     @if ($errors->any())
-                    <input {{in_array($instrument->id, old('instruments', []))? "" : "checked"}} name="instruments[]" value="{{$instrument->id}}" name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="instrument-{{$instrument->id}}">
+                    <input {{in_array($instrument->id, old('instruments', []))? "checked" : null}} name="instruments[]" value="{{$instrument->id}}" name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="instrument-{{$instrument->id}}">
                     @else
-                    <input {{$instruments->contains($instrument->id) ? "" : "checked"}} name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="instrument-{{$instrument->id}}">    
+                    <input {{$user['instruments']->contains($instrument->id) ? "checked" : null}} name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="instrument-{{$instrument->id}}">    
                     @endif
                     <label class="custom-control-label" for="instrument-{{$instrument->id}}">{{$instrument->name}}</label>     
                 </div>
@@ -129,7 +129,7 @@
             </div>
         </div>
 
-        <div class="form-group row">
+        {{-- <div class="form-group row">
             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
             <div class="col-md-6">
@@ -149,7 +149,7 @@
             <div class="col-md-6">
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
             </div>
-        </div>
+        </div> --}}
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">

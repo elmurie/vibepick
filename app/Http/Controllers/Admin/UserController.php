@@ -77,6 +77,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $request->validate(['genre' => 'string | required | max:100 ']);
         if( $user->id != Auth::id() ) {
             abort("403");
         }  
