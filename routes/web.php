@@ -22,4 +22,5 @@ Auth::routes();
 // rotte Admin
 Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('users', 'UserController');
 });
