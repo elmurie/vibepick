@@ -94,11 +94,11 @@ $instruments = Instrument::all();
                             @foreach ($instruments as $instrument)
                             <div class="custom-control custom-checkbox">
                                 @if ($errors->any())
-                                <input {{in_array($instrument->id, old('tags', []))? "" : "checked"}} name="tags[]" value="{{$instrument->id}}" name="tags[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="tag-{{$instrument->id}}">
+                                <input {{in_array($instrument->id, old('instruments', []))? "" : "checked"}} name="instruments[]" value="{{$instrument->id}}" name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="instrument-{{$instrument->id}}">
                                 @else
-                                <input {{$instruments->contains($instrument->id) ? "" : "checked"}} name="tags[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="tag-{{$instrument->id}}">    
+                                <input {{$instruments->contains($instrument->id) ? "" : "checked"}} name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="instrument-{{$instrument->id}}">    
                                 @endif
-                                <label class="custom-control-label" for="tag-{{$instrument->id}}">{{$instrument->name}}</label>     
+                                <label class="custom-control-label" for="instrument-{{$instrument->id}}">{{$instrument->name}}</label>     
                             </div>
                             @endforeach
                             @error('instrument_id')

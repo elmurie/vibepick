@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Instrument;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -60,10 +61,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $instruments = Instrument::all();
         if( $user->id != Auth::id() ) {
             abort("403");
         }    
-        return view('admin.edit', compact('user'));
+        return view('admin.edit', compact('user', 'instruments'));
     }
 
     /**
@@ -73,9 +75,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->fill($request->all());
+        
+        $user->save();
+
+        $user->instruments()->sync($request->instruments);
     }
 
     /**
