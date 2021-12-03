@@ -15,10 +15,10 @@ class CreateSponsorshipUserTable extends Migration
     {
         Schema::create('sponsorship_user', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade");
 
             $table->unsignedBigInteger('sponsorship_id');
-            $table->foreign('sponsorship_id')->references('id')->on('sponsorships');
+            $table->foreign('sponsorship_id')->references('id')->on('sponsorships')->onDelete("cascade");
 
             $table->dateTime('start_time');
             $table->dateTime('end_time');

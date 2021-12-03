@@ -16,6 +16,13 @@
 
                     {{ __('You are logged in!') }}
                     <a href="{{route('admin.users.edit', $user['id'])}}">Modifica Profilo</a>
+                    
+                    <form action="{{route("admin.users.destroy", $user['id'])}}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit">Elimina il tuo profilo</button>
+                    </form>
+                   
                 </div>
             </div>
         </div>
