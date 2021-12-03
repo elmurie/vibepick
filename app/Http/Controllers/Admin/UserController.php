@@ -61,10 +61,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $instruments = Instrument::all();
         if( $user->id != Auth::id() ) {
             abort("403");
         }    
+        $instruments = Instrument::all();
         return view('admin.edit', compact('user', 'instruments'));
     }
 
@@ -77,11 +77,25 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->fill($request->all());
-        
+        if( $user->id != Auth::id() ) {
+            abort("403");
+        }  
+        $user->firstname = $user->firstname; 
+        $user->lastname = $user->lastname;
+        $user->address = $request->address;
+        $user->profile_pic = $request->profile_pic;
+        $user->phone_number = $request->phone_number;
+        $user->email = $user->email;
+        $user->genre = $request->genre;
+        $user->password = $user->password;
+        $user->services = $request->services;
         $user->save();
 
         $user->instruments()->sync($request->instruments);
+
+        return view('admin.home', compact('user'));
+
+        
     }
 
     /**
