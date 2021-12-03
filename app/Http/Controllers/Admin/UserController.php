@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\User;
-use App\Instrument;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Instrument;
+use App\User;
+
 
 
 class UserController extends Controller
@@ -81,10 +83,23 @@ class UserController extends Controller
         if( $user->id != Auth::id() ) {
             abort("403");
         }  
+
+        $supportArray = $request->all();
+
+        if(array_key_exists('image', $supportArray)){
+
+            if($user['profile_pic']){
+                Storage::delete($user['profile_pic']);
+            }
+
+            $profile_path = Storage::put('profile_pics', $supportArray['image']);
+            $supportArray['profile_pic'] = $profile_path;
+        }
+
         $user->firstname = $user->firstname; 
         $user->lastname = $user->lastname;
         $user->address = $request->address;
-        $user->profile_pic = $request->profile_pic;
+        $user->profile_pic = $supportArray['profile_pic'];
         $user->phone_number = $request->phone_number;
         $user->email = $user->email;
         $user->genre = $request->genre;

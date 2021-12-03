@@ -2,7 +2,9 @@
 
 @section('content')
     <h1>Profilo di {{$user->firstname}} {{$user->lastname}}</h1>
-    <form method="POST" action="{{ route('admin.users.update', $user['id']) }}">
+
+    <img style="width: 100px" src="{{asset('storage/' . $user->profile_pic)}}" alt="Profile pic di {{$user->firstname}}">
+    <form method="POST" action="{{ route('admin.users.update', $user['id']) }}" enctype="multipart/form-data">
         @csrf 
         @method('PUT')
 
@@ -105,7 +107,7 @@
             <label for="genre" class="col-md-4 col-form-label text-md-right">{{ __('Generi Musicali') }}</label>
 
             <div class="col-md-6">
-                <input id="genre" type="genre" class="form-control @error('genre') is-invalid @enderror" name="genre" value="{{ old('genre') }}" required autocomplete="genre">
+                <input id="genre" type="genre" class="form-control @error('genre') is-invalid @enderror" name="genre" value="{{ old('genre') ?? $user['genre'] }}" required autocomplete="genre">
 
                 @error('genre')
                     <span class="invalid-feedback" role="alert">
@@ -119,7 +121,7 @@
             <label for="services" class="col-md-4 col-form-label text-md-right">{{ __('Servizi offerti') }}</label>
 
             <div class="col-md-6">
-                <input id="services" type="services" class="form-control @error('services') is-invalid @enderror" name="services" value="{{ old('services') }}" required autocomplete="services">
+                <input id="services" type="services" class="form-control @error('services') is-invalid @enderror" name="services" value="{{ old('services') ?? $user['services']}}" required autocomplete="services">
 
                 @error('services')
                     <span class="invalid-feedback" role="alert">
@@ -150,6 +152,13 @@
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
             </div>
         </div> --}}
+        <div class="form-group row">
+            <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Carica la tua foto profilo') }}</label>
+            <div class="col-md-6">
+                <input class="form-control" type="file" name="image" id="image">
+            </div>
+            
+        </div>
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
