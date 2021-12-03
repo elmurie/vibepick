@@ -15,10 +15,10 @@ class CreateInstrumentUserTable extends Migration
     {
         Schema::create('instrument_user', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade");
 
             $table->unsignedBigInteger('instrument_id');
-            $table->foreign('instrument_id')->references('id')->on('instruments');
+            $table->foreign('instrument_id')->references('id')->on('instruments')->onDelete("cascade");
         });
     }
 
