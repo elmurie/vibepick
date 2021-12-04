@@ -89,22 +89,24 @@ $instruments = Instrument::all();
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-4 col-form-label text-md-right">{{__('Seleziona gli strumenti con cui sei specializzato')}}</div>
-                            @foreach ($instruments as $instrument)
-                            <div class="custom-control custom-checkbox">
-                                @if ($errors->any())
-                                <input {{in_array($instrument->id, old('instruments', []))? "" : "checked"}} name="instruments[]" value="{{$instrument->id}}" name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="instrument-{{$instrument->id}}">
-                                @else
-                                <input {{$instruments->contains($instrument->id) ? "" : "checked"}} name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="instrument-{{$instrument->id}}">    
-                                @endif
-                                <label class="custom-control-label" for="instrument-{{$instrument->id}}">{{$instrument->name}}</label>     
-                            </div>
+                        <div class="form-group row">
+                            <div class="col-md-4 col-form-label text-md-right justify-content-end px-0">{{__('Seleziona gli strumenti con cui sei specializzato')}}</div>
+                            <div class="col-md-6 px-4">
+                                @foreach ($instruments as $instrument)
+                                <div class="custom-control custom-checkbox px-5">
+                                    @if ($errors->any())
+                                    <input {{in_array($instrument->id, old('instruments', []))? "checked" : ""}} name="instruments[]" value="{{$instrument->id}}" name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input @error('instrument_id') is-invalid @enderror" id="instrument-{{$instrument->id}}">
+                                    @else
+                                    <input {{$instruments->contains($instrument->id) ? "" : "checked"}} name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input @error('instrument_id') is-invalid @enderror" id="instrument-{{$instrument->id}}">    
+                                    @endif
+                                    <label class="custom-control-label" for="instrument-{{$instrument->id}}">{{$instrument->name}}</label>     
+                                </div>
                             @endforeach
-                            @error('instrument_id')
-                                <div class="alert alert-danger mt-3">{{ $message }}</div>
-                            @enderror
+                            </div>
                         </div>
+                        @error('instruments')
+                            <div class="alert alert-danger mt-3">{{ $message }}</div>
+                        @enderror
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

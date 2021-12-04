@@ -14,15 +14,14 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
-                    <a href="{{route('admin.users.edit', $user['id'])}}">Modifica Profilo</a>
+                    <h2>Welcome to VibePick, {{$user['firstname']}}! </h2>
+                    <ul>
+                        <li>Profilo personale</li>
+                        <li>Messaggi</li>
+                        <li>Recensioni</li>
+                        <li>Sponsorships</li>
+                    </ul>
                     
-                    <form action="{{route("admin.users.destroy", $user['id'])}}" method="POST">
-                        @csrf
-                        @method("DELETE")
-                        <button type="submit">Elimina il tuo profilo</button>
-                    </form>
-                   
                 </div>
             </div>
         </div>

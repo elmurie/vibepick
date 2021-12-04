@@ -97,11 +97,11 @@
                     <label class="custom-control-label" for="instrument-{{$instrument->id}}">{{$instrument->name}}</label>     
                 </div>
                 @endforeach
-                @error('instrument_id')
-                    <div class="alert alert-danger mt-3">{{ $message }}</div>
-                @enderror
             </div>
         </div>
+        @error('instruments')
+            <div class="alert alert-danger mt-3">{{ $message }}</div>
+        @enderror
 
         
 
@@ -175,6 +175,17 @@
             </div>
         </div>
     </form>
+    
+    <form action="{{route("admin.users.destroy", $user['id'])}}" method="POST">
+        @csrf
+        @method("DELETE")
+        <div class="form-group row mb-0">
+            <div class="col-md-6 offset-md-4">
+                <button class="btn btn-danger" type="submit">Elimina il tuo profilo</button>
+            </div>
+        </div>
+    </form>
+    
 
     
 @endsection

@@ -50,9 +50,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('admin.show', compact('user'));
     }
 
     /**
@@ -79,7 +79,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $request->validate(['genre' => 'string | required | max:100 ']);
+        $request->validate([
+            'genre' => 'string | required | max:100 ',
+            'profile_pic' => 'nullable',
+            'instruments' => 'required'
+    ]);
         if( $user->id != Auth::id() ) {
             abort("403");
         }  
@@ -99,7 +103,9 @@ class UserController extends Controller
         $user->firstname = $user->firstname; 
         $user->lastname = $user->lastname;
         $user->address = $request->address;
-        $user->profile_pic = $supportArray['profile_pic'];
+        if (array_key_exists('image', $supportArray)) {
+            $user->profile_pic = $supportArray['profile_pic'];
+        } 
         $user->phone_number = $request->phone_number;
         $user->email = $user->email;
         $user->genre = $request->genre;
@@ -120,14 +126,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $user, Request $request)
     {
 
         if( $user->id != Auth::id() ) {
             abort("403");
         }
-        
-        $user->delete();
+        if (empty($request->id)) {
+            $user->delete();
+        } else {
+            $request->delete();
+        }
 
         return redirect()->route("homepage");
     }
