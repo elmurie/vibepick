@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
     <h1>Profilo di {{$user->firstname}} {{$user->lastname}}</h1>
+    <img style="height: 200px" src="{{$user['profile_pic'] != null ? asset('storage/' . $user->profile_pic) : 'https://via.placeholder.com/200'}}" alt="Profile pic di {{$user['profile_pic'] ? $user['firstname'] : 'default'}}">
+</div>
 
-    <img style="width: 100px" src="{{asset('storage/' . $user->profile_pic)}}" alt="Profile pic di {{$user->firstname}}">
     <form method="POST" action="{{ route('admin.users.update', $user['id']) }}" enctype="multipart/form-data">
         @csrf 
         @method('PUT')
@@ -79,14 +81,14 @@
         </div>
         {{-- Sistemare stile : allineamento--}}
         <div class="form-group row">
-            <div class="col-md-4 col-form-label text-md-right row justify-content-end">
-                <div class="col-md-6">
+            <div class="col-md-4 col-form-label text-md-right row justify-content-end px-0">
+                <div class="col-md-6 px-0">
                     {{__('Seleziona gli strumenti con cui sei specializzato')}}
                 </div>
             </div>
-            <div class="col-md-6 col-form-label ">
+            <div class="col-md-6 px-4">
                 @foreach ($instruments as $instrument)
-                <div class="custom-control custom-checkbox">
+                <div class="custom-control custom-checkbox px-5">
                     @if ($errors->any())
                     <input {{in_array($instrument->id, old('instruments', []))? "checked" : null}} name="instruments[]" value="{{$instrument->id}}" name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="instrument-{{$instrument->id}}">
                     @else
@@ -155,8 +157,13 @@
         <div class="form-group row">
             <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Carica la tua foto profilo') }}</label>
             <div class="col-md-6">
-                <input class="form-control" type="file" name="image" id="image">
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" name="image" id="image">
+                    </div>
+                </div>
             </div>
+
             
         </div>
 
