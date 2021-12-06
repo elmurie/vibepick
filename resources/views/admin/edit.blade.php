@@ -47,7 +47,8 @@
                         class="form-control @error('address') is-invalid @enderror" 
                         name="address"
                         placeholder="Inserisci il tuo indirizzo..."
-                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo indirizzo')"  
+                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo indirizzo')"
+                        oninput="setCustomValidity('')"   
                         value="{{ old('address') ?? $user['address'] }}" required autocomplete="address" autofocus>
 
                 @error('address')
@@ -63,14 +64,16 @@
 
             <div class="col-md-6">
                 <input id="phone_number" 
-                        type="tel" 
+                        type="tel"
+                        pattern="[0-9]{10,16}" 
                         minlength="10" 
                         maxlength="16" 
                         class="form-control @error('phone_number') is-invalid @enderror" 
                         name="phone_number" 
                         value="{{ old('phone_number')  ?? $user['phone_number']}}"
                         placeholder="Inserisci il tuo numero di telefono..."
-                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo numero di telefono')" 
+                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo numero di telefono')"
+                        oninput="setCustomValidity('')"  
                         autocomplete="phone_number" autofocus>
 
                 @error('phone_number')
@@ -93,7 +96,8 @@
                         name="email" 
                         value="{{ old('email') ?? $user['email']}}"
                         placeholder="Inserisci la tua email..."
-                        oninvalid="setCustomValidity('Ops... ricordati di inserire la tua email')"  
+                        oninvalid="setCustomValidity('Ops... ricordati di inserire la tua email')"
+                        oninput="setCustomValidity('')"   
                         required autocomplete="email">
 
                 @error('email')
@@ -114,9 +118,21 @@
                 @foreach ($instruments as $instrument)
                 <div class="custom-control custom-checkbox px-5">
                     @if ($errors->any())
-                    <input {{in_array($instrument->id, old('instruments', []))? "checked" : null}} name="instruments[]" value="{{$instrument->id}}" name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input @error('instrument_id') is-invalid @enderror checkValidation" id="instrument-{{$instrument->id}}" onclick="deRequireCb('checkValidation')" {{"checked"? " " : "required"}}>
+                    <input {{in_array($instrument->id, old('instruments', []))? "checked" : null}} 
+                        name="instruments[]" 
+                        value="{{$instrument->id}}" 
+                        type="checkbox" 
+                        class="custom-control-input @error('instrument_id') is-invalid @enderror checkValidation" 
+                        id="instrument-{{$instrument->id}}" 
+                        onclick="deRequireCb('checkValidation')" {{"checked"? " " : "required"}}>
                     @else
-                    <input {{$user['instruments']->contains($instrument->id) ? "checked" : null}} name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input @error('instrument_id') is-invalid @enderror checkValidation" id="instrument-{{$instrument->id}}" onclick="deRequireCb('checkValidation')" {{"checked"? " " : "required"}}>    
+                    <input {{$user['instruments']->contains($instrument->id) ? "checked" : null}} 
+                        name="instruments[]" 
+                        value="{{$instrument->id}}" 
+                        type="checkbox" 
+                        class="custom-control-input @error('instrument_id') is-invalid @enderror checkValidation" 
+                        id="instrument-{{$instrument->id}}" 
+                        onclick="deRequireCb('checkValidation')" {{"checked"? " " : "required"}}>    
                     @endif
                     <label class="custom-control-label" for="instrument-{{$instrument->id}}">{{$instrument->name}}</label>     
                 </div>
@@ -139,7 +155,8 @@
                         name="genre" 
                         value="{{ old('genre') ?? $user['genre'] }}"
                         placeholder="Inserisci un genere..."
-                        oninvalid="setCustomValidity('Ops... ricordati di inserire un genere')"   
+                        oninvalid="setCustomValidity('Ops... ricordati di inserire un genere')"
+                        oninput="setCustomValidity('')"    
                         autocomplete="genre">
 
                 @error('genre')
@@ -160,7 +177,8 @@
                         name="services" 
                         value="{{ old('services') ?? $user['services']}}"
                         placeholder="Inserisci un servizio..."
-                        oninvalid="setCustomValidity('Ops... ricordati di inserire un servizio')"   
+                        oninvalid="setCustomValidity('Ops... ricordati di inserire un servizio')"
+                        oninput="setCustomValidity('')"    
                         autocomplete="services">
 
                 @error('services')

@@ -29,7 +29,8 @@ $instruments = Instrument::all();
                                         name="firstname" 
                                         value="{{ old('firstname') }}"
                                         placeholder="Inserisci il tuo nome..."
-                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo nome')" 
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo nome')"
+                                        oninput="setCustomValidity('')" 
                                         required autocomplete="firstname" autofocus>
 
                                 @error('firstname')
@@ -49,7 +50,8 @@ $instruments = Instrument::all();
                                         class="form-control @error('lastname') is-invalid @enderror" 
                                         name="lastname" value="{{ old('lastname') }}"
                                         placeholder="Inserisci il tuo cognome..."
-                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il cognome')"  
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il cognome')"
+                                        oninput="setCustomValidity('')"  
                                         required autocomplete="lastname" autofocus>
 
                                 @error('lastname')
@@ -70,7 +72,8 @@ $instruments = Instrument::all();
                                         name="address" 
                                         value="{{ old('address') }}"
                                         placeholder="Inserisci il tuo indirizzo..."
-                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo indirizzo')"  
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo indirizzo')"
+                                        oninput="setCustomValidity('')"  
                                         required autocomplete="address" autofocus>
 
                                 @error('address')
@@ -93,7 +96,8 @@ $instruments = Instrument::all();
                                         name="phone_number" 
                                         value="{{ old('phone_number') }}" 
                                         placeholder="Inserisci il tuo numero di telefono..."
-                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo numero di telefono')"  
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo numero di telefono')"
+                                        oninput="setCustomValidity('')"  
                                         required autocomplete="phone_number" autofocus>
 
                                 @error('phone_number')
@@ -116,7 +120,8 @@ $instruments = Instrument::all();
                                         name="email" 
                                         value="{{ old('email')}}"
                                         placeholder="Inserisci la tua email..."
-                                        oninvalid="setCustomValidity('Ops... ricordati di inserire la tua email')" 
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire la tua email')"
+                                        oninput="setCustomValidity('')" 
                                         required autocomplete="email">
                 
                                 @error('email')
@@ -133,7 +138,13 @@ $instruments = Instrument::all();
                                 @foreach ($instruments as $instrument)
                                 <div class="custom-control custom-checkbox px-5">
                                     @if ($errors->any())
-                                        <input {{in_array($instrument->id, old('instruments', []))? "checked" : ""}} name="instruments[]" value="{{$instrument->id}}" name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input @error('instrument_id') is-invalid @enderror checkValidation" id="instrument-{{$instrument->id}}" onclick="deRequireCb('checkValidation')" required>
+                                        <input {{in_array($instrument->id, old('instruments', []))? "checked" : ""}} 
+                                            name="instruments[]" 
+                                            value="{{$instrument->id}}" 
+                                            type="checkbox" 
+                                            class="custom-control-input @error('instrument_id') is-invalid @enderror checkValidation" 
+                                            id="instrument-{{$instrument->id}}" 
+                                            onclick="deRequireCb('checkValidation')" required>
                                     @else
                                         <input name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input @error('instrument_id') is-invalid @enderror checkValidation" id="instrument-{{$instrument->id}}" onclick="deRequireCb('checkValidation')" required>    
                                     @endif
@@ -155,7 +166,8 @@ $instruments = Instrument::all();
                                         class="form-control @error('password') is-invalid @enderror" 
                                         name="password"
                                         placeholder="Inserisci la tua password..."
-                                        oninvalid="setCustomValidity('Ops... ricordati di inserire la tua password')"  
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire la tua password')"
+                                        oninput="setCustomValidity('')"  
                                         required autocomplete="new-password">
 
                                 @error('password')
@@ -170,7 +182,13 @@ $instruments = Instrument::all();
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" 
+                                type="password" 
+                                class="form-control" 
+                                name="password_confirmation" 
+                                oninput="setCustomValidity('')"
+                                placeholder="Inserisci di nuovo la tua password..." 
+                                required autocomplete="new-password">
                             </div>
                         </div>
 
