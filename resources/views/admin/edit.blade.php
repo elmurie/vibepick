@@ -71,7 +71,7 @@
 
             <div class="col-md-6">
                 <input id="email" type="email" 
-                        pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$z" 
+                        pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" 
                         title="L'email non è ben formattata" 
                         class="form-control @error('email') is-invalid @enderror" 
                         name="email" value="{{ old('email') ?? $user['email']}}" required autocomplete="email">
