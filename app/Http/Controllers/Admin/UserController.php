@@ -52,6 +52,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        if( $user->id != Auth::id() ) {
+            abort("403");
+        }    
         return view('admin.show', compact('user'));
     }
 
