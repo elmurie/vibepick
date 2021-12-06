@@ -70,7 +70,11 @@
             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo Mail') }}</label>
 
             <div class="col-md-6">
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ?? $user['email']}}" required autocomplete="email">
+                <input id="email" type="email" 
+                        pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$z" 
+                        title="L'email non è ben formattata" 
+                        class="form-control @error('email') is-invalid @enderror" 
+                        name="email" value="{{ old('email') ?? $user['email']}}" required autocomplete="email">
 
                 @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -158,8 +162,13 @@
             <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Carica la tua foto profilo') }}</label>
             <div class="col-md-6">
                 <div class="input-group mb-3">
-                    <div class="custom-file">
-                        <input type="file" name="image" id="image">
+                    <div class="custom-file flex-wrap">
+                        <input type="file" name="image" id="image" class=" col-12 px-0 @error('image') is-invalid @enderror"> 
+                        @error('image')
+                            <div class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
                     </div>
                 </div>
             </div>
