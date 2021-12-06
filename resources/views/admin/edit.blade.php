@@ -74,7 +74,7 @@
                         placeholder="Inserisci il tuo numero di telefono..."
                         oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo numero di telefono')"
                         oninput="setCustomValidity('')"  
-                        autocomplete="phone_number" autofocus>
+                        autocomplete="phone_number" required autofocus>
 
                 @error('phone_number')
                     <span class="invalid-feedback" role="alert">
