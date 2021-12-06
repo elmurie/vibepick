@@ -94,9 +94,9 @@
                 @foreach ($instruments as $instrument)
                 <div class="custom-control custom-checkbox px-5">
                     @if ($errors->any())
-                    <input {{in_array($instrument->id, old('instruments', []))? "checked" : null}} name="instruments[]" value="{{$instrument->id}}" name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="instrument-{{$instrument->id}}">
+                    <input {{in_array($instrument->id, old('instruments', []))? "checked" : null}} name="instruments[]" value="{{$instrument->id}}" name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input @error('instrument_id') is-invalid @enderror checkValidation" id="instrument-{{$instrument->id}}" onclick="deRequireCb('checkValidation')" required>
                     @else
-                    <input {{$user['instruments']->contains($instrument->id) ? "checked" : null}} name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input" id="instrument-{{$instrument->id}}">    
+                    <input {{$user['instruments']->contains($instrument->id) ? "checked" : null}} name="instruments[]" value="{{$instrument->id}}" type="checkbox" class="custom-control-input @error('instrument_id') is-invalid @enderror checkValidation" id="instrument-{{$instrument->id}}" onclick="deRequireCb('checkValidation')" required>    
                     @endif
                     <label class="custom-control-label" for="instrument-{{$instrument->id}}">{{$instrument->name}}</label>     
                 </div>
