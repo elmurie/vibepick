@@ -23,7 +23,14 @@ $instruments = Instrument::all();
                             <label for="first" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
+                                <input id="firstname" 
+                                        type="text" 
+                                        class="form-control @error('firstname') is-invalid @enderror" 
+                                        name="firstname" 
+                                        value="{{ old('firstname') }}"
+                                        placeholder="Inserisci il tuo nome..."
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo nome')" 
+                                        required autocomplete="firstname" autofocus>
 
                                 @error('firstname')
                                     <span class="invalid-feedback" role="alert">
@@ -37,7 +44,13 @@ $instruments = Instrument::all();
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Cognome') }}</label>
 
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+                                <input id="lastname" 
+                                        type="text" 
+                                        class="form-control @error('lastname') is-invalid @enderror" 
+                                        name="lastname" value="{{ old('lastname') }}"
+                                        placeholder="Inserisci il tuo cognome..."
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il cognome')"  
+                                        required autocomplete="lastname" autofocus>
 
                                 @error('lastname')
                                     <span class="invalid-feedback" role="alert">
@@ -51,7 +64,14 @@ $instruments = Instrument::all();
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                <input id="address" 
+                                        type="text" 
+                                        class="form-control @error('address') is-invalid @enderror" 
+                                        name="address" 
+                                        value="{{ old('address') }}"
+                                        placeholder="Inserisci il tuo indirizzo..."
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo indirizzo')"  
+                                        required autocomplete="address" autofocus>
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
@@ -62,10 +82,19 @@ $instruments = Instrument::all();
                         </div>
 
                         <div class="form-group row">
-                            <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Numero Telefonico') }}</label>
+                            <label for="phone_number"  class="col-md-4 col-form-label text-md-right">{{ __('Numero Telefonico') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone_number"  type="tel" minlength="10" maxlength="16" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
+                                <input id="phone_number"  
+                                        type="tel" pattern="[0-9]{10,16}" 
+                                        minlength="10" 
+                                        maxlength="16" 
+                                        class="form-control @error('phone_number') is-invalid @enderror" 
+                                        name="phone_number" 
+                                        value="{{ old('phone_number') }}" 
+                                        placeholder="Inserisci il tuo numero di telefono..."
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo numero di telefono')"  
+                                        required autocomplete="phone_number" autofocus>
 
                                 @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
@@ -79,11 +108,16 @@ $instruments = Instrument::all();
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo Mail') }}</label>
                 
                             <div class="col-md-6">
-                                <input id="email" type="email" 
+                                <input id="email" 
+                                        type="email" 
                                         pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" 
                                         title="L'email non è ben formattata" 
                                         class="form-control @error('email') is-invalid @enderror" 
-                                        name="email" value="{{ old('email')}}" required autocomplete="email">
+                                        name="email" 
+                                        value="{{ old('email')}}"
+                                        placeholder="Inserisci la tua email..."
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire la tua email')" 
+                                        required autocomplete="email">
                 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -116,7 +150,13 @@ $instruments = Instrument::all();
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" 
+                                        type="password" 
+                                        class="form-control @error('password') is-invalid @enderror" 
+                                        name="password"
+                                        placeholder="Inserisci la tua password..."
+                                        oninvalid="setCustomValidity('Ops... ricordati di inserire la tua password')"  
+                                        required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

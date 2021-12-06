@@ -12,7 +12,7 @@ class InstrumentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $instruments = ['Basso', 'Batteria', 'Chitarra classica', 'Chitarra Elettrica', 'Chitarra Classica', 'Fisarmonica', 'Flauto', 'Pianoforte', 'Sassofono', 'Sax', 'Tamburo', 'Tastiera', 'Tromba', 'Violino', 'Vuvuzela', 'Controller DJ'];
+        $instruments = ['Basso', 'Batteria', 'Chitarra Elettrica', 'Chitarra Classica', 'Fisarmonica', 'Flauto', 'Pianoforte', 'Sassofono', 'Sax', 'Tamburo', 'Tastiera', 'Tromba', 'Violino', 'Vuvuzela', 'Controller DJ'];
 
         foreach($instruments as $instrument) {
             $newInstruments = new Instrument();
