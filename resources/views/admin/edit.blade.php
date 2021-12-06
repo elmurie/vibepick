@@ -56,7 +56,7 @@
             <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Numero Telefonico') }}</label>
 
             <div class="col-md-6">
-                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number')  ?? $user['phone_number']}}" required autocomplete="phone_number" autofocus>
+                <input id="phone_number" type="tel" minlength="10" maxlength="16" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number')  ?? $user['phone_number']}}" autocomplete="phone_number" autofocus>
 
                 @error('phone_number')
                     <span class="invalid-feedback" role="alert">
@@ -70,7 +70,11 @@
             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo Mail') }}</label>
 
             <div class="col-md-6">
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ?? $user['email']}}" required autocomplete="email">
+                <input id="email" type="email" 
+                        pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$z" 
+                        title="L'email non è ben formattata" 
+                        class="form-control @error('email') is-invalid @enderror" 
+                        name="email" value="{{ old('email') ?? $user['email']}}" required autocomplete="email">
 
                 @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -109,7 +113,7 @@
             <label for="genre" class="col-md-4 col-form-label text-md-right">{{ __('Generi Musicali') }}</label>
 
             <div class="col-md-6">
-                <input id="genre" type="genre" class="form-control @error('genre') is-invalid @enderror" name="genre" value="{{ old('genre') ?? $user['genre'] }}" required autocomplete="genre">
+                <input id="genre" type="genre" class="form-control @error('genre') is-invalid @enderror" name="genre" value="{{ old('genre') ?? $user['genre'] }}" autocomplete="genre">
 
                 @error('genre')
                     <span class="invalid-feedback" role="alert">
@@ -123,7 +127,7 @@
             <label for="services" class="col-md-4 col-form-label text-md-right">{{ __('Servizi offerti') }}</label>
 
             <div class="col-md-6">
-                <input id="services" type="services" class="form-control @error('services') is-invalid @enderror" name="services" value="{{ old('services') ?? $user['services']}}" required autocomplete="services">
+                <input id="services" type="services" class="form-control @error('services') is-invalid @enderror" name="services" value="{{ old('services') ?? $user['services']}}" autocomplete="services">
 
                 @error('services')
                     <span class="invalid-feedback" role="alert">
@@ -158,8 +162,13 @@
             <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Carica la tua foto profilo') }}</label>
             <div class="col-md-6">
                 <div class="input-group mb-3">
-                    <div class="custom-file">
-                        <input type="file" name="image" id="image">
+                    <div class="custom-file flex-wrap">
+                        <input type="file" name="image" id="image" class=" col-12 px-0 @error('image') is-invalid @enderror"> 
+                        @error('image')
+                            <div class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
                     </div>
                 </div>
             </div>
