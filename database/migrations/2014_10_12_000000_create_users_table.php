@@ -13,6 +13,8 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+
+        // Modifica della tabella user di default laravel. Inseriti i campi delle consegne prevedendo i nullable da inserire nella modifica del profilo
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('firstname');

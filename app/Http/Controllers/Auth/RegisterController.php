@@ -49,6 +49,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        //Modifica del register controller default conseguente alla modifica della tabella users
         return Validator::make($data, [
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
@@ -71,7 +72,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+        //Modifica del default di laravel per consentire l'attach
         $newUser = new User();
         $newUser->firstname = $data['firstname'];
         $newUser->lastname = $data['lastname'];
@@ -80,6 +81,7 @@ class RegisterController extends Controller
         $newUser->email = $data['email'];
         $newUser->password = Hash::make($data['password']);
         $newUser->save();
+        //attachment relativo alla many to many con gli strumenti
         $newUser->instruments()->attach($data['instruments']);
         return $newUser;
     }

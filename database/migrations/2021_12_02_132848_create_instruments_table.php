@@ -1,4 +1,5 @@
 <?php
+//Tabella strumenti (specializzazioni BDoctors)
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
