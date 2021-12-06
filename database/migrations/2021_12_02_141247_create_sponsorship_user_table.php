@@ -1,5 +1,7 @@
 <?php
 
+//Tabella pivot per la relazione Many-toMany tra utenti e sponsorizzazioni
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,8 +22,8 @@ class CreateSponsorshipUserTable extends Migration
             $table->unsignedBigInteger('sponsorship_id');
             $table->foreign('sponsorship_id')->references('id')->on('sponsorships')->onDelete("cascade");
 
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->dateTime('start_time'); //inclusione del dato 'inizio sponsorizzazione'
+            $table->dateTime('end_time'); //inclusione del dato 'fine sponsorizzazione'
             $table->timestamps();
         });
     }

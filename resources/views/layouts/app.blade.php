@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- script validazione checkbox -->
     <script src="{{ asset('js/checkBoxValidation.js')}}" defer></script>
     
 
@@ -34,13 +35,10 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
+                    
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -56,26 +54,24 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->firstname }}
                                 </a>
-
+                                
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if (@isset($user))
+                                        <a class="dropdown-item" href="{{ route('admin.users.show', $user['id']) }}">
+                                            {{ __('Profilo Personale') }}
+                                        </a>
+                                    @endif
+                                        <a class="dropdown-item" href="{{ route('admin.home') }}">
+                                            {{ __('Dashboard') }}
+                                        </a>
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                    @if (@isset($user))
-                                    <a class="dropdown-item" href="{{ route('admin.users.show', $user['id']) }}">
-                                        {{ __('Profilo Personale') }}
-                                    </a>
-                                    @endif
-                                    <a class="dropdown-item" href="{{ route('admin.home') }}">
-                                        {{ __('Dashboard') }}
-                                    </a>
-                                    
                                 </div>
                             </li>
                         @endguest

@@ -1,5 +1,7 @@
 <?php
 
+//Tabella pivot della relazione Many-to-Many tra utenti e strumenti
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

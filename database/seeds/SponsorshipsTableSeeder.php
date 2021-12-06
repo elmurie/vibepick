@@ -12,6 +12,8 @@ class SponsorshipsTableSeeder extends Seeder
      */
     public function run()
     {
+
+        //Riempimento tabella sponsorship con array scritto da noi
         $sponsorships = [
             [
                 'name' => 'Bronze Pick',

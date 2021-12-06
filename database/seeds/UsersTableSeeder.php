@@ -15,23 +15,26 @@ class UsersTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        // tabella per poi mettere utenti piú reali
-        $utenti = [
-            [
-                'firstname' => '',
-                'lastname' => '',
-                'address' => '',
-                'phone_number' => '',
-            ],
-        ];
+        // Array per riempire la tabella utenti con dati verosimili
+        // $utenti = [
+        //     [
+        //         'firstname' => '',
+        //         'lastname' => '',
+        //         'address' => '',
+        //         'phone_number' => '',
+        //     ],
+        // ];
+
+        //Riempimento tabella utenti tramite Faker
+        
         for ($i=0; $i<20; $i++) {
             $newUser = new User();
             $newUser->firstname = $faker->firstName(); 
             $newUser->lastname = $faker->lastName();
             $newUser->address = $faker->streetAddress();
-            $newUser->phone_number = 3 . $faker->randomNumber(9, true);
+            $newUser->phone_number = 3 . $faker->randomNumber(9, true); //inizio numero con 3 per verosimiglianza con i numeri di cellulare italiani
             $newUser->email = $faker->email();
-            $newUser->password = Hash::make("prova1234");
+            $newUser->password = Hash::make("prova1234"); //password standard per accedere a tutti gli utenti generati automaticamente dal seeder
             $newUser->services = $faker->word();
             $newUser->save();
         }
