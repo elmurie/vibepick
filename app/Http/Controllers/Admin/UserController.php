@@ -96,7 +96,7 @@ class UserController extends Controller
         //Questa è la validazione dei dati provenienti dall'edit del profilo 
         $request->validate([
             'address' => 'required | string | max:255',
-            'phone_number' => 'numeric',
+            'phone_number' => 'numeric | nullable',
             'instruments' => 'required',
             'genre' => 'string | nullable | max:255 ',
             'services' => 'string | nullable | max:255 ',
