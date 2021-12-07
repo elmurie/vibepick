@@ -90,32 +90,6 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="phone_number"  class="col-md-4 col-form-label text-md-right">{{ __('Numero Telefonico') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="phone_number"  
-                                            type="tel" 
-                                            {{--  RegEx per l'inserimento di soli numeri nell'input--}}
-                                            pattern="[0-9]{10,16}" 
-                                            minlength="10" 
-                                            maxlength="16" 
-                                            class="form-control @error('phone_number') is-invalid @enderror" 
-                                            name="phone_number" 
-                                            value="{{ old('phone_number') }}" 
-                                            placeholder="Inserisci il tuo numero di telefono..."
-                                            oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo numero di telefono')"
-                                            oninput="setCustomValidity('')"  
-                                            required autocomplete="phone_number" autofocus>
-
-                                    @error('phone_number')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo Mail') }}</label>
                     
                                 <div class="col-md-6">
