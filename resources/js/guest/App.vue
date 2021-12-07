@@ -2,7 +2,6 @@
 	<div>
 		<Header/>
 		<main>
-            Test Frontoffice HomePage
 			<router-view></router-view>
 		</main>
 		<Footer/>
