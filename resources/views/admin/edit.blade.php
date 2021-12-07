@@ -27,7 +27,7 @@
                             oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo indirizzo')"
                             oninput="setCustomValidity('')"   
                             value="{{ old('address') ?? $user['address'] }}" required autocomplete="address" autofocus>
-
+                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                     @error('address')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -53,7 +53,6 @@
                             oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo numero di telefono')"
                             oninput="setCustomValidity('')"  
                             autocomplete="phone_number" autofocus>
-
                     @error('phone_number')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -77,7 +76,7 @@
                             oninvalid="setCustomValidity('Ops... ricordati di inserire la tua email')"
                             oninput="setCustomValidity('')"   
                             required autocomplete="email">
-
+                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -118,6 +117,7 @@
                         <label class="custom-control-label" for="instrument-{{$instrument->id}}">{{$instrument->name}}</label>     
                     </div>
                     @endforeach
+                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                 </div>
             </div>
             @error('instruments')
