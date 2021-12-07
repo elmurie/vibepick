@@ -1,6 +1,6 @@
 <template>
     <div>
-        <select v-model="selected">
+        <select v-model="selected" v-on:change="searchPage()">
             <option disabled value="">Please select one</option>
             <option 
                 v-for="instrument in instruments" 
@@ -14,12 +14,19 @@
 </template>
 
 <script>
+import router from '../router';
 export default {
     name: 'Search',
     data() {
         return {
             instruments : [],
             selected: ''
+        }
+    },
+    methods : {
+        searchPage() {
+            console.log(this.selected);
+            router.push({ path: '/search', params: { select : this.selected } })
         }
     },
     mounted() {
