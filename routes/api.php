@@ -1,5 +1,5 @@
 <?php
-
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// http://localhost:8000/api/users
+
+Route::namespace('Api')->name('api.')->group(function() {
+	Route::get('/users', 'UserController@index');
 });
