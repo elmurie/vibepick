@@ -26,7 +26,6 @@
 
                             <div class="form-group row">
                                 <label for="first" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
-
                                 <div class="col-md-6">
                                     <input id="firstname" 
                                             type="text" 
@@ -37,7 +36,7 @@
                                             oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo nome')"
                                             oninput="setCustomValidity('')" 
                                             required autocomplete="firstname" autofocus>
-
+                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                     @error('firstname')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -58,7 +57,7 @@
                                             oninvalid="setCustomValidity('Ops... ricordati di inserire il cognome')"
                                             oninput="setCustomValidity('')"  
                                             required autocomplete="lastname" autofocus>
-
+                                            <small style="color: grey"><em>*campo obbligatorio</em></small>
                                     @error('lastname')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -80,7 +79,7 @@
                                             oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo indirizzo')"
                                             oninput="setCustomValidity('')"  
                                             required autocomplete="address" autofocus>
-
+                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -104,7 +103,7 @@
                                             oninvalid="setCustomValidity('Ops... ricordati di inserire la tua email')"
                                             oninput="setCustomValidity('')" 
                                             required autocomplete="email">
-                    
+                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -139,6 +138,7 @@
                                         <label class="custom-control-label" for="instrument-{{$instrument->id}}">{{$instrument->name}}</label>     
                                     </div>
                                     @endforeach
+                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                 </div>
                             </div>
                             @error('instruments')
@@ -157,7 +157,7 @@
                                             oninvalid="setCustomValidity('Ops... ricordati di inserire la tua password')"
                                             oninput="setCustomValidity('')"  
                                             required autocomplete="new-password">
-
+                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -171,12 +171,13 @@
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" 
-                                            type="password" 
-                                            class="form-control" 
-                                            name="password_confirmation" 
-                                            oninput="setCustomValidity('')"
-                                            placeholder="Inserisci di nuovo la tua password..." 
-                                            required autocomplete="new-password">
+                                    type="password" 
+                                    class="form-control" 
+                                    name="password_confirmation" 
+                                    oninput="setCustomValidity('')"
+                                    placeholder="Inserisci di nuovo la tua password..." 
+                                    required autocomplete="new-password">
+                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                 </div>
                             </div>
 

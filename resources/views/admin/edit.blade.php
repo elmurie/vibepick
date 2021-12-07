@@ -27,7 +27,7 @@
                             oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo indirizzo')"
                             oninput="setCustomValidity('')"   
                             value="{{ old('address') ?? $user['address'] }}" required autocomplete="address" autofocus>
-
+                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                     @error('address')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -53,7 +53,6 @@
                             oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo numero di telefono')"
                             oninput="setCustomValidity('')"  
                             autocomplete="phone_number" autofocus>
-
                     @error('phone_number')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -77,7 +76,7 @@
                             oninvalid="setCustomValidity('Ops... ricordati di inserire la tua email')"
                             oninput="setCustomValidity('')"   
                             required autocomplete="email">
-
+                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -118,6 +117,7 @@
                         <label class="custom-control-label" for="instrument-{{$instrument->id}}">{{$instrument->name}}</label>     
                     </div>
                     @endforeach
+                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                 </div>
             </div>
             @error('instruments')
@@ -150,16 +150,35 @@
                 <label for="services" class="col-md-4 col-form-label text-md-right">{{ __('Servizi offerti') }}</label>
                 
                 <div class="col-md-6">
-                    <input id="services" 
-                            type="services" 
+                    <textarea id="services" 
                             class="form-control @error('services') is-invalid @enderror" 
                             name="services" 
-                            value="{{ old('services') ?? $user['services']}}"
                             placeholder="Inserisci un servizio..."
                             oninvalid="setCustomValidity('Ops... ricordati di inserire un servizio')"
                             oninput="setCustomValidity('')"    
-                            autocomplete="services">
+                            autocomplete="services">{{ old('services') ?? $user['services']}}
+                    </textarea>
                     @error('services')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="curriculum" class="col-md-4 col-form-label text-md-right">{{ __('CV') }}</label>
+                
+                <div class="col-md-6">
+                    <textarea id="curriculum" 
+                            class="form-control @error('curriculum') is-invalid @enderror" 
+                            name="curriculum" 
+                            placeholder="Inserisci il tuo CV..."
+                            oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo CV')"
+                            oninput="setCustomValidity('')"    
+                            autocomplete="curriculum">{{ old('curriculum') ?? $user['curriculum']}}
+                    </textarea>
+                    @error('curriculum')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -190,15 +209,37 @@
                 </div>
             </div>
         </form>
-        
-        {{-- Form per la cancellazione del profilo utente --}}
-        <form action="{{route("admin.users.destroy", $user['id'])}}" method="POST">
-            @csrf
-            @method("DELETE")
-            <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4">
-                    <button class="btn btn-danger" type="submit">Elimina il tuo profilo</button>
+
+        {{-- bottone eliminazione --}}
+        <div class="form-group row mb-0">
+            <div class="col-md-6 offset-md-4">
+                <button type="submit" class="btn btn-danger btn-delete" data-id="{{$user['id']}}" data-toggle="modal" data-target="#deleteModal">Delete</button>
+            </div>
+        </div>
+
+        {{-- modale di cancellazione --}}
+        <div class="modal fade" id="deleteModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Conferma cancellazione</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{route("admin.users.destroy", $user['id'])}}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <input type="hidden" id="delete-id" name="id">
+                        <div class="modal-body">
+                            Sei sicuro di voler eliminare il profilo?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-primary">Si</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
 @endsection

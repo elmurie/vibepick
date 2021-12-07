@@ -101,8 +101,9 @@ class UserController extends Controller
             'phone_number' => 'numeric | nullable',
             'instruments' => 'required',
             'genre' => 'string | nullable | max:255 ',
-            'services' => 'string | nullable | max:255 ',
+            'services' => 'nullable | max:1000 ',
             'image' => 'nullable | image | max:1500',
+            'curriculum' => 'nullable | max:30000 ',
             ]); 
 
 
@@ -136,6 +137,7 @@ class UserController extends Controller
         $user->genre = $request->genre;
         $user->password = $user->password;
         $user->services = $request->services;
+        $user->curriculum = $request->curriculum;
         $user->save();
 
         //Qui viene eseguito il sync sugli strumenti che hanno una relazione Many-to-Many con gli user
