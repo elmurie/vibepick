@@ -22,4 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('Api')->name('api.')->group(function() {
 	Route::get('/users', 'UserController@index');
+	Route::get('/instruments', 'InstrumentController@index');
 });
