@@ -1,5 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/checkBoxValidation.js": "/js/checkBoxValidation.js"
+    "/css/front.css": "/css/front.css",
+    "/js/checkBoxValidation.js": "/js/checkBoxValidation.js",
+    "/js/front.js": "/js/front.js"
 }
