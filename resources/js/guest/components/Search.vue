@@ -25,8 +25,7 @@ export default {
     },
     methods : {
         searchPage() {
-            console.log(this.selected);
-            router.push({ path: '/search', params: { select : this.selected } })
+            router.push({ name : 'search', params: { name: this.selected }})
         }
     },
     mounted() {
