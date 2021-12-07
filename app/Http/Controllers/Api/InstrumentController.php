@@ -18,4 +18,14 @@ class InstrumentController extends Controller
             'data' => $instruments
         ]);
     }
+
+    public function show($name)
+    {
+        $instrument = Instrument::where('name', $name )->with('users')->first();
+
+        return response()->json([
+            'success' => true,
+            'data' => $instrument
+        ]);
+    }
 }
