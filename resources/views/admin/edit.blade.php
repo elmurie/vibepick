@@ -150,16 +150,35 @@
                 <label for="services" class="col-md-4 col-form-label text-md-right">{{ __('Servizi offerti') }}</label>
                 
                 <div class="col-md-6">
-                    <input id="services" 
-                            type="services" 
+                    <textarea id="services" 
                             class="form-control @error('services') is-invalid @enderror" 
                             name="services" 
-                            value="{{ old('services') ?? $user['services']}}"
                             placeholder="Inserisci un servizio..."
                             oninvalid="setCustomValidity('Ops... ricordati di inserire un servizio')"
                             oninput="setCustomValidity('')"    
-                            autocomplete="services">
+                            autocomplete="services">{{ old('services') ?? $user['services']}}
+                    </textarea>
                     @error('services')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="curriculum" class="col-md-4 col-form-label text-md-right">{{ __('CV') }}</label>
+                
+                <div class="col-md-6">
+                    <textarea id="curriculum" 
+                            class="form-control @error('curriculum') is-invalid @enderror" 
+                            name="curriculum" 
+                            placeholder="Inserisci il tuo CV..."
+                            oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo CV')"
+                            oninput="setCustomValidity('')"    
+                            autocomplete="curriculum">{{ old('curriculum') ?? $user['curriculum']}}
+                    </textarea>
+                    @error('curriculum')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

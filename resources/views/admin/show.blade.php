@@ -13,6 +13,7 @@
                 <h3>Email : {{$user['email']}}</h3>
                 <h3>Generi musicali : {{$user['genre']}}</h3>
                 <h3>Servizi offerti : {{$user['services']}}</h3>
+                <h3>Curriculum Vitae : {{$user['curriculum']}}</h3>
                 <h3>Strumenti suonati:</h3>
                 <ul>
                     @foreach ($user['instruments'] as $instrument)
