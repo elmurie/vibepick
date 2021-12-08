@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use App\Instrument;
 
 class InstrumentsTableSeeder extends Seeder
@@ -17,9 +18,10 @@ class InstrumentsTableSeeder extends Seeder
 
         //ciclo sull'array degli strumenti per il riempimento della tabella degli strumenti
         foreach($instruments as $instrument) {
-            $newInstruments = new Instrument();
-            $newInstruments->name = $instrument;
-            $newInstruments->save();
+            $newInstrument = new Instrument();
+            $newInstrument->name = $instrument;
+            $newInstrument->slug = Str::of($newInstrument->name)->slug('-');
+            $newInstrument->save();
         }
     }
 }
