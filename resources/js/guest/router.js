@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 
 import Home from './pages/Home';
 import AdvancedSearch from './pages/AdvancedSearch';
+import NotFound from './pages/NotFound';
 
 const router = new VueRouter({
     mode: 'history',
@@ -18,6 +19,11 @@ const router = new VueRouter({
             path: '/instruments/:slug',
             name: 'search',
             component: AdvancedSearch
+        },
+        {
+            path: '/*',
+            name: '404',
+            component: NotFound
         }
     ],
 });
