@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', 'PageController@index')->name('homepage');
 Route::get('/login', './Auth/LoginController@showLoginForm ');
 Route::get('/register', './Auth/RegisterController@showRegistrationForm');
-Route::get('/{any}', 'PageController@index')->where('any', '.*');
 
 // Rotte di autenticazione
 Auth::routes();
@@ -27,3 +26,5 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('users', 'UserController');
 });
+
+Route::get('/{any}', 'PageController@index')->where('any', '.*');

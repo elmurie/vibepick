@@ -16,7 +16,7 @@ const router = new VueRouter({
             component: Home
         },
         {
-            path: '/instruments/:slug',
+            path: '/strumenti/:slug',
             name: 'search',
             component: AdvancedSearch
         },
@@ -25,11 +25,6 @@ const router = new VueRouter({
             name: '404',
             component: NotFound
         },
-        {
-            path: '/login',
-            name: 'login',
-            redirect : '/login' 
-        }
     ],
 });
 
