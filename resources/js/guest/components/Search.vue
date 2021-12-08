@@ -5,11 +5,11 @@
             <option 
                 v-for="instrument in instruments" 
                 :key="instrument.id" 
-                :data="instrument">
+                :data="instrument"
+                :value="instrument.slug">
                 {{instrument.name}}
             </option>
         </select>
-        <span>Selected: {{ selected }}</span>
     </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
     },
     methods : {
         searchPage() {
-            router.push({ name : 'search', params: { name: this.selected }})
+            router.push({ name : 'search', params: { slug: this.selected }})
         }
     },
     mounted() {

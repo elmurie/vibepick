@@ -19,9 +19,9 @@ class InstrumentController extends Controller
         ]);
     }
 
-    public function show($name)
+    public function show($slug)
     {
-        $instrument = Instrument::where('name', $name )->with('users')->first();
+        $instrument = Instrument::where('slug', $slug )->with('users')->first();
 
         return response()->json([
             'success' => true,
