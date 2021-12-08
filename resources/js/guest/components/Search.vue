@@ -21,12 +21,9 @@
 import router from '../router';
 export default {
     name: 'Search',
-    props : {
-        instruments : Array
-    },
     data() {
         return {
-            // instruments: [],
+            instruments: [],
             selected: '',
         }
     },
@@ -35,32 +32,19 @@ export default {
             router.push({ name : 'search', params: { slug: this.selected }})
         },
     },
-    //Così con Search nell App.vue funziona la popolazione della select
-    // created() {
-    //     axios.get('api/instruments')
-    //     .then((resp) => {
-    //         // se passa
-    //         console.log(resp.data);
-    //         this.instruments = resp.data.data;
-    //     })
-    //     .catch( (error) => {
-    //         // se c'è un errore
-    //         console.log(error);
+
+    mounted() {
+        axios.get('api/instruments')
+        .then((resp) => {
+            // se passa
+            console.log(resp.data);
+            this.instruments = resp.data.data;
+        })
+        .catch( (error) => {
+            // se c'è un errore
+            console.log(error);
     
-    //     })
-    //     },
-    // updated() {
-    //     axios.get('api/instruments')
-    //     .then((resp) => {
-    //         // se passa
-    //         console.log(resp.data);
-    //         this.instruments = resp.data.data;
-    //     })
-    //     .catch( (error) => {
-    //         // se c'è un errore
-    //         console.log(error);
-    
-    //     })
-    //     }
+        })
+        },
 }
 </script>

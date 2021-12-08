@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Search/>
         <h1 v-if="instrument != null">{{instrument.name}}</h1>
         <ul v-if="instrument != null">
             <li v-for="user in instrument.users" :key="user.id">{{user.firstname}} {{user.lastname}}</li>
@@ -8,8 +9,10 @@
 </template>
 
 <script>
+import Search from '../components/Search.vue';
 
 export default {
+    components: { Search },
     name : 'AdvancedSearch',
     data() {
         return {
