@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Rotte pubbliche
-Route::get('/', 'PageController@index')->name('homepage');
+Route::get('/{any}', 'PageController@index')->where('any', '.*');
 
 // Rotte di autenticazione
 Auth::routes();

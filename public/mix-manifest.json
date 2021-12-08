@@ -2,6 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/front.css": "/css/front.css",
-    "/js/checkBoxValidation.js": "/js/checkBoxValidation.js",
+    "/css/back.css": "/css/back.css",
+    "/js/back.js": "/js/back.js",
     "/js/front.js": "/js/front.js"
 }

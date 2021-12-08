@@ -12,7 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .js('resources/js/checkBoxValidation.js', 'public/js')
     .js('resources/js/guest/front.js', 'public/js')
+    .js('resources/js/admin/back.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/guest/front.scss', 'public/css');
+    .sass('resources/sass/guest/front.scss', 'public/css')
+    .sass('resources/sass/admin/back.scss', 'public/css');
+
