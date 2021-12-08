@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Rotte pubbliche
+// Route::get('/', 'PageController@index')->name('homepage');
+Route::get('/login', './Auth/LoginController@showLoginForm ');
+Route::get('/register', './Auth/RegisterController@showRegistrationForm');
 Route::get('/{any}', 'PageController@index')->where('any', '.*');
 
 // Rotte di autenticazione

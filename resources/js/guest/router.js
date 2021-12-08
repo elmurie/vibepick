@@ -24,6 +24,11 @@ const router = new VueRouter({
             path: '/*',
             name: '404',
             component: NotFound
+        },
+        {
+            path: '/login',
+            name: 'login',
+            redirect : '/login' 
         }
     ],
 });
