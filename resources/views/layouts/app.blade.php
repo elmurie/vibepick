@@ -13,6 +13,8 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
         <!-- script validazione checkbox -->
     <script src="{{ asset('js/checkBoxValidation.js')}}" defer></script>
+        <!-- script backend -->
+    <script src="{{ asset('js/back.js')}}" defer></script>
     
 
 

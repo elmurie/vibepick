@@ -144,7 +144,9 @@ class UserController extends Controller
         $user->instruments()->sync($request->instruments);
 
         //Qui rimandiamo alla pagina home della sezione per utenti autorizzati
-        return view('admin.home', compact('user'));
+        // return view('admin.home', compact('user'));
+
+        return redirect()->route('admin.home', compact('user'))->with('success', 'Il profilo è stato aggiornato');
         
     }
 
