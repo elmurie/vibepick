@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Header/>
-		<Search/>
+		<Search :instruments="instruments"/>
 		<main>
 			<router-view></router-view>
 		</main>
@@ -19,6 +19,24 @@ export default {
 		Header,
 		Footer,
 		Search
-	}	
+	},
+	data() {
+		return {
+			instruments : []
+		}
+	},
+	mounted() {
+        axios.get('api/instruments')
+        .then((resp) => {
+            // se passa
+            console.log(resp.data);
+            this.instruments = resp.data.data;
+        })
+        .catch( (error) => {
+            // se c'è un errore
+            console.log(error);
+    
+        })
+        },
 }
 </script>

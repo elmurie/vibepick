@@ -18,6 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	return $request->user();
 });
 
+// Route::get('/instruments/api', 'Api\InstrumentController@index');
+
 
 // http://localhost:8000/api/users
 Route::namespace('Api')->name('api.')->group(function() {

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 v-if="instrument != null" v-bind:path="{path : $route.params.slug}">{{instrument.name}}</h1>
+        <h1 v-if="instrument != null">{{instrument.name}}</h1>
         <ul v-if="instrument != null">
             <li v-for="user in instrument.users" :key="user.id">{{user.firstname}} {{user.lastname}}</li>
         </ul>
@@ -14,7 +14,6 @@ export default {
     data() {
         return {
             instrument : null,
-            path : ''
         }
     },
     watch: {
@@ -26,5 +25,13 @@ export default {
 
         }
     },
+    mounted(){
+        axios.get(`/api/instruments/${this.$route.params.slug}`)
+            .then( (response) => {
+                this.instrument = response.data.data;
+            });
+
+        }
+    
 }
 </script>
