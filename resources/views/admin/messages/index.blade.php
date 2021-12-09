@@ -1,3 +1,4 @@
+{{-- stile inline momentaneo --}}
 @extends('layouts.app')
 
 @section('content')
