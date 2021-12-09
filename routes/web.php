@@ -30,11 +30,18 @@ Auth::routes();
 // Rotte sezione Admin
 Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', 'HomeController@index')->name('home');
+
     Route::get('users', 'UserController@show')->name('users.show');
     Route::get('users/edit', 'UserController@edit')->name('users.edit');
     Route::put('users/update', 'UserController@update')->name('users.update');
     Route::delete('users/destroy', 'UserController@destroy')->name('users.destroy');
     // Route::resource('users', 'UserController');
+
+    //Rotte messaggi e recensioni dei singoli user
+    Route::resource('messages', 'MessageController');
+    Route::resource('reviews', 'ReviewController');
+
+
 });
 
 Route::any('/{any}', 'PageController@index')->where('any', '.*');
