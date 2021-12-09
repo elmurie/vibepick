@@ -20,7 +20,7 @@
                             {{-- ToDo questi devono diventare link per le varie sezioni del profilo --}}
                             <li><a href="#">Profilo personale</a></li>
                             <li><a href="http://127.0.0.1:8000/admin/messages">Messaggi</a></li> {{-- da rivedere!!! --}}
-                            <li><a href="#">Recensioni</a></li>
+                            <li><a href="http://127.0.0.1:8000/admin/reviews">Recensioni</a></li>
                             <li><a href="#">Sponsorships</a></li>
                         </ul>
                         

@@ -30,6 +30,8 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('users', 'UserController');
     Route::resource('messages', 'MessageController');
+    Route::resource('reviews', 'ReviewController');
+
 
 });
 
