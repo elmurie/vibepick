@@ -10,7 +10,7 @@
         <img style="height: 200px" src="{{$user['profile_pic'] != null ? asset('storage/' . $user->profile_pic) : 'https://via.placeholder.com/200'}}" alt="Profile pic di {{$user['profile_pic'] ? $user['firstname'] : 'default'}}">
     </div>
 
-        <form method="POST" action="{{ route('admin.users.update', $user['id']) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.users.update')}}" enctype="multipart/form-data">
             @csrf 
             @method('PUT')
 
@@ -227,7 +227,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{route("admin.users.destroy", $user['id'])}}" method="POST">
+                    <form action="{{route("admin.users.destroy")}}" method="POST">
                         @csrf
                         @method("DELETE")
                         <input type="hidden" id="delete-id" name="id">
