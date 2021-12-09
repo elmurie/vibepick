@@ -10,9 +10,13 @@
 
 <script>
 import Search from '../components/Search.vue';
+import ArtistCard from '../components/ArtistCard.vue';
 
 export default {
-    components: { Search },
+    components: { 
+        Search,
+        ArtistCard 
+    },
     name : 'AdvancedSearch',
     data() {
         return {
@@ -38,3 +42,10 @@ export default {
     
 }
 </script>
+
+<style lang="scss" scoped>
+
+    div {
+        text-align: center;
+    }
+</style>

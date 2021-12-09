@@ -13,7 +13,6 @@
             </option>
 
         </select>
-            Lo slug: {{selected}}
     </div>
 </template>
 
@@ -48,3 +47,8 @@ export default {
         },
 }
 </script>
+<style lang="scss" scoped>
+    div {
+        padding: .625rem;
+    }
+</style>

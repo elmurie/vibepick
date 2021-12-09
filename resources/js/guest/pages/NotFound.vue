@@ -1,5 +1,5 @@
 <template>
-    <h1>Aro cazz' vai?</h1>
+    <h1>404 - Pagina non trovata</h1>
 </template>
 
 <script>

@@ -24,3 +24,8 @@ export default {
 	},
 }
 </script>
+<style lang="scss">
+	main {
+		height: calc(100vh - 120px);
+	}
+</style>

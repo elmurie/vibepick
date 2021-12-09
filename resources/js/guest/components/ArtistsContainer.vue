@@ -36,5 +36,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    section {
+        .container {
+            margin: 0 auto;
+            .user {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    }
 </style>
