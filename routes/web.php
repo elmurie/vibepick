@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', 'PageController@index')->name('homepage');
 Route::get('/login', './Auth/LoginController@showLoginForm ');
 Route::get('/register', './Auth/RegisterController@showRegistrationForm');
-Route::get('/{any}', 'PageController@index')->where('any', '.*');
+
+//questa rotta intercetta la richiesta api dalla pagina advanced search che ha indirizzo 127.0.0.1:8000/strumenti/api/instruments per popolare la select
+Route::get('/strumenti/api/instruments', 'Api\InstrumentController@index');
+
 
 // Rotte di autenticazione
 Auth::routes();
@@ -27,3 +30,5 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('users', 'UserController');
 });
+
+Route::get('/{any}', 'PageController@index')->where('any', '.*');

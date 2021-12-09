@@ -7,13 +7,15 @@
 
 <script>
 import ArtistsContainer from '../components/ArtistsContainer';
-import Search from '../components/Search';
+import Search from '../components/Search.vue';
 
 	export default {
 		name: 'Home',
 		components: {
 			ArtistsContainer,
-			Search
-		}
+			Search,
+		},
+		
+    
 	}
 </script>

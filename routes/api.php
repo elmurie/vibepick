@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+	return $request->user();
 });
 
-// http://localhost:8000/api/users
+// Route::get('/instruments/api', 'Api\InstrumentController@index');
 
+
+// http://localhost:8000/api/users
 Route::namespace('Api')->name('api.')->group(function() {
 	Route::get('/users', 'UserController@index');
 	Route::get('/instruments', 'InstrumentController@index'); // passa tutto l'elenco degli strumenti 

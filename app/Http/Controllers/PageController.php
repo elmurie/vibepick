@@ -10,12 +10,4 @@ class PageController extends Controller
     {
         return view('guest.homepage');
     }
-    public function login() 
-    {
-        return view('auth.login');
-    }
-    public function register() 
-    {
-        return view('auth.register');
-    }
 }
