@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', 'PageController@index')->name('homepage');
 Route::get('/login', './Auth/LoginController@showLoginForm ');
 Route::get('/register', './Auth/RegisterController@showRegistrationForm');
+// Route::get('/', 'PageController@index')->name('homepage');
+
 
 //questa rotta intercetta la richiesta api dalla pagina advanced search che ha indirizzo 127.0.0.1:8000/strumenti/api/instruments per popolare la select
 Route::get('/strumenti/api/instruments', 'Api\InstrumentController@index');
@@ -28,11 +30,18 @@ Auth::routes();
 // Rotte sezione Admin
 Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', 'HomeController@index')->name('home');
-    Route::resource('users', 'UserController');
+
+    Route::get('users', 'UserController@show')->name('users.show');
+    Route::get('users/edit', 'UserController@edit')->name('users.edit');
+    Route::put('users/update', 'UserController@update')->name('users.update');
+    Route::delete('users/destroy', 'UserController@destroy')->name('users.destroy');
+    // Route::resource('users', 'UserController');
+
+    //Rotte messaggi e recensioni dei singoli user
     Route::resource('messages', 'MessageController');
     Route::resource('reviews', 'ReviewController');
 
 
 });
 
-Route::get('/{any}', 'PageController@index')->where('any', '.*');
+Route::any('/{any}', 'PageController@index')->where('any', '.*');

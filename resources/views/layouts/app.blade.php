@@ -57,7 +57,7 @@
                                 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if (@isset($user))
-                                        <a class="dropdown-item" href="{{ route('admin.users.show', $user['id']) }}">
+                                        <a class="dropdown-item" href="{{ route('admin.users.show') }}">
                                             {{ __('Profilo Personale') }}
                                         </a>
                                     @endif

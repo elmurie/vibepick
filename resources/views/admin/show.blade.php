@@ -20,7 +20,7 @@
                         <li>{{$instrument['name']}}</li>
                     @endforeach
                 </ul>
-                <a href="{{route('admin.users.edit', $user['id'])}}">Modifica Profilo</a>
+                <a href="{{route('admin.users.edit')}}">Modifica Profilo</a>
             </div>
         </div>
     </div>
