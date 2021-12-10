@@ -17,6 +17,11 @@ const router = new VueRouter({
         },
         {
             path: '/strumenti/:slug',
+            children:[
+                {
+                    path: ':rewMin',
+                }
+            ] ,
             name: 'search',
             component: AdvancedSearch
         },
