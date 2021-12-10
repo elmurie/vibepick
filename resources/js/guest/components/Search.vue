@@ -2,7 +2,7 @@
     <div>
 
 
-        <select v-model="selected" v-on:change="searchPage()">
+        <select v-model="selected" v-on:change="searchPage(), $emit('search', selected)">
             <option disabled value="">Please select one</option>
             <option 
                 v-for="(instrument, index) in instruments" 

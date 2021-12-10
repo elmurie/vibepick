@@ -44,7 +44,7 @@ class InstrumentController extends Controller
         $prova = [];
         foreach ($instrument['users'] as $user) {
 
-            if(count($user['reviews']) > $rewMin){
+            if(count($user['reviews']) >= $rewMin){
                 $prova[] =  $user;
             }
         }

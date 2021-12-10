@@ -1,26 +1,31 @@
 <template>
     <div>
-        <Search/>
+        <Search @search="passSelected"/>
         <h1 v-if="instrument != null">{{instrument.name}}</h1>
         <ul v-if="instrument != null">
             <li v-for="user in instrument" :key="user.id">{{user.firstname}} {{user.lastname}} {{user.reviews.length}}</li>
         </ul>
+        <FilterArtist :selectFilter="selectedAdv"/>
     </div>
 </template>
 
 <script>
-import Search from '../components/Search.vue';
-import ArtistCard from '../components/ArtistCard.vue';
+import Search from '../components/Search';
+import ArtistCard from '../components/ArtistCard';
+import FilterArtist from '../components/FilterArtist';
 
 export default {
     components: { 
         Search,
-        ArtistCard 
+        ArtistCard,
+        FilterArtist 
     },
     name : 'AdvancedSearch',
     data() {
         return {
             instrument : null,
+            selectedAdv : ''
+            
         }
     },
     watch: {
@@ -41,7 +46,15 @@ export default {
                 this.instrument = response.data.data;
             });
 
+        },
+
+        methods: {
+            passSelected(pippo){
+                this.selectedAdv = pippo;
+            }
         }
+
+    
     
 }
 </script>
