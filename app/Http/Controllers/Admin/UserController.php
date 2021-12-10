@@ -171,7 +171,7 @@ class UserController extends Controller
         
         $user->delete();
         
-        return view('guest.homepage');
+        return redirect('/');
         
 
     }

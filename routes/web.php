@@ -44,4 +44,4 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
 
 });
 
-Route::any('/{any}', 'PageController@index')->where('any', '.*');
+Route::get('/{any}', 'PageController@index')->where('any', '.*');
