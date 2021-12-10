@@ -5,6 +5,10 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap-grid';
 
+// scss backoffice
 @import './admin/back.scss';
+
+//common 
+@import './common.scss';

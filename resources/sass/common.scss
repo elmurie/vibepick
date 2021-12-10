@@ -1,0 +1,36 @@
+//reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//font-style
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    
+}
+
+// inizio scrollbar
+body::-webkit-scrollbar-thumb {
+    background-color: blue; 
+    width: 100%;
+}
+
+
+*::-webkit-scrollbar {
+    width: .75rem; //lasciare cosi per togliere le freccette
+}
+
+*::-webkit-scrollbar-track {
+    background: lightgray;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: gray;
+}
+// fine scrollbar

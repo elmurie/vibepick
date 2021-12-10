@@ -1,17 +1,21 @@
-.bg__toast__vibe {
-    display: block;
-    content: '';
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    .toast__vibe {
-        z-index: 2;
-        top: 50vh;
-        left: 50vw;
-        transform: translate(-50%, -50%);
+//header
+header {
+    height: 4.375rem;
+    background-color: #353942;
+    a {
+        color: white;
     }
+}
+
+//main 
+
+main {
+    height:calc(100vh - 4.375rem - 2.8125rem);
+    overflow-y: auto;
+}
+
+//footer 
+footer {
+    background-color: #353942;
+    height: 2.8125rem;
 }
