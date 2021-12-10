@@ -24,11 +24,12 @@ export default {
         return {
             instruments: [],
             selected: '',
+            rewMin: 0,
         }
     },
     methods : {
         searchPage() {
-            router.push({ name : 'search', params: { slug: this.selected }})
+            router.push({ name : 'search', params: { slug: this.selected , rewMin: this.rewMin }})
         },
     },
 
