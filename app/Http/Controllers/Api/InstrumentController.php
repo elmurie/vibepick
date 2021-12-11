@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Instrument;
 use App\Review;
+use App\User;
 
 
 class InstrumentController extends Controller
@@ -22,36 +23,25 @@ class InstrumentController extends Controller
 
     public function show($slug, $rewMin)
     {
-        $instrument = Instrument::where('slug', $slug )->with('users')->first();
-        $reviews = Review::all();
 
+        //Chiamata sugli utenti 
         
+        $users = User::with('instruments')->with('reviews')->get();
+
+        $usersFiltered = [];
         
-        foreach ($instrument['users'] as $user) {
-            $user['reviews'] = [];
-            $i = 0;
-                foreach ($reviews as $review) {
-                    if($review['user_id'] == $user['id']) {
-                        $user['reviews'] += [$i => $review];
-                        $i++;
+                foreach($users as $user){
+                    foreach($user['instruments'] as $instrument){
+                        if($instrument['slug'] == $slug)
+                            if(count($user['reviews']) >= $rewMin){
+                                $usersFiltered[] = $user;
+                            }
                     }
-                };
-            };
-            
-        // dd($instrument['users']);
-        // dd(count($user['reviews']));
-
-        $prova = [];
-        foreach ($instrument['users'] as $user) {
-
-            if(count($user['reviews']) > $rewMin){
-                $prova[] =  $user;
-            }
         }
 
         return response()->json([
             'success' => true,
-            'data' => $prova,
+            'data' => $usersFiltered,
         ]);
     }
 }
