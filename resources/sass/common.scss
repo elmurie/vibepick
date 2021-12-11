@@ -12,7 +12,6 @@ ul {
 
 a {
     text-decoration: none;
-    
 }
 
 // inizio scrollbar
@@ -61,6 +60,9 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
 }
 
+.gap {
+    gap: 1.25rem;
+}
 
 
 // Typography

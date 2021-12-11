@@ -30,11 +30,17 @@
             <header>
                 <nav>
                     <div class="container d-flex space-between align-center">
-                        <a class="logo" href="{{url('/')}}"><img src="storage/img/logo_pick.png" alt="VibePick Logo"></a>
-                        <div class="layout-top-nav">
-                            <ul class="d-flex space-between">
-                                <!-- Authentication Links -->
-                                @guest
+
+                        {{-- logo --}}                       
+                        <a  class="logo" href="{{url('/')}}">
+                            <img src="storage/img/logo_pick.png" alt="VibePick Logo">
+                        </a>
+                        
+
+                        {{-- link --}}
+                        @guest
+                            <div>
+                                <ul class="d-flex gap">
                                     <li>
                                         <a href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
@@ -43,36 +49,48 @@
                                             <a href="{{ route('register') }}">{{ __('Register') }}</a>
                                         </li>
                                     @endif
-                                @else
-                                    <li class="d-flex space-between">
-                                        
-                                        <div>
-                                            @if (@isset($user))
-                                                <a href="{{ route('admin.users.show') }}">
-                                                    {{ __('Profilo Personale') }}
-                                                </a>
-                                            @endif
-                                                <a href="{{ route('admin.home') }}">
-                                                    {{ __('Dashboard') }}
-                                                </a>
-                                            
-                                            <a href="{{ route('logout') }}"
-                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                @csrf
-                                            </form>
-                                        </div>
-                                        <div>
-                                            <a href="#">
-                                                {{ Auth::user()->firstname }}
-                                            </a>
-                                        </div>
+                                </ul>
+                            </div>                           
+                        @else
+
+                        {{-- link --}}
+                            <div>
+                                <ul class="d-flex gap">
+                                @if (@isset($user))
+                                    <li>
+                                        <a href="{{ route('admin.users.show') }}">
+                                            {{ __('Profilo') }}
+                                        </a>
                                     </li>
-                                @endguest
-                            </ul>
-                        </div>
+                                @endif
+                                    <li>
+                                        <a href="{{ route('admin.home') }}">
+                                            {{ __('Dashboard') }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <ul class="d-flex gap">
+                                    <li>
+                                        <a href="#">
+                                            {{ Auth::user()->firstname }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                    </li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </ul>
+                            </div>
+                        @endguest
+                        
                     </div>
                 </nav>
             </header>
