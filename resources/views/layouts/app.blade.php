@@ -29,10 +29,10 @@
         <div id="app">
             <header>
                 <nav>
-                    <div class="container">
-                        <a href="{{url('/')}}"> Home</a>
-                        <div>
-                            <ul>
+                    <div class="container d-flex space-between align-center">
+                        <a class="logo" href="{{url('/')}}"><img src="storage/img/logo_pick.png" alt="VibePick Logo"></a>
+                        <div class="layout-top-nav">
+                            <ul class="d-flex space-between">
                                 <!-- Authentication Links -->
                                 @guest
                                     <li>
@@ -44,10 +44,7 @@
                                         </li>
                                     @endif
                                 @else
-                                    <li>
-                                        <a href="#">
-                                            {{ Auth::user()->firstname }}
-                                        </a>
+                                    <li class="d-flex space-between">
                                         
                                         <div>
                                             @if (@isset($user))
@@ -66,6 +63,11 @@
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
                                             </form>
+                                        </div>
+                                        <div>
+                                            <a href="#">
+                                                {{ Auth::user()->firstname }}
+                                            </a>
                                         </div>
                                     </li>
                                 @endguest

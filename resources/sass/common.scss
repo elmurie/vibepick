@@ -34,3 +34,37 @@ body::-webkit-scrollbar-thumb {
     background-color: gray;
 }
 // fine scrollbar
+
+// FlexBox
+
+.d-flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-start {
+    justify-content: flex-start;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+
+
+// Typography
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}

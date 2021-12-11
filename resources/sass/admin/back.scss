@@ -2,11 +2,23 @@
 header {
     height: 4.375rem;
     background-color: #353942;
+    nav,
+    .container {
+        height: 100%;
+    }
+    ul {
+        li {
+            margin-left: 25px;
+        }
+    }
     a {
-        color: white;
+        color: #ffffff;
     }
 }
 
+.logo img{
+    width: 10%;
+}
 //main 
 
 main {
