@@ -24,6 +24,9 @@ Route::get('/register', './Auth/RegisterController@showRegistrationForm');
 Route::get('/strumenti/api/instruments', 'Api\InstrumentController@index');
 //questa rotta intercetta la richiesta api dalla pagina advanced search che ha indirizzo 127.0.0.1:8000/strumenti/{nome_strumento}/api/instruments per popolare la select
 Route::get('/strumenti/{any}/api/instruments', 'Api\InstrumentController@index')->where('any', '.*');
+//quest rotta intercetta la richiesta api dalla pagina show artist che ha indirizzo 127.0.0.1:8000/showartist/api/showartist/{id utente}
+Route::get('/showartist/api/showartist/{any}', 'Api\UserController@show')->where('any', '.*');
+
 
 
 // Rotte di autenticazione

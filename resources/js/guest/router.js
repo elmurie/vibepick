@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 
 import Home from './pages/Home';
 import AdvancedSearch from './pages/AdvancedSearch';
+import ShowArtist from './pages/ShowArtist';
 import NotFound from './pages/NotFound';
 
 const router = new VueRouter({
@@ -30,6 +31,13 @@ const router = new VueRouter({
             name: 'search',
             component: AdvancedSearch
         },
+
+        {
+            path: '/showartist/:id',
+            name: 'ShowArtist',
+            component: ShowArtist
+        },
+
         {
             path: '/*',
             name: '404',
