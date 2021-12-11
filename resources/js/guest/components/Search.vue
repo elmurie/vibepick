@@ -34,6 +34,10 @@ export default {
     },
 
     mounted() {
+        if(this.$route.params.slug != undefined){
+
+            this.selected = this.$route.params.slug;
+        }
         axios.get('api/instruments')
         .then((resp) => {
             // se passa
