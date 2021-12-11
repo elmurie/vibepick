@@ -4,7 +4,17 @@
             <option disabled value="">numero recensioni</option>
             <option 
                 v-for="(num, index) in numReview" 
-                :key="index"
+                :key="`rev-${index}`"
+                :value="num">
+                {{num}}
+            </option>
+        </select>
+
+        <select v-model="avgVote" v-on:change="$emit('avgSearch', avgVote)">
+            <option disabled value="">media Voto</option>
+            <option 
+                v-for="(num, index) in average" 
+                :key="`avg-${index}`"
                 :value="num">
                 {{num}}
             </option>
@@ -13,34 +23,21 @@
 </template>
 
 <script>
-import router from '../router';
-
 export default {
     name: 'FilterArtist',
-    props: {
-        selectFilter: String,
-    },
     data() {
         return{
-            selected: this.selectFilter,
             rewMin: '',
+            avgVote: '',
             numReview : [
+                0,2,4,5
+            ],
+            average:[
                 0,1,2,3,4,5
             ]
         }
     },
-    watch:{
-        selectFilter : function() {
-            this.selected = this.selectFilter
-        },
-        rewMin: function() {
-            },
 
-    },
-    methods : {
-            filterReview() {
-            },
-        },
 }
 
 

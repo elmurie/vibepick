@@ -5,7 +5,7 @@
         <ul v-if="instrument != null">
             <li v-for="user in instrument" :key="user.id">{{user.firstname}} {{user.lastname}} {{user.reviews.length}}</li>
         </ul>
-        <FilterArtist @revSearch="revSelected"/>
+        <FilterArtist @revSearch="revSelected" @avgSearch="avgSelected"/>
     </div>
 </template>
 
@@ -25,21 +25,29 @@ export default {
         return {
             instrument : null,
             selectedAdv : this.$route.params.slug,
-            reviewNum: 0
+            reviewNum: 0, 
+            avgVote:0
             
         }
     },
     watch: {
 
-        reviewNum : function(){
-            axios.get(`/api/instruments/${this.selectedAdv}/${this.reviewNum}`)
+        selectedAdv : function(){
+            axios.get(`/api/instruments/${this.selectedAdv}/${this.reviewNum}/${this.avgVote}`)
             .then( (response) => {
                 console.log(response.data.data);
                 this.instrument = response.data.data;
             });
         },
-        selectedAdv : function(){
-            axios.get(`/api/instruments/${this.selectedAdv}/${this.reviewNum}`)
+        reviewNum : function(){
+            axios.get(`/api/instruments/${this.selectedAdv}/${this.reviewNum}/${this.avgVote}`)
+            .then( (response) => {
+                console.log(response.data.data);
+                this.instrument = response.data.data;
+            });
+        },
+        avgVote : function(){
+            axios.get(`/api/instruments/${this.selectedAdv}/${this.reviewNum}/${this.avgVote}`)
             .then( (response) => {
                 console.log(response.data.data);
                 this.instrument = response.data.data;
@@ -47,7 +55,7 @@ export default {
         }
     },
     mounted(){
-        axios.get(`/api/instruments/${this.$route.params.slug}/${this.$route.params.rewMin}`)
+        axios.get(`/api/instruments/${this.$route.params.slug}/${this.$route.params.rewMin}/${this.$route.params.avgVote}`)
             .then( (response) => {
                 console.log(response.data.data);
                 this.instrument = response.data.data;
@@ -61,6 +69,9 @@ export default {
             },
             revSelected(revNum){
                 this.reviewNum = revNum;
+            },
+            avgSelected(avgNum){
+                this.avgVote = avgNum;
             }
         }
 
