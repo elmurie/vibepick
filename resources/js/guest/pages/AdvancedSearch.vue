@@ -1,11 +1,11 @@
 <template>
     <div>
-        <Search @search="passSelected"/>
+        <Search @search="instrumentSelected"/>
         <h1 v-if="instrument != null">{{instrument.name}}</h1>
         <ul v-if="instrument != null">
             <li v-for="user in instrument" :key="user.id">{{user.firstname}} {{user.lastname}} {{user.reviews.length}}</li>
         </ul>
-        <FilterArtist :selectFilter="selectedAdv"/>
+        <FilterArtist @revSearch="revSelected"/>
     </div>
 </template>
 
@@ -24,19 +24,26 @@ export default {
     data() {
         return {
             instrument : null,
-            selectedAdv : ''
+            selectedAdv : this.$route.params.slug,
+            reviewNum: 0
             
         }
     },
     watch: {
-        $route : function() {
-                axios.get(`/api/instruments/${this.$route.params.slug}/${this.$route.params.rewMin}`)
+
+        reviewNum : function(){
+            axios.get(`/api/instruments/${this.selectedAdv}/${this.reviewNum}`)
             .then( (response) => {
                 console.log(response.data.data);
-
                 this.instrument = response.data.data;
             });
-
+        },
+        selectedAdv : function(){
+            axios.get(`/api/instruments/${this.selectedAdv}/${this.reviewNum}`)
+            .then( (response) => {
+                console.log(response.data.data);
+                this.instrument = response.data.data;
+            });
         }
     },
     mounted(){
@@ -49,8 +56,11 @@ export default {
         },
 
         methods: {
-            passSelected(pippo){
-                this.selectedAdv = pippo;
+            instrumentSelected(instrument){
+                this.selectedAdv = instrument;
+            },
+            revSelected(revNum){
+                this.reviewNum = revNum;
             }
         }
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <select v-model="rewMin" v-on:change="filterReview()">
+        <select v-model="rewMin" v-on:change="$emit('revSearch', rewMin)">
             <option disabled value="">numero recensioni</option>
             <option 
                 v-for="(num, index) in numReview" 
@@ -32,12 +32,13 @@ export default {
     watch:{
         selectFilter : function() {
             this.selected = this.selectFilter
-        }
+        },
+        rewMin: function() {
+            },
 
     },
     methods : {
             filterReview() {
-                router.push({ name : 'search', params: { slug: this.selected , rewMin: this.rewMin }})
             },
         },
 }
