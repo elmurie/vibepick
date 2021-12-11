@@ -23,6 +23,27 @@ main {
     height:calc(100vh - 4.375rem - 2.8125rem);
     overflow-y: auto;
 }
+.bg-dark-blue {
+    background-color: rgba(255, 0, 0, 0.548);
+}
+.bg-light-blue {
+    background-color: rgba(0, 0, 255, 0.39);
+}
+.b-radius-header {
+    border-radius: .625rem .625rem 0 0;
+}
+.b-radius-body {
+    border-radius: 0 0 .625rem .625rem;
+}
+.padding-card {
+    padding: 3.125rem 0;
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
 
 //footer 
 footer {
