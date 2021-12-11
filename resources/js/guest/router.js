@@ -20,6 +20,11 @@ const router = new VueRouter({
             children:[
                 {
                     path: ':rewMin',
+                    children: [
+                        {
+                            path: ':avgVote',
+                        }
+                    ],
                 }
             ] ,
             name: 'search',
