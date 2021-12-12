@@ -20,6 +20,9 @@ header {
 //main 
 
 main {
+    padding: 3.125rem;
+    background: rgb(0,149,209);
+    background: linear-gradient(90deg, rgba(0,149,209,1) 48%, rgba(70,189,236,1) 100%);
     height:calc(100vh - 4.375rem - 2.8125rem);
     overflow-y: auto;
 }
@@ -49,4 +52,46 @@ main {
 footer {
     background-color: #353942;
     height: 2.8125rem;
+}
+
+//campi input pagina login 
+.login [type="email"],
+.login [type="password"] {
+    width: 100%;
+    height: 1.875rem;
+    padding-left: .3125rem;
+}
+.login [type="checkbox"] {
+    margin-left: .1875rem;
+    margin-right: .625rem;
+    transform: scale(1.5);
+}
+.login .btn {
+    width: 100%;
+    padding: 10px 0;
+}
+
+// colore header e body card pagina login
+.login .card-header {
+    background-color: #213e74;
+}
+.login .card-body {
+    background-color: #0a5a90;
+    
+}
+
+//colore testo card pagina login
+.login {
+    color: #ffffff;
+}
+
+//larghezza form pagina login
+.login form {
+    width: 50%;
+}
+
+//testo forgot your password?
+.forgot-password {
+    font-size: .875rem;
+    margin: 5rem 0 1.875rem 0;
 }
