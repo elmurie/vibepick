@@ -54,6 +54,8 @@ footer {
     height: 2.8125rem;
 }
 
+/* PAGINA LOGIN */
+
 //campi input pagina login 
 .login [type="email"],
 .login [type="password"] {
@@ -94,4 +96,23 @@ footer {
 .forgot-password {
     font-size: .875rem;
     margin: 5rem 0 1.875rem 0;
+}
+
+/* PAGINA REGISTRAZIONE */
+
+//campi input pagina registrazione
+.register [type="email"],
+.register [type="password"],
+.register [type="text"] {
+    width: 100%;
+    height: 1.875rem;
+    padding-left: .3125rem;
+}
+.register .btn {
+    width: 80%;
+    padding: 10px 0;
+}
+
+.register form {
+    width: 70%;
 }

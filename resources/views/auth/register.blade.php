@@ -17,14 +17,16 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Registrazione') }}</div>
+                <div class="card register">
+                    <div class="card-header padding-card bg-dark-blue b-radius-header text-center">
+                        <h2>{{ __('Registrazione') }}</h2>
+                    </div>
 
-                    <div class="card-body">
+                    <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
-                            <div class="form-group row">
+                            <div class="form-group row align-items-center">
                                 <label for="first" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
                                 <div class="col-md-6">
                                     <input id="firstname" 
@@ -36,7 +38,6 @@
                                             oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo nome')"
                                             oninput="setCustomValidity('')" 
                                             required autocomplete="firstname" autofocus>
-                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                     @error('firstname')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -44,8 +45,12 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="mandatory row align-items-center py-2 mb-2">
+                                <div class="col-md-4 col-form-label text-md-right"></div>
+                                <small class="col-md-6">*campo obbligatorio</small>
+                            </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row align-items-center">
                                 <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Cognome') }}</label>
 
                                 <div class="col-md-6">
@@ -57,7 +62,6 @@
                                             oninvalid="setCustomValidity('Ops... ricordati di inserire il cognome')"
                                             oninput="setCustomValidity('')"  
                                             required autocomplete="lastname" autofocus>
-                                            <small style="color: grey"><em>*campo obbligatorio</em></small>
                                     @error('lastname')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -65,8 +69,12 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="mandatory row align-items-center py-2 mb-2">
+                                <div class="col-md-4 col-form-label text-md-right"></div>
+                                <small class="col-md-6">*campo obbligatorio</small>
+                            </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row align-items-center">
                                 <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}</label>
 
                                 <div class="col-md-6">
@@ -79,7 +87,6 @@
                                             oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo indirizzo')"
                                             oninput="setCustomValidity('')"  
                                             required autocomplete="address" autofocus>
-                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -87,8 +94,12 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="mandatory row align-items-center py-2 mb-2">
+                                <div class="col-md-4 col-form-label text-md-right"></div>
+                                <small class="col-md-6">*campo obbligatorio</small>
+                            </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row align-items-center">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo Mail') }}</label>
                     
                                 <div class="col-md-6">
@@ -103,7 +114,6 @@
                                             oninvalid="setCustomValidity('Ops... ricordati di inserire la tua email')"
                                             oninput="setCustomValidity('')" 
                                             required autocomplete="email">
-                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -111,12 +121,16 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="mandatory row align-items-center py-2 mb-2">
+                                <div class="col-md-4 col-form-label text-md-right"></div>
+                                <small class="col-md-6">*campo obbligatorio</small>
+                            </div>
 
                             <div class="form-group row">
-                                <div class="col-md-4 col-form-label text-md-right justify-content-end px-0">{{__('Seleziona gli strumenti con cui sei specializzato')}}</div>
-                                <div class="col-md-6 px-4">
+                                <div class="col-md-4 col-form-label text-md-right">{{__('Strumenti')}}</div>
+                                <div class="col-md-6">
                                     @foreach ($instruments as $instrument)
-                                    <div class="custom-control custom-checkbox px-5">
+                                    <div class="custom-control custom-checkbox">
                                         @if ($errors->any())
                                             <input {{in_array($instrument->id, old('instruments', []))? "checked" : ""}} 
                                                     name="instruments[]" 
@@ -138,14 +152,17 @@
                                         <label class="custom-control-label" for="instrument-{{$instrument->id}}">{{$instrument->name}}</label>     
                                     </div>
                                     @endforeach
-                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                 </div>
+                            </div>
+                            <div class="mandatory row align-items-center py-2 mb-2">
+                                <div class="col-md-4 col-form-label text-md-right"></div>
+                                <small class="col-md-6">*campo obbligatorio</small>
                             </div>
                             @error('instruments')
                                 <div class="alert alert-danger mt-3">{{ $message }}</div>
                             @enderror
 
-                            <div class="form-group row">
+                            <div class="form-group row align-items-center">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
@@ -157,7 +174,6 @@
                                             oninvalid="setCustomValidity('Ops... ricordati di inserire la tua password')"
                                             oninput="setCustomValidity('')"  
                                             required autocomplete="new-password">
-                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -165,8 +181,12 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="mandatory row align-items-center py-2 mb-2">
+                                <div class="col-md-4 col-form-label text-md-right"></div>
+                                <small class="col-md-6">*campo obbligatorio</small>
+                            </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row align-items-center">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
 
                                 <div class="col-md-6">
@@ -177,13 +197,16 @@
                                     oninput="setCustomValidity('')"
                                     placeholder="Inserisci di nuovo la tua password..." 
                                     required autocomplete="new-password">
-                                    <small style="color: grey"><em>*campo obbligatorio</em></small>
                                 </div>
                             </div>
+                            <div class="mandatory row align-items-center py-2 mb-2">
+                                <div class="col-md-4 col-form-label text-md-right"></div>
+                                <small class="col-md-6">*campo obbligatorio</small>
+                            </div>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                            <div class="form-group row align-items-center mt-5 mb-0">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn">
                                         {{ __('Registrati') }}
                                     </button>
                                 </div>
