@@ -13,6 +13,7 @@
         <p>Genere: <span>{{artist.genre}}</span></p>
         <p>servizi offerti: <span>{{artist.services}}</span></p>
         <p>CV: <span>{{artist.curriculum}}</span></p>
+
     </div>
 </template>
 

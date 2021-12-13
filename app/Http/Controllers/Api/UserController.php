@@ -19,30 +19,6 @@ class UserController extends Controller
         ]);
     }
 
-    /* public function show($id) {
-        $user = User::with('instruments')->with('reviews')->get()->find($id);
-        
-        //calcolo della media voto
-        $avgVote = 0;
-        if(count($user['reviews'])!=0) {
-            foreach ($user['reviews'] as $review) {
-                $avgVote+=$review['vote'];
-            }
-            $avgVote = $avgVote/count($user['reviews']);
-        }
-        $user['avgVote'] = round($avgVote, 2);
-
-        //calcolo numero recensioni
-        $numReviews = count($user['reviews']); //funziona lo stesso!!!
-        $user['numReviews'] = $numReviews;
-
-        return response()->json([
-            'success' => true,
-            'data' => $user
-        ]);
-    } */
-
-
     public function show($id) {
         $user=User::find($id)
         ->whereHas('instruments', function (Builder $query) use($id){
