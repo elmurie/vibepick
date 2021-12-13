@@ -20,11 +20,11 @@ class ReviewsTableSeeder extends Seeder
         for ( $i = 0; $i < 60; $i++ ) {
             $author = $faker->name();
             $newReview = new Review();
-            $newReview->user_id = $faker->numberBetween(1, 20); //generazione casuale della foreign key in modo da avere un assegnazione per gli user creati con il seeder
+            // $newReview->vote_id = $faker->numberBetween(1, 20); //generazione casuale della foreign key in modo da avere un assegnazione per gli user creati con il seeder
             $newReview->title = "Recensione di " . $author;
             $newReview->author = $author;
             $newReview->content = $faker->words(40, true);
-            $newReview->vote = $faker->numberBetween(0, 5);
+            // $newReview->vote = $faker->numberBetween(0, 5);
             $newReview->save();
         }
     }

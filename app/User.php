@@ -43,9 +43,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Instrument');
     }
 
-    // One-to-Many tra recensione e utenti
-    public function reviews() {
-        return $this->hasMany('App\Review');
+    
+    // One-to-Many tra voti e utenti
+    public function votes() {
+        return $this->hasMany('App\Vote');
     }
 
     // One-to-Many tra messaggi e utenti
