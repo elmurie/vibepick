@@ -1,7 +1,7 @@
 <template>
-    <div>
-
-
+    <div class="box-search">
+        <h1>Cerca il tuo Musicista!</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi quam quos et error cum voluptate nostrum am. Debitis ipsa sapiente hic.</p>
         <select v-model="selected" v-on:change="searchPage(), $emit('search', selected)">
             <option disabled value="">Please select one</option>
             <option 
@@ -54,7 +54,16 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    div {
-        padding: .625rem;
+    .box-search {
+        margin-top: 3.125rem;
+        h1 {
+            font-size: 55px;
+        }
+        p {
+            max-width: 600px;
+            margin: auto;
+            color: rgb(233, 233, 233);
+            margin-bottom: 30px;
+        }
     }
 </style>
