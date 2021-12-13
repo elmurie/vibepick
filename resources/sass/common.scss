@@ -78,6 +78,9 @@ body::-webkit-scrollbar-thumb {
     &:hover {
         cursor: pointer;
     }
+    &.btn-danger {
+        background-color: red;
+    }
 }
 
 // Typography
@@ -90,4 +93,11 @@ body {
 small {
     color: #ffffff;
     font-style: italic;    
+}
+
+// Colore messaggio di errore backend
+.invalid-feedback {
+    display: block;
+    margin: 5px 0;
+    color : yellow;
 }
