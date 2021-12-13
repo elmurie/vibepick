@@ -223,7 +223,7 @@
                             {{-- bottone eliminazione --}}
                             <div class="form-group row mb-0">
                                 <div class="delete_parent col-md-12">
-                                    <button type="submit" class="btn btn-danger " data-id="{{$user['id']}}" data-toggle="modal" data-target="#deleteModal">Elimina utente</button>
+                                    <button id="modalBtn" type="submit" class="btn btn-danger " data-id="{{$user['id']}}" data-toggle="modal" data-target="#deleteModal">Elimina utente</button>
                                 </div>
                             </div>
                     </div>
@@ -234,9 +234,9 @@
         {{-- modale di cancellazione --}}
         <div class="modal fade" id="deleteModal">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Conferma cancellazione</h5>
+                <div class="modal-content d-flex flex-column">
+                    <div class="modal-header d-flex justify-content-between align-items-center">
+                        <h4 class="modal-title" id="exampleModalLabel">Conferma cancellazione</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -246,11 +246,12 @@
                         @method("DELETE")
                         <input type="hidden" id="delete-id" name="id">
                         <div class="modal-body">
-                            Sei sicuro di voler eliminare il profilo?
+                            Il tuo profilo verrà cancellato.<br>
+                            Vuoi procedere comunque?
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer d-flex justify-content-end align-items-center">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                            <button type="submit" class="btn btn-primary">Si</button>
+                            <button type="submit" class="btn btn-danger">Sì</button>
                         </div>
                     </form>
                 </div>
