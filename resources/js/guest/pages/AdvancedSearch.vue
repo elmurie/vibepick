@@ -1,24 +1,27 @@
 <template>
     <div>
-        <Search @search="instrumentSelected"/>
-        <h1 v-if="instrument != null">{{instrument.name}}</h1>
-        <ul v-if="instrument != null">
-            <li v-for="user in instrument" :key="user.id">{{user.firstname}} {{user.lastname}} n.rev: {{user.reviews_count}} media:{{user.avgVote}}</li> 
-        </ul>
-        <FilterArtist @revSearch="revSelected" @avgSearch="avgSelected"/>
+        <Search class="instrument_filter" @search="instrumentSelected"/>
+        <FilterArtist class="review_vote_filter" @revSearch="revSelected" @avgSearch="avgSelected"/>
+        <h1 v-if="instrument != null">{{selectedAdv}}</h1>
+        <div class="artists" v-if="instrument != null">
+            <a class="found_artist" :href="`http://127.0.0.1:8000/showartist/${user.id}`" v-for="user in instrument" :key="user.id"><FoundArtist :data="user"/></a> 
+        </div>
     </div>
 </template>
 
 <script>
 import Search from '../components/Search';
-import ArtistCard from '../components/ArtistCard';
+// import ArtistCard from '../components/ArtistCard';
 import FilterArtist from '../components/FilterArtist';
+import FoundArtist from '../components/FoundArtist';
+
 
 export default {
     components: { 
         Search,
-        ArtistCard,
-        FilterArtist 
+        // ArtistCard,
+        FilterArtist,
+        FoundArtist 
     },
     name : 'AdvancedSearch',
     data() {
@@ -81,7 +84,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .instrument_filter,
+    .review_vote_filter {
+            margin: 20px 0;
+        }
+    .artists {
+        margin-top: 20px;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        
 
+        .found_artist {
+            margin: 10px;
+        }
+    }
     div {
         text-align: center;
     }
