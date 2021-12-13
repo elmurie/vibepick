@@ -17,7 +17,7 @@
         </div>
         <div class="r-col">
             <div class="img-box">
-                <img src="" alt="">
+                <img :src="artist.profile_pic != null ? `../storage/${artist.profile_pic}` : `../storage/profile-placeholder.png`" :alt="artist.profile_pic != null ? `Profilo di ${artist.firstname}` : 'Foto Profilo' ">
             </div>
             <div class="box-btn">
                 <button>Contatta</button>
@@ -100,6 +100,11 @@ export default {
                 color: black;
                 margin-left: auto;
                 margin-right: auto;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+                }
             }
             .box-btn {
                 margin-top: 40px;
