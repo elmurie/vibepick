@@ -116,3 +116,68 @@ footer {
 .register form {
     width: 70%;
 }
+
+/* PAGINA PROFILO PERSONALE */
+
+.card-left,
+.card-right {
+    padding: 3.125rem 1.875rem;
+}
+
+.card-left {
+    border-radius: .625rem 0 0 .625rem;
+}
+
+.card-right {
+    border-radius: 0 .625rem .625rem 0;
+}
+
+
+//cerchio immagine
+.profile .personal_pic {
+    overflow: hidden;
+    object-fit: cover;
+    width: 12.5rem;
+    height: 12.5rem;
+    border-radius: 50%;
+    img {
+        height: 100%;
+    }
+}
+
+//titolo nome
+.profile h1 {
+    margin-bottom: 20px;
+}
+
+//margini li 
+.profile li {
+    margin: .625rem 0; 
+}
+
+.cv {
+    text-align: justify;
+}
+
+.instrument-list li {
+    font-size: .875rem;
+    background-color: #0a5a90;
+    color: white;
+    font-weight: 700;
+    padding: 10px;
+    margin-right: .625rem;
+    border-radius: 5px;
+}
+
+//bottone modifica
+.profile .btn {
+    margin-top: 3.125rem;
+    padding: 10px 30px;
+}
+
+.profile .info {
+    color: lightgray;
+    strong {
+        color : white;
+    }
+}
