@@ -1,5 +1,4 @@
 <template>
-    <div>
         <form action="http://127.0.0.1:8000/reviews" method="POST">
             <!-- equivalente del @csrf -->
             <input type="hidden" name="_token" :value="csrf">
@@ -11,14 +10,13 @@
             <input type="text" name="title" id="title">
 
             <label for="content">Inserisci il contenuto della tua recensione</label>
-            <input type="text" name="content" id="content">
+            <textarea name="content" id="content" rows="10"> </textarea>
 
             <label for="vote">Inserisci un voto da 0 a 5</label>
             <input type="num" name="vote" id="vote">
             
             <button type="submit" name="">Invia</button>
         </form>
-    </div>
 </template>
 
 <script>
@@ -40,7 +38,8 @@ export default {
 
 <style lang="scss" scoped>
     form {
-        width: 40%;
+        width: 90%;
+        margin: 0 auto;
         display: flex;
         flex-direction:column;
     }

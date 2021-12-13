@@ -22,17 +22,59 @@
             <div class="box-btn">
                 <button>Contatta</button>
             </div>
+
+            <!--  bottone modale recensione  -->
+            <div class="box-btn">
+                <!-- <div class="delete_parent col-md-12"> -->
+                    <button id="modalBtn" type="submit" class="btn btn-danger " :data-id="artist.id" data-toggle="modal" data-target="#reviewModal" @click="showReviewModal">Lascia una Recensione</button>
+                <!-- </div> -->
+            </div>
+
+        </div>
+
+    
+    
+    
+
+    <!--  Modale Recensione -->
+        <div class="modal fade" id="reviewModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content d-flex flex-column">
+                    <div class="modal-header d-flex justify-content-between align-items-center">
+                        <h4 class="modal-title" id="exampleModalLabel">Scrivi una recensione</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeReviewModal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <ReviewForm/>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import ReviewForm from './ReviewForm.vue';
 export default {
+
     name: 'SingleArtist',
+    components: {
+        ReviewForm
+    },
     data() {
         return {
             artist : {}
         }
+    },
+    methods:{
+        showReviewModal (){
+            let mod = document.getElementById('reviewModal');
+            mod.classList.add('showMod');
+        },
+        closeReviewModal (){
+            let mod = document.getElementById('reviewModal');
+            mod.classList.remove('showMod');
+        } 
     },
 
 
@@ -53,6 +95,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/resources/sass/common.scss';
+
+.showMod{
+    display: block;
+}
+
+.modal-header{
+    justify-content: space-between;
+        align-items: center;
+}
     .box {
         width: 50%;
         margin: 0 auto;
@@ -123,5 +175,6 @@ export default {
                 }
             }
         }
+
     }
 </style>
