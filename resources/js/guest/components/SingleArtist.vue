@@ -30,6 +30,13 @@
                 <!-- </div> -->
             </div>
 
+            <!--  bottone modale messaggi  -->
+            <div class="box-btn">
+                <!-- <div class="delete_parent col-md-12"> -->
+                    <button id="modalBtn" type="submit" class="btn btn-danger " :data-id="artist.id" data-toggle="modal" data-target="#messageModal" @click="showMessageModal">Prenota con un messaggio</button>
+                <!-- </div> -->
+            </div>
+
         </div>
 
     
@@ -50,16 +57,35 @@
                 </div>
             </div>
         </div>
+
+        <!--  Modale Messaggio -->
+        <div class="modal fade" id="messageModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content d-flex flex-column">
+                    <div class="modal-header d-flex justify-content-between align-items-center">
+                        <h4 class="modal-title" id="exampleModalLabel">Scrivi un messaggio</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeMessageModal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <MessageForm/>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
 <script>
 import ReviewForm from './ReviewForm.vue';
+import MessageForm from './MessageForm.vue';
 export default {
 
     name: 'SingleArtist',
     components: {
-        ReviewForm
+        ReviewForm,
+        MessageForm
+
     },
     data() {
         return {
@@ -73,6 +99,14 @@ export default {
         },
         closeReviewModal (){
             let mod = document.getElementById('reviewModal');
+            mod.classList.remove('showMod');
+        },
+        showMessageModal (){
+            let mod = document.getElementById('messageModal');
+            mod.classList.add('showMod');
+        },
+        closeMessageModal (){
+            let mod = document.getElementById('messageModal');
             mod.classList.remove('showMod');
         } 
     },
