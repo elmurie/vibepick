@@ -3,7 +3,7 @@
         <Search @search="instrumentSelected"/>
         <h1 v-if="instrument != null">{{instrument.name}}</h1>
         <ul v-if="instrument != null">
-            <li v-for="user in instrument" :key="user.id">{{user.firstname}} {{user.lastname}} {{user.reviews.length}}</li>
+            <li v-for="user in instrument" :key="user.id">{{user.firstname}} {{user.lastname}} n.rev: {{user.reviews_count}} media:{{user.avgVote}}</li> 
         </ul>
         <FilterArtist @revSearch="revSelected" @avgSearch="avgSelected"/>
     </div>

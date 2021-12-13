@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Header/>
+		<!-- <Header/> -->
 		<main>
 			<router-view></router-view>
 		</main>
@@ -29,7 +29,6 @@ export default {
 		height: calc(100vh - 120px);
 		background: rgb(31,89,103);
 		background: linear-gradient(0deg, rgba(31,89,103,1) 0%, rgba(93,184,169,1) 100%);
-		font-family: 'Roboto', sans-serif;
-		// font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+		overflow: auto;
 	}
 </style>
