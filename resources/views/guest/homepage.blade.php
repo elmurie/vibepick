@@ -15,7 +15,7 @@
 
 				{{-- logo --}}                       
 				<a  class="logo" href="{{url('/')}}">
-					<img src="storage/img/logo_pick.png" alt="VibePick Logo">
+					<img src="{{asset('storage/img/logo_pick.png')}}" alt="VibePick Logo">
 				</a>
 				
 

@@ -1,9 +1,8 @@
 <template>
 	<section>
 		<div class="container">
-			<h2>Artists Container</h2>
 			<div class="user">
-                <ArtistCard v-for="artist in artists" :key="artist.id" :data="artist"/>
+                <a :href="`http://127.0.0.1:8000/showartist/${artist.id}`" v-for="artist in artists" :key="artist.id"><ArtistCard :data="artist"/></a>
 			</div>
 		</div>
 	</section>
