@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Header/>
+		<!-- <Header/> -->
 		<main>
 			<router-view></router-view>
 		</main>
@@ -27,5 +27,6 @@ export default {
 <style lang="scss">
 	main {
 		height: calc(100vh - 120px);
+		overflow: auto;
 	}
 </style>
