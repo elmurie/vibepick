@@ -1,27 +1,27 @@
 <template>
-        <form action="http://127.0.0.1:8000/reviews" method="POST">
+        <form action="http://127.0.0.1:8000/messages" method="POST">
             <!-- equivalente del @csrf -->
             <input type="hidden" name="_token" :value="csrf">
             <input type="hidden" name="user_id" :value="user_id">
-            <label for="author">Inserisci il tuo nome e il tuo cognome</label>
-            <input type="text" name="author" id="author">
+            <label for="firstname">Inserisci il tuo nome</label>
+            <input type="text" name="firstname" id="firstname">
 
-            <label for="title">Inserisci il titolo della tua recensione</label>
-            <input type="text" name="title" id="title">
+            <label for="lastname">Inserisci il tuo cognome</label>
+            <input type="text" name="lastname" id="lastname">
 
-            <label for="content">Inserisci il contenuto della tua recensione</label>
-            <textarea name="content" id="content" rows="10"> </textarea>
+            <label for="email">Inserisci la tua email</label>
+            <input type="text" name="email" id="email">
 
-            <label for="vote">Inserisci un voto da 0 a 5</label>
-            <input type="num" name="vote" id="vote">
-            
+            <label for="text">Inserisci il contenuto del tuo messaggio</label>
+            <textarea name="text" id="text" rows="10"> </textarea>
+
             <button type="submit" name="">Invia</button>
         </form>
 </template>
 
 <script>
 export default {
-    name: 'ReviewForm',
+    name: 'MessageForm',
     data() {
         return {
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),

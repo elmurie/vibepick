@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', './Auth/LoginController@showLoginForm ');
 Route::get('/register', './Auth/RegisterController@showRegistrationForm');
 Route::post('reviews', 'ReviewController@store');
+Route::post('messages', 'MessageController@store');
 // Route::get('/', 'PageController@index')->name('homepage');
 
 
