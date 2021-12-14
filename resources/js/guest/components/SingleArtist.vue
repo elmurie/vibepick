@@ -19,9 +19,9 @@
             <div class="img-box">
                 <img :src="artist.profile_pic != null ? `../storage/${artist.profile_pic}` : `../storage/profile-placeholder.png`" :alt="artist.profile_pic != null ? `Profilo di ${artist.firstname}` : 'Foto Profilo' ">
             </div>
-            <div class="box-btn">
+            <!-- <div class="box-btn">
                 <button>Contatta</button>
-            </div>
+            </div> -->
 
             <!--  bottone modale recensione  -->
             <div class="box-btn">

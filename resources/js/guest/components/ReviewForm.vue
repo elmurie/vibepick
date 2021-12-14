@@ -4,16 +4,16 @@
             <input type="hidden" name="_token" :value="csrf">
             <input type="hidden" name="user_id" :value="user_id">
             <label for="author">Inserisci il tuo nome e il tuo cognome</label>
-            <input type="text" name="author" id="author">
+            <input type="text" name="author" id="author" required>
 
             <label for="title">Inserisci il titolo della tua recensione</label>
-            <input type="text" name="title" id="title">
+            <input type="text" name="title" id="title" required>
 
             <label for="content">Inserisci il contenuto della tua recensione</label>
-            <textarea name="content" id="content" rows="10"> </textarea>
+            <textarea name="content" id="content" rows="10" required></textarea>
 
             <label for="vote">Inserisci un voto da 0 a 5</label>
-            <input type="num" name="vote" id="vote">
+            <input type="number" min="0" max="5" pattern="/[0-5]/m" name="vote" id="vote" required>
             
             <button type="submit" name="">Invia</button>
         </form>
