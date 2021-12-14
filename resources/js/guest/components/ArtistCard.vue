@@ -10,14 +10,14 @@
             <button class="button-view"><a :href="`http://127.0.0.1:8000/showartist/${data.id}`">Visualizza</a></button>
             <div class="stars">
                 <span>Media voti :</span>
-                <span class="vote">
-                    <span>
-                        <img v-for="index in avg" :key="index" :src="`./storage/plettro voto-2.png`" alt="">
-                    </span>
-                    <span>
-                        <img v-for="index in 5 - avg" :key="index"  :src="`./storage/plettro voto-1.png`" alt="">
-                    </span>
-                </span>
+                <div class="vote">
+                    <div class="picks silver_picks">
+                        <img class="image" :src="`./storage/img/5_plettri_grigio.png`" alt="">
+                    </div>
+                    <div :style="{width : goldenWidth + '%'}" class="picks gold_picks">
+                        <img class="image" :src="`./storage/img/5_plettri_oro.png`" alt="">
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -34,6 +34,7 @@ export default {
         return{
             reviews : this.data.reviews,
             avg: 0,
+            goldenWidth : 0
         }
     },
     created() {
@@ -45,12 +46,19 @@ export default {
             this.reviews.forEach((elm)=>{
                 voto += elm.vote;
             })
-            voto = Math.ceil(voto / this.reviews.length);
+            voto = voto / this.reviews.length;
             if(!voto){
                 voto = 0
             }
-            this.avg = voto
+            this.avg = voto;
+            // modifica width del div con i plettri color oro a seconda del voto
+            this.goldenWidth = (this.avg * 100) / 5;
+            if ( this.goldenWidth == Infinity ) {
+                this.goldenWidth = 0;
+            } 
+            console.log('GoldenWidth is ', this.goldenWidth);
         }
+        
     }
 }
 </script>
@@ -77,8 +85,9 @@ export default {
         display: flex;
         flex-direction: column;
         text-align: center;
+        width: 100%;
         h3, span{
-            margin-bottom: 5px;
+        margin-bottom: 5px;
         }
         .button-view{
             background-color: #3ba7ff;
@@ -94,9 +103,24 @@ export default {
             display: flex;
             flex-direction: column;
             .vote{
-                img{
-                    width: 25px;
-                    margin: 0 3px;
+                width: 180px;
+                height: 30px;
+                overflow: hidden;
+                position: relative;
+                margin: 0 auto;
+                .picks {
+                    overflow: hidden;
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    width: 100%;
+                    height: 100%;
+                    .image {
+                        margin:0;
+                        padding:0;
+                        width: 180px;
+                        height:100%;
+                    }
                 }
             }
         }
