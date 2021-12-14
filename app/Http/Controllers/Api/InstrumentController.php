@@ -45,6 +45,7 @@ class InstrumentController extends Controller
             //Setto a 0 il totale dei voti e la media
             $totVote = 0;
             $averageVote = 0;
+            $user['avgVote'] = 0;
             //il reviews_count ci viene passato dalla query, entriamo nell'if solo se c'è alemeno una review
             if($user['reviews_count'] > 0){
                 //ciclo su tutte le review dell'utente per ottenere la somma voti
