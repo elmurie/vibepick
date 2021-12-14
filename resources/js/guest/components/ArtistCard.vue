@@ -62,6 +62,7 @@ export default {
     border-radius:20px;
     margin: 30px;
     .img{
+        overflow: hidden;
         width: 140px;
         height: 140px;
         border-radius: 50%;
@@ -69,7 +70,7 @@ export default {
         background-color: #dadada;
         img{
             object-fit: cover;
-            width: 105%;
+            width: 100%;
         }
     }
     .text{
@@ -100,6 +101,20 @@ export default {
             }
         }
     }
+}
+
+@media only screen and (max-width: 768px) {
+  .box-card {
+    width: 180px;
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .box-card {
+    width: 160px;
+    margin: 10px;
+  }
 }
 
 

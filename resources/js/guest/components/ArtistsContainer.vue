@@ -46,4 +46,25 @@ export default {
             }
         }
     }
+
+    
+@media only screen and (max-width: 1024px) {
+    section {
+        .container {
+            .user {
+                justify-content: space-evenly;
+            }
+        }
+    }
+}
+
+// @media only screen and (max-width: 425px) {
+//     section {
+//         .container {
+//             .user {
+//                 justify-content: space-evenly;
+//             }
+//         }
+//     }
+// }
 </style>

@@ -86,5 +86,19 @@ export default {
     }
 }
 
+@media only screen and (max-width: 768px) {
+  .box-card {
+    width: 180px;
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .box-card {
+    width: 160px;
+    margin: 10px;
+  }
+}
+
 
 </style>
