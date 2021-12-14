@@ -1,7 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Braintree\Gateway;
 
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +53,65 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     Route::resource('reviews', 'ReviewController');
 
 
+    //Rotte Sponsorships
+    Route::get('/sponsorship', 'SponsorshipController@index');
+
+    Route::get('/check', function(){
+        $gateway = new Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+    
+        $token = $gateway->ClientToken()->generate();
+    
+        return view('admin.sponsor.checkout', compact('token'));
+    });
+    
+    Route::post('/checkout', function(Request $request){
+
+        $gateway = new Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+        
+        $amount = $request->amount;
+        $nonce = $request->payment_method_nonce;
+    
+        $result = $gateway->transaction()->sale([
+            'amount' => $amount,
+            'paymentMethodNonce' => $nonce,
+            'customer' => [
+                'firstName' => 'Tony',
+                'lastName' => 'Stark',
+                'email' => 'tnoy@gmail.it',
+            ],
+            'options' => [
+                'submitForSettlement' => true
+            ]
+        ]);
+    
+        if ($result->success) {
+            $transaction = $result->transaction;
+            // header("Location: transaction.php?id=" . $transaction->id);
+    
+            return back()->with('success_message', 'Transazione riuscita. The ID is:'. $transaction->id);
+        } else {
+            $errorString = "";
+    
+            foreach ($result->errors->deepAll() as $error) {
+                $errorString .= 'Errore: ' . $error->code . ": " . $error->message . "\n";
+            }
+    
+            // $_SESSION["errors"] = $errorString;
+            // header("Location: index.php");
+            return back()->withErrors('An error occurred with the message: '.$result->message);
+        }
+    });
+    
 });
 
 Route::get('/{any}', 'PageController@index')->where('any', '.*');
