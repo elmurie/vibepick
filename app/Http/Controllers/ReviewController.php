@@ -14,7 +14,7 @@ class ReviewController extends Controller
             'user_id'=> 'required | numeric',
             'title' => 'required | string | max:150',
             'author' => 'required | string | max:150',
-            'text' => 'required | text | max:15000',
+            'content' => 'required | string | max:15000',
             'vote' => 'required | numeric | between:0,5',
         ]);
 
@@ -26,6 +26,6 @@ class ReviewController extends Controller
         $newReview->vote=$request->vote;
         $newReview->save();
 
-        return redirect('/showartist'.'/'.$newReview->user_id);
+        return redirect('/showartist'.'/'.$newReview->user_id)->with('review_added','La recensione è stata salvata correttamente');
     }
 }

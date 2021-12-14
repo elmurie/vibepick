@@ -15,7 +15,7 @@ class MessageController extends Controller
             'firstname' => 'required | string | max:100',
             'lastname' => 'required | string | max:100',
             'email' => 'required | email',
-            'content' => 'required | text | max:15000',
+            'text' => 'required | string | max:15000',
         ]);
 
         
@@ -27,6 +27,6 @@ class MessageController extends Controller
         $newMessage->text=$request->text;
         $newMessage->save();
 
-        return redirect('/showartist'.'/'.$newMessage->user_id);
+        return redirect('/showartist'.'/'.$newMessage->user_id)->with('message_sent','Il messagio è stato inviato');
     }
 }
