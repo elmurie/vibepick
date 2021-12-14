@@ -63,9 +63,19 @@ export default {
             }
         }
         button {
-            padding: 5px 10px;
+            color: #ffffff;
+            background-color: #f39200;
+            border: none;
+            border-radius: 1.5625rem;
+            padding: .625rem 1.25rem;
             margin: 1.25rem 0;
             align-self: flex-end;
+            transition-duration: .5s;
+            opacity: .7;
+            &:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
         } 
             
     }

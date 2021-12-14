@@ -13,7 +13,15 @@
             </div>
             <div class="field">
                 <label for="email">Indirizzo e-mail</label>
-                <input pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" type="email" name="email" id="email" placeholder="Inserisci il tuo indirizzo e-mail" required>
+                <input 
+                    pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="Inserisci il tuo indirizzo e-mail" 
+                    oninvalid="setCustomValidity('Inserire un formato corretto')"
+                    oninput="setCustomValidity('')"  
+                    required>
             </div>
             <div class="field">
                 <label for="text">Messaggio</label>
@@ -60,10 +68,20 @@ export default {
             }
         }
         button {
-            padding: 5px 10px;
+            color: #ffffff;
+            background-color: #f39200;
+            border: none;
+            border-radius: 1.5625rem;
+            padding: .625rem 1.25rem;
             margin: 1.25rem 0;
             align-self: flex-end;
-        } 
+            transition-duration: .5s;
+            opacity: .7;
+            &:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
             
     }
 
