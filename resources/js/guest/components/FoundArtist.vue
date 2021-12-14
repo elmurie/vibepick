@@ -38,10 +38,6 @@ export default {
     },
     created() {
         this.goldenWidth = (this.avgVotes * 100) / 5;
-            if ( this.goldenWidth == Infinity ) {
-                this.goldenWidth = 0;
-            } 
-        console.log('GoldenWidth is ', this.goldenWidth);
     }
 }
 </script>
