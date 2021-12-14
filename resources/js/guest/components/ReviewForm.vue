@@ -3,17 +3,22 @@
             <!-- equivalente del @csrf -->
             <input type="hidden" name="_token" :value="csrf">
             <input type="hidden" name="user_id" :value="user_id">
-            <label for="author">Inserisci il tuo nome e il tuo cognome</label>
-            <input type="text" name="author" id="author" required>
-
-            <label for="title">Inserisci il titolo della tua recensione</label>
-            <input type="text" name="title" id="title" required>
-
-            <label for="content">Inserisci il contenuto della tua recensione</label>
-            <textarea name="content" id="content" rows="10" required></textarea>
-
-            <label for="vote">Inserisci un voto da 0 a 5</label>
-            <input type="number" min="0" max="5" pattern="/[0-5]/m" name="vote" id="vote" required>
+            <div class="field">
+                <label for="author">Autore</label>
+                <input type="text" name="author" id="author" placeholder="Inserisci il tuo nome e cognome" required>
+            </div>
+            <div class="field">
+                <label for="title">Titolo</label>
+                <input type="text" name="title" id="title" placeholder="Inserisci il titolo della recensione" required>
+            </div>
+            <div class="field">
+                <label for="content">Testo</label>
+                <textarea name="content" id="content" rows="10" placeholder="Inserisci il contenuto della recensione" required></textarea>
+            </div>
+            <div class="field">
+                <label for="vote">Voto</label>
+                <input type="number" min="0" max="5" pattern="/[0-5]/m" name="vote" id="vote" placeholder="Da 0 a 5" required>
+            </div>
             
             <button type="submit" name="">Invia</button>
         </form>
@@ -42,10 +47,27 @@ export default {
         margin: 0 auto;
         display: flex;
         flex-direction:column;
-    }
-
-    button {
-        width: 2.5rem;
+        .field {
+            display: flex;
+            flex-direction: column;
+            margin: .625rem 0;
+            label {
+                margin-bottom: .3125rem;
+            }
+            input,
+            textarea {
+                padding: .3125rem;
+            }
+            [type="number"] {
+                width: 30%;
+            }
+        }
+        button {
+            padding: 5px 10px;
+            margin: 1.25rem 0;
+            align-self: flex-end;
+        } 
+            
     }
 
 </style>

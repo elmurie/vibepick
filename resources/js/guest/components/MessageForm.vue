@@ -3,18 +3,22 @@
             <!-- equivalente del @csrf -->
             <input type="hidden" name="_token" :value="csrf">
             <input type="hidden" name="user_id" :value="user_id">
-            <label for="firstname">Inserisci il tuo nome</label>
-            <input type="text" name="firstname" id="firstname" required>
-
-            <label for="lastname">Inserisci il tuo cognome</label>
-            <input type="text" name="lastname" id="lastname" required>
-
-            <label for="email">Inserisci la tua email</label>
-            <input 
-            pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" type="email" name="email" id="email" required>
-
-            <label for="text">Inserisci il contenuto del tuo messaggio</label>
-            <textarea name="text" id="text" rows="10" required></textarea>
+            <div class="field">
+                <label for="firstname">Nome</label>
+                <input type="text" name="firstname" id="firstname" placeholder="Inserisci il tuo nome" required>
+            </div>
+            <div class="field">
+                <label for="lastname">Cognome</label>
+                <input type="text" name="lastname" id="lastname" placeholder="Inserisci il tuo cognome" required>
+            </div>
+            <div class="field">
+                <label for="email">Indirizzo e-mail</label>
+                <input pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" type="email" name="email" id="email" placeholder="Inserisci il tuo indirizzo e-mail" required>
+            </div>
+            <div class="field">
+                <label for="text">Messaggio</label>
+                <textarea name="text" id="text" rows="10" placeholder="Inserisci il contenuto del tuo messaggio" required></textarea>
+            </div>
 
             <button type="submit" name="">Invia</button>
         </form>
@@ -43,10 +47,24 @@ export default {
         margin: 0 auto;
         display: flex;
         flex-direction:column;
-    }
-
-    button {
-        width: 2.5rem;
+        .field {
+            display: flex;
+            flex-direction: column;
+            margin: .625rem 0;
+            label {
+                margin-bottom: .3125rem;
+            }
+            input,
+            textarea {
+                padding: .3125rem;
+            }
+        }
+        button {
+            padding: 5px 10px;
+            margin: 1.25rem 0;
+            align-self: flex-end;
+        } 
+            
     }
 
 </style>
