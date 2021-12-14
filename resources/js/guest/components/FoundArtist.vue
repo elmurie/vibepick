@@ -1,7 +1,7 @@
 <template>
     <div class="box-card">
         <div class="img">
-            <img :src="data.profile_pic != null ? `storage/${data.profile_pic}` : `../storage/profile-placeholder.png`" :alt="data.profile_pic != null ? `Profilo di ${data.firstname}` : 'Foto Profilo' "> 
+            <img :src="data.profile_pic != null ? `../storage/${data.profile_pic}` : `../storage/profile-placeholder.png`" :alt="data.profile_pic != null ? `Profilo di ${data.firstname}` : 'Foto Profilo' "> 
         </div>
         <div class="text">
             <h3>{{data.firstname}}</h3>
@@ -50,6 +50,7 @@ export default {
         border-radius: 50%;
         margin: 20px auto 20px auto;
         background-color: #dadada;
+        overflow: hidden;
         img{
             object-fit: cover;
             width: 105%;
