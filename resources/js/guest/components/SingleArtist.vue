@@ -19,10 +19,16 @@
             <div class="img-box">
                 <img :src="artist.profile_pic != null ? `../storage/${artist.profile_pic}` : `../storage/profile-placeholder.png`" :alt="artist.profile_pic != null ? `Profilo di ${artist.firstname}` : 'Foto Profilo' ">
             </div>
-            <div class="box-btn">
+            <!-- <div class="box-btn">
                 <button>Contatta</button>
-            </div>
+            </div> -->
 
+            <!--  bottone modale messaggi  -->
+            <div class="box-btn">
+                <!-- <div class="delete_parent col-md-12"> -->
+                    <button id="modalBtn" type="submit" class="btn btn-danger " :data-id="artist.id" data-toggle="modal" data-target="#messageModal" @click="showMessageModal">Contatta</button>
+                <!-- </div> -->
+            </div>
             <!--  bottone modale recensione  -->
             <div class="box-btn">
                 <!-- <div class="delete_parent col-md-12"> -->
@@ -30,20 +36,25 @@
                 <!-- </div> -->
             </div>
 
-            <!--  bottone modale messaggi  -->
-            <div class="box-btn">
-                <!-- <div class="delete_parent col-md-12"> -->
-                    <button id="modalBtn" type="submit" class="btn btn-danger " :data-id="artist.id" data-toggle="modal" data-target="#messageModal" @click="showMessageModal">Prenota con un messaggio</button>
-                <!-- </div> -->
-            </div>
 
         </div>
 
+        <!--  Modale Messaggio -->
+        <div class="modal fade" id="messageModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content d-flex flex-column">
+                    <div class="modal-header d-flex justify-content-between align-items-center">
+                        <h4 class="modal-title" id="exampleModalLabel">Contatta</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeMessageModal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <MessageForm/>
+                </div>
+            </div>
+        </div>
     
-    
-    
-
-    <!--  Modale Recensione -->
+        <!--  Modale Recensione -->
         <div class="modal fade" id="reviewModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content d-flex flex-column">
@@ -54,21 +65,6 @@
                         </button>
                     </div>
                     <ReviewForm/>
-                </div>
-            </div>
-        </div>
-
-        <!--  Modale Messaggio -->
-        <div class="modal fade" id="messageModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content d-flex flex-column">
-                    <div class="modal-header d-flex justify-content-between align-items-center">
-                        <h4 class="modal-title" id="exampleModalLabel">Scrivi un messaggio</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeMessageModal">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <MessageForm/>
                 </div>
             </div>
         </div>
