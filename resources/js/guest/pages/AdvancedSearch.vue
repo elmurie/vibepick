@@ -4,7 +4,8 @@
         <FilterArtist class="review_vote_filter" @revSearch="revSelected" @avgSearch="avgSelected"/>
         <h1 v-if="instrument != null">{{selectedAdv}}</h1>
         <div class="artists" v-if="instrument != null">
-            <a class="found_artist" :href="`http://127.0.0.1:8000/showartist/${user.id}`" v-for="user in instrument" :key="user.id"><FoundArtist :data="user"/></a> 
+            <!-- <a class="found_artist" :href="`http://127.0.0.1:8000/showartist/${user.id}`" v-for="user in instrument" :key="user.id"><FoundArtist :data="user"/></a>  -->
+            <FoundArtist v-for="user in instrument" :key="user.id" :data="user"/>
         </div>
     </div>
 </template>

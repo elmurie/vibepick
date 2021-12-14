@@ -42,3 +42,25 @@ export default {
 
 
 </script>
+
+<style lang="scss" scoped>
+        select{
+            position: relative;
+            width: 200px;
+            height: 30px;
+            border-radius: 15px;
+            border: none;
+            text-indent: 15px;
+            appearance: none;
+            background-image: url('/storage/arrow.jpg');
+            background-size: 15px;
+            background-repeat: no-repeat;
+            background-position: 97% 50%;
+            &:focus-visible{
+                outline: none;
+            }
+            &:focus{
+                border-radius: 15px 15px 0 0;
+            }
+        }
+</style>
