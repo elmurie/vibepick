@@ -9,6 +9,15 @@ class ReviewController extends Controller
 {
     public function store(Request $request)
     {   
+
+        $request->validate([
+            'user_id'=> 'required | numeric',
+            'title' => 'required | string | max:150',
+            'author' => 'required | string | max:150',
+            'text' => 'required | text | max:15000',
+            'vote' => 'required | numeric | between:0,5',
+        ]);
+
         $newReview = new Review();
         $newReview->user_id=$request->user_id;
         $newReview->title=$request->title;
