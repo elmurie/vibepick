@@ -53,10 +53,6 @@ export default {
             this.avg = voto;
             // modifica width del div con i plettri color oro a seconda del voto
             this.goldenWidth = (this.avg * 100) / 5;
-            if ( this.goldenWidth == Infinity ) {
-                this.goldenWidth = 0;
-            } 
-            console.log('GoldenWidth is ', this.goldenWidth);
         }
         
     }
