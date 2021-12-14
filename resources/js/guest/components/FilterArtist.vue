@@ -63,4 +63,10 @@ export default {
                 border-radius: 15px 15px 0 0;
             }
         }
+
+        @media only screen and (max-width: 425px) {
+            select{
+                width: 150px;
+            }
+        }
 </style>

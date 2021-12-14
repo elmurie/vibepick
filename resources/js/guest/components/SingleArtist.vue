@@ -136,14 +136,18 @@ export default {
         align-items: center;
 }
     .box {
-        width: 50%;
-        margin: 0 auto;
+            height: calc(100vh - 120px);
+            // height: 100%;
+        max-width: 1200px;
+        margin: auto;
         display: flex;
+        justify-content: space-around;
         gap: 3.125rem;
-        height:  calc(100vh - 120px);
+        // height:  calc(100vh - 120px);
 
         .l-col {
             width: 60%;
+            height: 100%;
             // background-color: rgba(0, 0, 0, 0.11);
             padding: 4.375rem 0;
 
@@ -169,11 +173,11 @@ export default {
         .r-col {
             background-color: rgba(65, 65, 65, 0.61);
             width: 40%;
-            padding: 70px 0;
+            padding: 70px 15px;
 
             .img-box {
-                width: 240px;
-                height: 240px;
+                max-width: 240px;
+                max-height: 240px;
                 border-radius: 50%;
                 display: flex;
                 justify-content: center;
@@ -182,6 +186,8 @@ export default {
                 color: black;
                 margin-left: auto;
                 margin-right: auto;
+                padding-left: 5px;
+                padding-right: 5px;
                 overflow: hidden;
                 img {
                     width: 100%;
@@ -193,6 +199,7 @@ export default {
                 text-align: center;
 
                 button {
+                    max-width:230px;
                     background-color: #3ba7ff; /* Green */
                     border: none;
                     color: white;
@@ -206,5 +213,54 @@ export default {
             }
         }
 
+    }
+
+
+
+    @media only screen and (max-width: 1200px) {
+            .box{
+                margin: 0 30px;
+            }
+
+            .modal{
+                .modal-dialog{
+                    .modal-content{
+                        width: 50%;
+                    }
+                }
+            }
+    }
+
+    @media only screen and (max-width: 465px) {
+            .box{
+                flex-direction: column;
+                
+                .r-col{
+                    width: 100%;
+                    background-color: rgba(255, 255, 255, 0);
+                    display: flex;
+                    justify-content:space-around;
+                    flex-wrap: wrap;
+                    padding-top: 0;
+                }
+                .l-col{
+                    padding-top: 10px;
+                    padding-bottom: 0;
+                }
+            }
+
+            .modal{
+                .modal-dialog{
+                    .modal-content{
+                        width: 90%;
+                    }
+                }
+            }
+    }
+
+    @media only screen and (max-height: 860px) {
+            .box{
+                height: 100%
+            }
     }
 </style>

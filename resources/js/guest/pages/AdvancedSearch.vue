@@ -103,4 +103,14 @@ export default {
     div {
         text-align: center;
     }
+
+    @media only screen and (max-width: 1024px) {
+    section {
+        .container {
+            .user {
+                justify-content: space-evenly;
+            }
+        }
+    }
+}
 </style>
