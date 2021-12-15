@@ -75,6 +75,7 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     
     Route::post('/checkout', function(Request $request, User $user){
 
+        
         if($user = Auth::user()){
             $gateway = new Braintree\Gateway([
                 'environment' => config('services.braintree.environment'),
@@ -107,10 +108,19 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
                 date_default_timezone_set('Europe/Rome');
                 $created = date('Y-m-d H:i:s');
                 
+                //Recupera i dati della sponsor grazie all'id nella request
+                $sponsorship = Sponsorship::find($request->sponsor_id);
+
+                //settiamo la data di partenza come oggetto DateTime
+                $start_date = new DateTime($request->start_time);
+
+                //Aggiungiamo la durata della sponsor in giorni
+                $end_date = date_add($start_date, date_interval_create_from_date_string($sponsorship->duration . " days"));
+                // $request->start_time + $sponsorship->duration;
                 //Questo array prende i dati di inizio e fine della sponsor e li raggruppa
                 $sponsor_dati = [
                     'start_time' => $request->start_time,
-                    'end_time' => $request->end_time,
+                    'end_time' => $end_date,
                     'created_at' =>  $created,
                 ];
     
