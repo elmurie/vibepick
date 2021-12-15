@@ -13,11 +13,19 @@
                         @foreach ($reviews as $review)
                         <div class="review-card">
                             <div class="review-header">
-                                <h4>{{$review['title']}}</h4>
-                                <h4>Scritta da {{$review['author']}}</h4>
-                                <h4>Data: {{$review['created_at']}}</h4>
-                                <h5>Voto: {{$review['vote']}}</h5>
-                                <h5>Ricevuto il: {{$review['created_at']}}</h5>
+                                <div class="header-top text-center">
+                                    <h4>{{$review['title']}}</h4>
+                                </div>
+                                <div class="header-bottom d-flex justify-content-between">
+                                    <div class="bottom-lx">
+                                        <h4>Autore: {{$review['author']}}</h4>
+                                        <h4>Voto: {{$review['vote']}}</h4>
+                                    </div>
+                                    <div class="bottom-rx">
+                                        <h4>{{$review['created_at']}}</h4>
+                                    </div>
+                                    
+                                </div>
                             </div>
                             <div class="review-body">
                                 <p>{{$review['content']}}</p>
