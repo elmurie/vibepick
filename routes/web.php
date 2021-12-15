@@ -84,7 +84,9 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
                 'privateKey' => config('services.braintree.privateKey')
             ]);
             
-            $amount = $request->amount;
+            //Recupera i dati della sponsor grazie all'id nella request
+            $sponsorship = Sponsorship::find($request->sponsor_id);
+            $amount = $sponsorship->price;
             $nonce = $request->payment_method_nonce;
         
             $result = $gateway->transaction()->sale([
@@ -108,9 +110,6 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
                 date_default_timezone_set('Europe/Rome');
                 $created = date('Y-m-d H:i:s');
                 
-                //Recupera i dati della sponsor grazie all'id nella request
-                $sponsorship = Sponsorship::find($request->sponsor_id);
-
                 //settiamo la data di partenza come oggetto DateTime
                 $start_date = new DateTime($request->start_time);
 
