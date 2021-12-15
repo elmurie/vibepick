@@ -14,9 +14,9 @@
                         <div class="review-card">
                             <div class="review-header">
                                 <div class="header-top text-center">
-                                    <h4>{{$review['title']}}</h4>
+                                    <h3>{{$review['title']}}</h3>
                                 </div>
-                                <div class="header-bottom d-flex justify-content-between">
+                                <div class="header-bottom d-flex flex-column flex-md-row justify-content-between">
                                     <div class="bottom-lx">
                                         <h4>Autore: {{$review['author']}}</h4>
                                         <h4>Voto: {{$review['vote']}}</h4>
