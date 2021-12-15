@@ -14,6 +14,18 @@ header{
     }
 }
 
+footer {
+    height: 50px;
+    background-color: #353942;
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 40px;
+        height: 50px;
+    }
+}
+
 //font-style
 body {
     font-family: Nunito, sans-serif;
@@ -234,7 +246,7 @@ small {
         width: 0;
         height: 0;
         position: absolute;
-        top: 0;
+        top: 4.375rem;
         right: 0;
         background-color: #213e74;
         opacity: .9;
@@ -278,6 +290,6 @@ small {
 }
 
 @keyframes expandAfter {
-    from { width: 0; height: 0;}
-    to { width: 50%; height: 100%;padding: 90px 15px; }
+    from { width: 0; height: 100vh;}
+    to { width: 50%; height: 100vh;padding: 90px 15px; }
 }
