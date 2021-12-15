@@ -3,13 +3,13 @@
         <h1>Cerca il tuo Musicista!</h1>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi quam quos et error cum voluptate nostrum am. Debitis ipsa sapiente hic.</p>
         <select v-model="selected" v-on:change="searchPage(), $emit('search', selected)">
-            <option disabled value="">Please select one</option>
+            <option disabled value="">&nbsp; &nbsp; Filtra per strumento!</option>
             <option 
                 v-for="(instrument, index) in instruments" 
                 :key="index"
                 :data="instrument"
                 :value="instrument.slug">
-                {{instrument.name}}
+                &nbsp; &nbsp; {{instrument.name}}
             </option>
 
         </select>
@@ -71,7 +71,6 @@ export default {
             position: relative;
             width: 300px;
             height: 30px;
-            border-radius: 15px;
             border: none;
             text-indent: 15px;
             appearance: none;
@@ -81,9 +80,6 @@ export default {
             background-position: 97% 50%;
             &:focus-visible{
                 outline: none;
-            }
-            &:focus{
-                border-radius: 15px 15px 0 0;
             }
         }
     

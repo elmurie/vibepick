@@ -1,22 +1,23 @@
 <template>
     <div>
         <select v-model="rewMin" v-on:change="$emit('revSearch', rewMin)">
-            <option disabled value="">numero recensioni</option>
-            <option 
-                v-for="(num, index) in numReview" 
-                :key="`rev-${index}`"
-                :value="num">
-                {{num}}
-            </option>
+            <option disabled value=""> &nbsp; &nbsp; Numero Recensioni</option>
+                <option
+                    v-for="(num, index) in numReview" 
+                    :key="`rev-${index}`"
+                    :value="num">
+                    &nbsp; &nbsp; {{num}} o piú recensioni
+                </option> 
+            
         </select>
 
         <select v-model="avgVote" v-on:change="$emit('avgSearch', avgVote)">
-            <option disabled value="">media Voto</option>
-            <option 
+            <option disabled value=""> &nbsp; &nbsp; Media voto</option>
+            <option style="text-indent: 15px;"
                 v-for="(num, index) in average" 
                 :key="`avg-${index}`"
                 :value="num">
-                {{num}}
+                &nbsp; &nbsp; {{num}} o piú plettri
             </option>
         </select>
     </div>
@@ -37,7 +38,6 @@ export default {
             ]
         }
     },
-
 }
 
 
@@ -48,21 +48,24 @@ export default {
             position: relative;
             width: 200px;
             height: 30px;
-            border-radius: 15px;
             border: none;
             text-indent: 15px;
             appearance: none;
             background-image: url('/storage/arrow.jpg');
             background-size: 15px;
             background-repeat: no-repeat;
-            background-position: 97% 50%;
+            background-position: 96% 50%;
+            margin: 3px;
             &:focus-visible{
                 outline: none;
             }
-            &:focus{
-                border-radius: 15px 15px 0 0;
-            }
         }
+        // optgroup{
+        //     position: relative;
+        //     top: -50px;
+        //     text-indent: 15px;
+        // }
+
 
         @media only screen and (max-width: 425px) {
             select{
