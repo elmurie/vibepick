@@ -1,7 +1,7 @@
 <template>
     <div>
         <select v-model="rewMin" v-on:change="$emit('revSearch', rewMin)">
-            <option disabled value=""> &nbsp; &nbsp; Numero Recensioni</option>
+            <option disabled value=""> &nbsp; Numero Recensioni</option>
                 <option
                     v-for="(num, index) in numReview" 
                     :key="`rev-${index}`"
@@ -12,7 +12,7 @@
         </select>
 
         <select v-model="avgVote" v-on:change="$emit('avgSearch', avgVote)">
-            <option disabled value=""> &nbsp; &nbsp; Media voto</option>
+            <option disabled value=""> &nbsp; Media voto</option>
             <option style="text-indent: 15px;"
                 v-for="(num, index) in average" 
                 :key="`avg-${index}`"
@@ -49,7 +49,7 @@ export default {
             width: 200px;
             height: 30px;
             border: none;
-            text-indent: 15px;
+            text-indent: 5px;
             appearance: none;
             background-image: url('/storage/arrow.jpg');
             background-size: 15px;

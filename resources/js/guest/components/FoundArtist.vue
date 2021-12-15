@@ -109,6 +109,51 @@ export default {
   .box-card {
     width: 180px;
     margin: 20px;
+    .text{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        h3, span{
+        margin-bottom: 5px;
+        }
+        .button-view{
+            background-color: #3ba7ff;
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            border-radius: 20px;
+            border: none;
+            margin: auto;
+            margin-bottom: 5px;
+        }
+        .stars{
+            display: flex;
+            flex-direction: column;
+            .vote{
+                width: 140px;
+                height: 24px;
+                overflow: hidden;
+                position: relative;
+                margin: 0 auto;
+                .picks {
+                    overflow: hidden;
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    width: 100%;
+                    height: 100%;
+                    .image {
+                        margin:0;
+                        padding:0;
+                        width: 140px;
+                        height:100%;
+                    }
+                }
+            }
+        }
+    }
+    
   }
 }
 

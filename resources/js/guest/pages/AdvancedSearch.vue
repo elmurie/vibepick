@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <Search class="instrument_filter" @search="instrumentSelected"/>
+    <div class="box-main-home box-search">
+        <Search class="instrument_filter " @search="instrumentSelected"/>
         <FilterArtist class="review_vote_filter" @revSearch="revSelected" @avgSearch="avgSelected"/>
         <h1 v-if="instrument != null">{{selectedAdv}}</h1>
         <div class="artists" v-if="instrument != null">
@@ -85,6 +85,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .box-main-home {
+		max-width: 	1200px;
+		margin: 0 auto;
+		text-align: center;
+		background-color: rgba(0, 0, 0, 0.068);
+	}
+    .box-search{
+        margin-top: 3.125rem;
+    }
     .instrument_filter,
     .review_vote_filter {
             margin: 20px 0;
