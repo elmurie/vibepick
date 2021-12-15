@@ -55,6 +55,6 @@ class User extends Authenticatable
 
     // Many-to-Many tra sponsorship e utenti
     public function sponsorships() {
-        return $this->belongsToMany('App\Sponsorship');
+        return $this->belongsToMany('App\Sponsorship')->withPivot('start_time', 'end_time')->withTimestamps();
     }
 }

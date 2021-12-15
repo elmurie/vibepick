@@ -25,10 +25,14 @@ class InstrumentController extends Controller
     public function show($slug, $rewMin, $avgVote)
     {
 
-
+        
         //eseguo la chiamata su user selezionando in base allo strumento
-        $users = User::whereHas('instruments', function (Builder $query) use($slug){
+        $usersSponsor = User::whereHas('instruments', function (Builder $query) use($slug){
             $query->where('slug', $slug);
+        })->whereHas('sponsorships', function(Builder $query){
+            date_default_timezone_set('Europe/Rome');
+            $nowDate = date("Y-m-d H:i:s");
+            $query->where('end_time', '>', $nowDate)->where('start_time', '<', $nowDate);
         })
         //conto il numero di review
         ->withCount('reviews')
@@ -37,12 +41,29 @@ class InstrumentController extends Controller
         //collego tutte le review perché sono una pippa e devo usarle per applicare la condizione sulla media voto
         ->with('reviews')->get();
 
+        $usersNotSponsor = User::whereHas('instruments', function (Builder $query) use($slug){
+            $query->where('slug', $slug);
+        })->doesntHave('sponsorships')
+        //conto il numero di review
+        ->withCount('reviews')
+        //imposto la condizione sul numero di review
+        ->having('reviews_count', '>=', $rewMin)
+        //collego tutte le review perché sono una pippa e devo usarle per applicare la condizione sulla media voto
+        ->with('reviews')->get();
+
+        $users = [];
+        foreach ($usersSponsor as $sponsor) {
+            $users[]=$sponsor;
+        }
+        foreach ($usersNotSponsor as $sponsor) {
+        $users[]=$sponsor;
+        }
 
         //setto vuoto l'array di risposta
         $usersFiltered = [];
-        
         foreach($users as $user){
             //Setto a 0 il totale dei voti e la media
+
             $totVote = 0;
             $averageVote = 0;
             $user['avgVote'] = 0;

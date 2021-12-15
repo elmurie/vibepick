@@ -10,8 +10,15 @@ use App\User;
 class UserController extends Controller
 {
     public function index()
-    {
-        $users = User::with('reviews')->with('instruments')->get();
+    {   //prendi gli user con le recensioni solo se hanno almeno uno strumento assegnato
+        $users = User::with('reviews')->with('instruments')->whereHas('sponsorships', function(Builder $query){
+            date_default_timezone_set('Europe/Rome');
+            $nowDate = date("Y-m-d H:i:s");
+            $query->where('end_time', '>', $nowDate)->where('start_time', '<', $nowDate);
+        })->get();
+        
+        
+        
 
         return response()->json([
             'success' => true,
