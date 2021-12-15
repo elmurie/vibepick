@@ -31,10 +31,10 @@ export default {
             rewMin: '',
             avgVote: '',
             numReview : [
-                0,2,4,5
+                1,2,4,5
             ],
             average:[
-                0,1,2,3,4,5
+                1,2,3,4,5
             ]
         }
     },
