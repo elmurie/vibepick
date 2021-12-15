@@ -39,12 +39,6 @@ a {
     color : #ffffff; 
 }
 
-// inizio scrollbar
-body::-webkit-scrollbar-thumb {
-    background-color: blue; 
-    width: 100%;
-    
-}
 
 *::-webkit-scrollbar {
     width: .75rem; //lasciare cosi per togliere le freccette

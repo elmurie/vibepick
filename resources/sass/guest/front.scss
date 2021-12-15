@@ -160,7 +160,7 @@ header{
         width: 0;
         height: 0;
         position: absolute;
-        top: 0;
+        top: 70px;
         right: 0;
         background-color: #213e74;
         opacity: .9;
@@ -204,7 +204,7 @@ header{
 }
 
 @keyframes expandAfter {
-    from { width: 0; height: 0;}
-    to { width: 50%; height: 100%;padding: 90px 15px; }
+    from { width: 0; height: 100vh;}
+    to { width: 50%; height: 100vh;padding: 90px 15px; }
 }
 

@@ -115,8 +115,5 @@
                     toastr.success("{!!Session::get('record_updated')!!}");
                 </script>
         @endif
-            <footer>
-                
-            </footer>
     </body>
 </html>
