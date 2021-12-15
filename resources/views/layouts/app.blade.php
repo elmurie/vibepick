@@ -71,11 +71,11 @@
                             
                             <div>
                                 <ul class="d-flex align-center">
-                                    <li>
+                                    {{-- <li>
                                         <a href="#">
                                             {{ Auth::user()->firstname }}
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
