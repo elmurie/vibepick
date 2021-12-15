@@ -16,7 +16,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-lg-8 col-md-12">
                 <div class="card register">
                     <div class="card-header padding-card bg-dark-blue b-radius-header text-center">
                         <h2>{{ __('Registrazione') }}</h2>
