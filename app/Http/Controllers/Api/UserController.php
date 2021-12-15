@@ -10,8 +10,10 @@ use App\User;
 class UserController extends Controller
 {
     public function index()
-    {
-        $users = User::with('reviews')->with('instruments')->get();
+    {   //prendi gli user con le recensioni solo se hanno almeno uno strumento assegnato
+        $users = User::with('reviews')->has('instruments')->with('sponsorships')->get();
+        
+        
 
         return response()->json([
             'success' => true,
