@@ -26,6 +26,12 @@ main {
     height:calc(100vh - 4.375rem - 2.8125rem);
     overflow-y: auto;
 }
+@media only screen and (max-width: 425px) {
+    main {
+      padding: 15px 0 15px 0;
+    }
+  }
+  
 .bg-dark-blue {
     background-color: #213e74;
 }
@@ -89,7 +95,7 @@ footer {
 
 //larghezza form pagina login
 .login form {
-    width: 50%;
+    width: 70%;
 }
 
 //testo forgot your password?
