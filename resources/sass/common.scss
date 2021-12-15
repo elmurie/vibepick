@@ -15,14 +15,13 @@ header{
 }
 
 footer {
-    height: 50px;
     background-color: #353942;
     div{
         display: flex;
         align-items: center;
         justify-content: flex-end;
         margin-right: 40px;
-        height: 50px;
+        height: 45px;
     }
 }
 
@@ -284,6 +283,6 @@ small {
 }
 
 @keyframes expandAfter {
-    from { width: 0; height: 100vh;}
-    to { width: 50%; height: 100vh;padding: 90px 15px; }
+    from { width: 0; height: calc(100% - 70px);}
+    to { width: 50%; height: calc(100% - 70px); padding: 90px 15px; }
 }
