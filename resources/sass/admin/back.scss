@@ -310,3 +310,52 @@ footer {
         text-align: justify;
     }
 }
+
+/*PAGINA SPONSORSHIP*/
+
+.sponsors .card-header {
+    padding : 15px 20px;
+}
+
+.sponsors .card-body {
+    padding : 15px 20px;
+}
+
+.sponsor-card {
+    background-color: #0095d1;
+    border-radius: 5px;
+    margin: 20px 0;
+    .sponsor-header,
+    .sponsor-body {
+        padding: 10px 15px;
+    }
+    .sponsor-header{
+        background-color: #fff;
+        border-radius: 5px 5px 0 0;
+        color: #000;
+        .title {
+            color: #213e74;
+            margin-left: 10px;
+            width:90%;
+            font-size: 24px;
+        }
+        img {
+            // background-color: #213e74;
+            padding: 10px;
+            // border-radius: 50%;
+            width: clamp(75px, 25%, 300px);
+        }
+        a {
+            color : #213E74;
+        }
+    }
+    .sponsor-body {
+        border-radius: 0 0 5px 5px;
+        a {
+            margin-top: 10px;
+        }
+        .btn {
+            padding: 10px 30px
+        }
+    }
+}
