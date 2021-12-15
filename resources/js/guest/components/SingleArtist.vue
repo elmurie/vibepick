@@ -1,43 +1,57 @@
 <template>
-    <div class="box">
-        <div class="l-col">
-            <h2>{{artist.firstname}} {{artist.lastname}}</h2>
-            <h3>Artista specializzato in:</h3>
-            <ul>
-                <li v-for="instrument in artist.instruments" :key="instrument.id">{{instrument.name}}</li>
-            </ul>
-            <p>Voto: <span>{{artist.avgVote.toFixed(2)}}</span></p>
-            <p>Numero di recensioni: <span>{{artist.numReviews}}</span> </p>
-            <p>Indirizzo: <span>{{artist.adress}}</span></p>
-            <p>Telefono: <span>+39 {{artist.phone_number}}</span></p>
-            <p>Email: <span>{{artist.email}}</span></p>
-            <p>Genere: <span>{{artist.genre}}</span></p>
-            <p>Servizi offerti: <span>{{artist.services}}</span></p>
-            <p>CV: <span>{{artist.curriculum}}</span></p>
+    <div >
+        <div class="box">
+            <div class="l-col">
+                <h2>{{artist.firstname}} {{artist.lastname}}</h2>
+                <h3>Artista specializzato in:</h3>
+                <ul>
+                    <li v-for="instrument in artist.instruments" :key="instrument.id">{{instrument.name}}</li>
+                </ul>
+                <p>Voto: <span>{{getScore(artist.avgVote)}}</span></p>
+                <p>Indirizzo: <span>{{artist.adress ? artist.adress : ` L'indirizzo non é presente`}}</span></p>
+                <p>Telefono: <span>+39 {{artist.phone_number}}</span></p>
+                <p>Email: <span>{{artist.email}}</span></p>
+                <p>Genere: <span>{{artist.genre ? artist.genre : "Il genere non é presente"}}</span></p>
+                <p>Servizi offerti: <span>{{artist.services}}</span></p>
+                <p>CV: <span>{{artist.curriculum ? artist.curriculum : 'Il curriculum non é presente'}}</span></p>
+                <p>Recensioni: {{artist.reviews_count}}</p>
+                <div class="reviews">
+                    <ul >
+                        <li v-for="review, index in artist.reviews" :key="index">
+                            <h3>{{review.title}}</h3>
+                            <h4>Voto: {{review.vote}}</h4>
+                            <span>Recensito il: {{review.created_at}}</span>
+                            <br>
+                            <p>{{review.content}}.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="r-col">
+                <div class="img-box">
+                    <img :src="artist.profile_pic != null ? `../storage/${artist.profile_pic}` : `../storage/profile-placeholder.png`" :alt="artist.profile_pic != null ? `Profilo di ${artist.firstname}` : 'Foto Profilo' ">
+                </div>
+                <!-- <div class="box-btn">
+                    <button>Contatta</button>
+                </div> -->
+
+                <!--  bottone modale messaggi  -->
+                <div class="box-btn">
+                    <!-- <div class="delete_parent col-md-12"> -->
+                        <button id="modalBtn" type="submit" class="btn btn-danger " :data-id="artist.id" data-toggle="modal" data-target="#messageModal" @click="showMessageModal">Contatta</button>
+                    <!-- </div> -->
+                </div>
+                <!--  bottone modale recensione  -->
+                <div class="box-btn">
+                    <!-- <div class="delete_parent col-md-12"> -->
+                        <button id="modalBtn" type="submit" class="btn btn-danger " :data-id="artist.id" data-toggle="modal" data-target="#reviewModal" @click="showReviewModal">Lascia una Recensione</button>
+                    <!-- </div> -->
+                </div>
+
+
+            </div>    
         </div>
-        <div class="r-col">
-            <div class="img-box">
-                <img :src="artist.profile_pic != null ? `../storage/${artist.profile_pic}` : `../storage/profile-placeholder.png`" :alt="artist.profile_pic != null ? `Profilo di ${artist.firstname}` : 'Foto Profilo' ">
-            </div>
-            <!-- <div class="box-btn">
-                <button>Contatta</button>
-            </div> -->
-
-            <!--  bottone modale messaggi  -->
-            <div class="box-btn">
-                <!-- <div class="delete_parent col-md-12"> -->
-                    <button id="modalBtn" type="submit" class="btn btn-danger " :data-id="artist.id" data-toggle="modal" data-target="#messageModal" @click="showMessageModal">Contatta</button>
-                <!-- </div> -->
-            </div>
-            <!--  bottone modale recensione  -->
-            <div class="box-btn">
-                <!-- <div class="delete_parent col-md-12"> -->
-                    <button id="modalBtn" type="submit" class="btn btn-danger " :data-id="artist.id" data-toggle="modal" data-target="#reviewModal" @click="showReviewModal">Lascia una Recensione</button>
-                <!-- </div> -->
-            </div>
-
-
-        </div>
+        
 
         <!--  Modale Messaggio -->
         <div class="modal fade" id="messageModal">
@@ -85,10 +99,18 @@ export default {
     },
     data() {
         return {
-            artist : {}
+            artist : {},
+            
         }
     },
     methods:{
+        // getReviews () {
+        //     let number = this.artist.reviews.length;
+        //     console.log(number);
+        // },
+        getScore (val) {
+            return parseFloat(val).toFixed(2);
+        },
         showReviewModal (){
             let mod = document.getElementById('reviewModal');
             mod.classList.add('showMod');
@@ -136,8 +158,8 @@ export default {
         align-items: center;
 }
     .box {
-            height: calc(100vh - 120px);
-            // height: 100%;
+            // height: calc(100vh - 120px);
+            height: 100%;
         max-width: 1200px;
         margin: auto;
         display: flex;
@@ -173,25 +195,22 @@ export default {
         .r-col {
             background-color: rgba(65, 65, 65, 0.61);
             width: 40%;
+            // height: 100%;
             padding: 70px 15px;
-
+            flex-direction:column;
             .img-box {
                 max-width: 240px;
                 max-height: 240px;
                 border-radius: 50%;
-                display: flex;
                 justify-content: center;
                 align-items: center;
                 background-color: rgb(255, 255, 255);
                 color: black;
                 margin-left: auto;
                 margin-right: auto;
-                padding-left: 5px;
-                padding-right: 5px;
                 overflow: hidden;
                 img {
                     width: 100%;
-                    border-radius: 50%;
                 }
             }
             .box-btn {
@@ -213,6 +232,26 @@ export default {
             }
         }
 
+        .reviews{
+            p{
+                margin-bottom: 2px;
+            }
+            ul{
+                list-style: none;
+                margin: 0;
+                li{
+                    background-color: rgba(173, 216, 230, 0.11);
+                    padding: 5px;
+                    border-radius: 5px;  
+                    margin-bottom:10px;
+                    p{
+                        margin:0;
+                    }
+                }
+                
+            }
+        }
+
     }
 
 
@@ -231,6 +270,18 @@ export default {
             }
     }
 
+    @media only screen and (max-width: 768px ) and (min-width: 465px ) {
+        .box{
+           .r-col{
+                .img-box{
+                    max-width: 138px;
+                    max-height: 138px;
+                }
+            } 
+        }
+            
+    }
+
     @media only screen and (max-width: 465px) {
             .box{
                 flex-direction: column;
@@ -242,6 +293,10 @@ export default {
                     justify-content:space-around;
                     flex-wrap: wrap;
                     padding-top: 0;
+                    .img-box{
+                    max-width:240px;
+                    max-height:240px;
+                }
                 }
                 .l-col{
                     padding-top: 10px;
@@ -255,6 +310,10 @@ export default {
                         width: 90%;
                     }
                 }
+            }
+
+            .reviews{
+                display: none;
             }
     }
 
