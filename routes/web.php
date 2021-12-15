@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Braintree\Gateway;
 
 use App\User;
+use App\Sponsorship;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,21 +57,7 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     //Rotte Sponsorships
     Route::get('/sponsorship', 'SponsorshipController@index');
 
-    Route::get('/check', function(){
-        $gateway = new Braintree\Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
-    
-        $token = $gateway->ClientToken()->generate();
-    
-        return view('admin.sponsor.checkout', compact('token'));
-    });
-    
-    Route::post('/checkout', function(Request $request){
-
+    Route::get('/check/{id}', function($id){
         $gateway = new Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -78,38 +65,75 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
             'privateKey' => config('services.braintree.privateKey')
         ]);
         
-        $amount = $request->amount;
-        $nonce = $request->payment_method_nonce;
+        $sponsorship=Sponsorship::find($id);
+
     
-        $result = $gateway->transaction()->sale([
-            'amount' => $amount,
-            'paymentMethodNonce' => $nonce,
-            'customer' => [
-                'firstName' => 'Tony',
-                'lastName' => 'Stark',
-                'email' => 'tnoy@gmail.it',
-            ],
-            'options' => [
-                'submitForSettlement' => true
-            ]
-        ]);
+        $token = $gateway->ClientToken()->generate();
     
-        if ($result->success) {
-            $transaction = $result->transaction;
-            // header("Location: transaction.php?id=" . $transaction->id);
+        return view('admin.sponsor.checkout', compact('token', 'sponsorship'));
+    })->name('payment');
     
-            return back()->with('success_message', 'Transazione riuscita. The ID is:'. $transaction->id);
-        } else {
-            $errorString = "";
+    Route::post('/checkout', function(Request $request, User $user){
+
+        if($user = Auth::user()){
+            $gateway = new Braintree\Gateway([
+                'environment' => config('services.braintree.environment'),
+                'merchantId' => config('services.braintree.merchantId'),
+                'publicKey' => config('services.braintree.publicKey'),
+                'privateKey' => config('services.braintree.privateKey')
+            ]);
+            
+            $amount = $request->amount;
+            $nonce = $request->payment_method_nonce;
+        
+            $result = $gateway->transaction()->sale([
+                'amount' => $amount,
+                'paymentMethodNonce' => $nonce,
+                'customer' => [
+                    'firstName' => $user->firstname,
+                    'lastName' => $user->lastname,
+                    'email' => $user->email,
+                ],
+                'options' => [
+                    'submitForSettlement' => true
+                ]
+            ]);
+        
+            if ($result->success) {
+                $transaction = $result->transaction;
+                // header("Location: transaction.php?id=" . $transaction->id);
+
+                // inserimento manuale del created_at per avere disponibile uno stroico privato di attivazione della sponsorship
+                date_default_timezone_set('Europe/Rome');
+                $created = date('Y-m-d H:i:s');
+                
+                //Questo array prende i dati di inizio e fine della sponsor e li raggruppa
+                $sponsor_dati = [
+                    'start_time' => $request->start_time,
+                    'end_time' => $request->end_time,
+                    'created_at' =>  $created,
+                ];
     
-            foreach ($result->errors->deepAll() as $error) {
-                $errorString .= 'Errore: ' . $error->code . ": " . $error->message . "\n";
+    
+                //grazie all'attach colleghiamo user_id e sponsorship_id e aggiungiamo i dati ulteriori sulla durata nella tabella pivot sponsorship_user
+                $user->sponsorships()->attach($request->sponsor_id, $sponsor_dati );
+                return back()->with('success_message', 'Transazione riuscita. The ID is:'. $transaction->id);
+            } else {
+                $errorString = "";
+        
+                foreach ($result->errors->deepAll() as $error) {
+                    $errorString .= 'Errore: ' . $error->code . ": " . $error->message . "\n";
+                }
+        
+                // $_SESSION["errors"] = $errorString;
+                // header("Location: index.php");
+                return back()->withErrors('An error occurred with the message: '.$result->message);
             }
-    
-            // $_SESSION["errors"] = $errorString;
-            // header("Location: index.php");
-            return back()->withErrors('An error occurred with the message: '.$result->message);
-        }
+        };
+
+        abort('403');
+
+        
     });
     
 });

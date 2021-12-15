@@ -32,15 +32,29 @@
 @endif
 
 <div class="content">
+    <h1>
+
+        {{$sponsorship->name}}
+    </h1>
     <form method="post" id="payment-form" action="{{ url('/admin/checkout') }}">
         @csrf
         <section>
             <label for="amount">
                 <span class="input-label">Amount</span>
                 <div class="input-wrapper amount-wrapper">
-                    <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+                    <input id="amount" name="amount" type="tel"  value="{{$sponsorship->price}}">
                 </div>
             </label>
+
+
+            <input id="sponsor_id" name="sponsor_id" hidden value="{{$sponsorship->id}}">
+
+            <label for="start_time">Inserisci la data d'inizio della sponsorship:</label>
+            <input id="start_time" name="start_time"  type="datetime-local" min="2021-12-01 00:00">
+
+            <input id="end_time" name="end_time" hidden value="2021-11-03 18:55:19">
+
+
 
             <div class="bt-drop-in-wrapper">
                 <div id="bt-dropin"></div>
