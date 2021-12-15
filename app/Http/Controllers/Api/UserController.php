@@ -11,7 +11,12 @@ class UserController extends Controller
 {
     public function index()
     {   //prendi gli user con le recensioni solo se hanno almeno uno strumento assegnato
-        $users = User::with('reviews')->has('instruments')->with('sponsorships')->get();
+        $users = User::with('reviews')->with('instruments')->whereHas('sponsorships', function(Builder $query){
+            date_default_timezone_set('Europe/Rome');
+            $nowDate = date("Y-m-d H:i:s");
+            $query->where('end_time', '>', $nowDate)->where('start_time', '<', $nowDate);
+        })->get();
+        
         
         
 
