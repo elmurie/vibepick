@@ -1,19 +1,31 @@
-@extends('layouts.app')
+@extends('layouts.sponsor')
 
 @section('content')
-    <h2>Siamo nel pagamento</h2>
-    
-    @foreach ($sponsorships as $sponsorship)
-
-        <div class="card__sponsor" style="margin: 0.5rem; padding: 1rem; background-color: rgb(51, 75, 95)">
-            <h3>{{$sponsorship->name}}</h3>
-            <h5>Costo: {{$sponsorship->price}}€</h5>
-            <h5>Durata {{$sponsorship->duration}} giorni</h5>
-            {{-- @dd($sponsorship) --}}
-            {{-- @dd($sponsorship['id']) --}}
-            <a href="{{route("admin.payment", $sponsorship->id)}}"><button>Acquista</button> </a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card sponsors d-flex flex-column justify-content-center">
+                    <div class="card-header bg-dark-blue b-radius-header text-center">
+                        <h1>Mettiti in mostra!</h1>
+                        <h5>Il tuo profilo apparirà temporaneamente nella nostra homepage, scegli il tuo piano preferito</h5>
+                    </div>
+                    <div class="card-body bg-light-blue b-radius-body d-flex flex-column justify-center">
+                        @foreach ($sponsorships as $sponsorship)
+                        <div class="sponsor-card">
+                            <div class="sponsor-header d-flex justify-content-center align-center">
+                                    <img src="../storage/img/sponsor_logo_{{$sponsorship['id']}}.png" alt="{{$sponsorship['name']}}">
+                                    <h3 class="title">{{$sponsorship->name}} Sponsorship</h3>
+                            </div>
+                            <div class="sponsor-body d-flex flex-column">
+                                <h4>Prezzo: {{$sponsorship['price']}}€</h4>
+                                <h4>Durata: {{$sponsorship['duration']}} giorni</h4>
+                                <a class="align-self-end" href="{{route("admin.payment", $sponsorship->id)}}"><button class="btn">Acquista</button></a>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
-    @endforeach
-
-
+    </div>
 @endsection

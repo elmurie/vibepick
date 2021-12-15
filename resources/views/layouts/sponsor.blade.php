@@ -35,12 +35,11 @@
                         <a  class="logo" href="{{url('/')}}">
                             <img src="{{asset('storage/img/logo_pick.png')}}" alt="VibePick Logo">
                         </a>
-                        
-
                         {{-- link --}}
-                        @guest
+                        <div id="myLinks">
+                            @guest
                             <div>
-                                <ul class="d-flex gap">
+                                <ul class="d-flex align-center">
                                     <li>
                                         <a href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
@@ -51,11 +50,10 @@
                                     @endif
                                 </ul>
                             </div>                           
-                        @else
-
-                        {{-- link --}}
+                            @else
+                            {{-- link --}}
                             <div>
-                                <ul class="d-flex gap">
+                                <ul class="d-flex align-center">
                                 @if (@isset($user))
                                     <li>
                                         <a href="{{ route('admin.users.show') }}">
@@ -72,7 +70,7 @@
                             </div>
                             
                             <div>
-                                <ul class="d-flex gap">
+                                <ul class="d-flex align-center">
                                     <li>
                                         <a href="#">
                                             {{ Auth::user()->firstname }}
@@ -89,8 +87,11 @@
                                     </form>
                                 </ul>
                             </div>
-                        @endguest
-                        
+                            @endguest
+                        </div>
+                        <div class="menu-btn">
+                            <div class="menu-btn_burger"></div>
+                        </div>
                     </div>
                 </nav>
             </header>
@@ -109,40 +110,41 @@
                     toastr.success("{!!Session::get('record_updated')!!}");
                 </script>
         @endif
-    
-        {{-- Script per il pagamento --}}
-        <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
-    <script>
-        var form = document.querySelector('#payment-form');
-        var client_token = "{{ $token }}";
-
-        braintree.dropin.create({
-          authorization: client_token,
-          selector: '#bt-dropin',
-          paypal: {
-            flow: 'vault'
-          }
-        }, function (createErr, instance) {
-          if (createErr) {
-            console.log('Create Error', createErr);
-            return;
-          }
-          form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            instance.requestPaymentMethod(function (err, payload) {
-              if (err) {
-                console.log('Request Payment Method Error', err);
-                return;
-              }
-              console.log(payload);
-              // Add the nonce to the form and submit
-              document.querySelector('#nonce').value = payload.nonce;
-              form.submit();
-            });
-          });
-        });
-    </script>
-    
+            <footer>
+                
+            </footer>
+            {{-- Braintree script --}}
+            <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
+            <script>
+                var form = document.querySelector('#payment-form');
+                var client_token = "{{ $token }}";
+        
+                braintree.dropin.create({
+                    authorization: client_token,
+                    selector: '#bt-dropin',
+                    paypal: {
+                    flow: 'vault'
+                    }
+                }, function (createErr, instance) {
+                    if (createErr) {
+                    console.log('Create Error', createErr);
+                    return;
+                    }
+                    form.addEventListener('submit', function (event) {
+                        event.preventDefault();
+        
+                        instance.requestPaymentMethod(function (err, payload) {
+                            if (err) {
+                                console.log('Request Payment Method Error', err);
+                                return;
+                            }
+                            console.log(payload);
+                            // Add the nonce to the form and submit
+                            document.querySelector('#nonce').value = payload.nonce;
+                            form.submit();
+                        });
+                    });
+                });
+            </script>
     </body>
 </html>

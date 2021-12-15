@@ -233,6 +233,8 @@ export default {
         }
 
         .reviews{
+            overflow-y: scroll;
+            height: 200px;
             p{
                 margin-bottom: 2px;
             }
@@ -299,6 +301,7 @@ export default {
                 }
                 }
                 .l-col{
+                    width: 100%;
                     padding-top: 10px;
                     padding-bottom: 0;
                 }
@@ -313,7 +316,7 @@ export default {
             }
 
             .reviews{
-                display: none;
+                width: 100%;
             }
     }
 
