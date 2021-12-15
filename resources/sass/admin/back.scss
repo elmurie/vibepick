@@ -316,46 +316,140 @@ footer {
 .sponsors .card-header {
     padding : 15px 20px;
 }
-
 .sponsors .card-body {
     padding : 15px 20px;
+    .sponsor-card {
+        background-color: #0095d1;
+        border-radius: 5px;
+        margin: 20px 0;
+        .sponsor-header,
+        .sponsor-body {
+            padding: 10px 15px;
+        }
+        .sponsor-header{
+            background-color: #0095d1;
+            border-radius: 5px 5px 0 0;
+            color: #000;
+            .title {
+                color: #fff;
+                margin-left: 10px;
+                width:90%;
+                font-size: 24px;
+            }
+            img {
+                // background-color: #213e74;
+                padding: 10px;
+                // border-radius: 50%;
+                width: clamp(75px, 25%, 300px);
+            }
+            a {
+                color : #213E74;
+            }
+        }
+        .sponsor-body {
+            background-color: #fff;
+            color: #213e74;
+            border-radius: 0 0 5px 5px;
+            a {
+                margin-top: 10px;
+            }
+            .btn {
+                padding: 10px 30px
+            }
+        }
+    }
 }
 
-.sponsor-card {
-    background-color: #0095d1;
-    border-radius: 5px;
-    margin: 20px 0;
-    .sponsor-header,
-    .sponsor-body {
-        padding: 10px 15px;
+/*Pagina checkout*/
+
+.checkout .card-header {
+    padding : 15px 20px;
+}
+.checkout .card-body {
+    padding : 15px 20px;
+    .checkout-card {
+        background-color: #0095d1;
+        border-radius: 5px;
+        margin: 20px 0;
+        .checkout-header,
+        .checkout-body {
+            padding: 10px 15px;
+        }
+        .checkout-header{
+            background-color: #213e74;
+            border-radius: 5px 5px 0 0;
+            color: #fff;
+            .title {
+                color: #fff;
+                width:90%;
+                font-size: 24px;
+            }
+            img {
+                // background-color: #213e74;
+                padding: 10px;
+                // border-radius: 50%;
+                width: clamp(75px, 25%, 300px);
+            }
+            a {
+                color : #213E74;
+            }
+        }
+        .checkout-body {
+            border-radius: 0 0 5px 5px;
+            a {
+                margin-top: 10px;
+            }
+            .btn {
+                padding: 10px 30px
+            }
+            .start-time {
+                margin: 10px 0;
+            }
+            .bt-drop-in-wrapper {
+                color : #213e74;
+                margin: 10px 0;
+                .braintree-heading {
+                    color : #fff;
+                }
+            }
+            .btn-wrapper{
+                text-align: right;
+            }
+        }
     }
-    .sponsor-header{
-        background-color: #fff;
-        border-radius: 5px 5px 0 0;
-        color: #000;
-        .title {
-            color: #213e74;
-            margin-left: 10px;
-            width:90%;
-            font-size: 24px;
-        }
-        img {
-            // background-color: #213e74;
-            padding: 10px;
-            // border-radius: 50%;
-            width: clamp(75px, 25%, 300px);
-        }
-        a {
-            color : #213E74;
-        }
+    .alert {
+        padding: 5px;
     }
-    .sponsor-body {
-        border-radius: 0 0 5px 5px;
-        a {
-            margin-top: 10px;
+    .alert.alert-success {
+        background-color: green;
+    }
+    .alert.alert-danger {
+        background-color: red;
+    }
+}
+@media only screen and (max-width: 340px) {
+    .checkout.col-md-8 {
+        padding-right: 0;
+        padding-left: 0;
+        
+        .card-header {
+            border-radius: 0;
         }
-        .btn {
-            padding: 10px 30px
+        .card-body {
+            border-radius: 0;
+            padding: 0;
+            background-color: #fff;
+            .checkout-card {
+            border-radius: 0;
+                
+                .checkout-header {
+                    border-radius: 0;
+                }
+                .checkout-body{
+                    border-radius: 0;
+                }
+            }
         }
+
     }
 }
