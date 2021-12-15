@@ -26,12 +26,12 @@ main {
     height:calc(100vh - 4.375rem - 2.8125rem);
     overflow-y: auto;
 }
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 991px) {
     main {
-      padding: 15px 0 15px 0;
+        padding: 15px 0 15px 0;
     }
-  }
-  
+}
+
 .bg-dark-blue {
     background-color: #213e74;
 }
@@ -185,6 +185,33 @@ footer {
     color: lightgray;
     strong {
         color : white;
+    }
+}
+
+//border radius della card su mobile 
+
+@media only screen and (max-width: 991px) {
+    .card-left {
+        border-radius: .625rem .625rem 0 0;
+    }
+    
+    .card-right {
+        border-radius: 0 0 .625rem .625rem;
+    }
+    body::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Hide scrollbar for IE, Edge add Firefox */
+      body::-webkit-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none; /* Firefox */
+      }
+    footer {
+        display: none;
+    }
+    main {
+        height:calc(100vh - 4.375rem);
     }
 }
 

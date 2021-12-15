@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card profile d-flex justify-content-center">
+                <div class="card profile d-flex flex-column flex-lg-row justify-content-center">
                     <div class="card-left bg-light-blue text-center">
                         <img class="personal_pic" src="{{$user['profile_pic'] != null ? asset('storage/' . $user->profile_pic) : asset('storage/profile-placeholder.png')}}" alt="Profile pic di {{$user['profile_pic'] ? $user['firstname'] : 'default'}}">
                     </div>

@@ -35,12 +35,11 @@
                         <a  class="logo" href="{{url('/')}}">
                             <img src="{{asset('storage/img/logo_pick.png')}}" alt="VibePick Logo">
                         </a>
-                        
-
                         {{-- link --}}
-                        @guest
+                        <div id="myLinks">
+                            @guest
                             <div>
-                                <ul class="d-flex gap">
+                                <ul class="d-flex align-center">
                                     <li>
                                         <a href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
@@ -51,11 +50,10 @@
                                     @endif
                                 </ul>
                             </div>                           
-                        @else
-
-                        {{-- link --}}
+                            @else
+                            {{-- link --}}
                             <div>
-                                <ul class="d-flex gap">
+                                <ul class="d-flex align-center">
                                 @if (@isset($user))
                                     <li>
                                         <a href="{{ route('admin.users.show') }}">
@@ -72,7 +70,7 @@
                             </div>
                             
                             <div>
-                                <ul class="d-flex gap">
+                                <ul class="d-flex align-center">
                                     <li>
                                         <a href="#">
                                             {{ Auth::user()->firstname }}
@@ -89,8 +87,11 @@
                                     </form>
                                 </ul>
                             </div>
-                        @endguest
-                        
+                            @endguest
+                        </div>
+                        <div class="menu-btn">
+                            <div class="menu-btn_burger"></div>
+                        </div>
                     </div>
                 </nav>
             </header>
