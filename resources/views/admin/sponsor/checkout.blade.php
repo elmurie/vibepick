@@ -29,7 +29,7 @@
                                         <input id="sponsor_id" name="sponsor_id" hidden value="{{$sponsorship->id}}">
                                         <div class="start-time">
                                             <label for="start_time">Inserisci la data e ora d'inizio della sponsorship:</label>
-                                            <input id="start_time" name="start_time"  type="datetime-local" min="2021-12-01 00:00">
+                                            <input id="start_time" name="start_time"  type="datetime-local" min="2021-12-01 00:00" required>
                                         </div>
                             
                                         <div class="bt-drop-in-wrapper">
