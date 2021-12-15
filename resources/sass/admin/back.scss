@@ -256,3 +256,57 @@ footer {
 .save_parent {
     text-align: right;
 }
+
+/*PAGINA MESSAGGI*/
+
+.messages .card-body {
+    padding : 3.125rem 20px;
+}
+
+.message-card {
+    background-color: #0095d1;
+    border-radius: 5px;
+    margin: 20px 0;
+    .message-header,
+    .message-body {
+        padding: 10px 15px;
+    }
+    .message-header{
+        background-color: #eba336;;
+        border-radius: 5px 5px 0 0;
+        color: #000;
+        a {
+            color : #213E74;
+        }
+    }
+    .message-body {
+        text-align: justify;
+    }
+}
+
+/*PAGINA RECENSIONI*/
+
+.reviews .card-body {
+    padding : 3.125rem 20px;
+}
+
+.review-card {
+    background-color: #0095d1;
+    border-radius: 5px;
+    margin: 20px 0;
+    .message-header,
+    .message-body {
+        padding: 10px 15px;
+    }
+    .review-header{
+        background-color: #eba336;;
+        border-radius: 5px 5px 0 0;
+        color: #000;
+        a {
+            color : #213E74;
+        }
+    }
+    .review-body {
+        text-align: justify;
+    }
+}
