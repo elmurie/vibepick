@@ -22,9 +22,9 @@
                         <ul class="d-flex flex-column gap">
                             {{-- ToDo questi devono diventare link per le varie sezioni del profilo --}}
                             <li><a href="#">Profilo personale</a></li>
-                            <li><a href="http://127.0.0.1:8000/admin/messages">Messaggi</a></li> {{-- da rivedere!!! --}}
-                            <li><a href="http://127.0.0.1:8000/admin/reviews">Recensioni</a></li>
-                            <li><a href="#">Sponsorships</a></li>
+                            <li><a href="{{route('admin.messages.index')}}">Messaggi</a></li>
+                            <li><a href="{{route('admin.reviews.index')}}">Recensioni</a></li>
+                            <li><a href="{{route('admin.sponsorship')}}">Sponsorships</a></li>
                         </ul>                       
                     </div>
                 </div>

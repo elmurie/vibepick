@@ -54,7 +54,7 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
 
 
     //Rotte Sponsorships
-    Route::get('/sponsorship', 'SponsorshipController@index');
+    Route::get('/sponsorship', 'SponsorshipController@index')->name('sponsorship');
 
     Route::get('/check', function(){
         $gateway = new Braintree\Gateway([
