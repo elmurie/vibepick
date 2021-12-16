@@ -2,7 +2,7 @@
     <div class="box-main-home box-search">
         <Search class="instrument_filter " @search="instrumentSelected"/>
         <FilterArtist class="review_vote_filter" @revSearch="revSelected" @avgSearch="avgSelected"/>
-        <h1 v-if="instrument != null">{{selectedAdv}}</h1>
+        <h1 v-if="instrument != null">{{selectedParams}}</h1>
         <ArtistsContainer :artists="instrument"/>
     </div>
 </template>
@@ -26,18 +26,27 @@ export default {
         return {
             instrument : null,
             selectedAdv : this.$route.params.slug,
+            selectedParams : '',
             reviewNum: 0, 
             avgVote:0
             
         }
     },
     watch: {
-
         selectedAdv : function(){
             axios.get(`/api/instruments/${this.selectedAdv}/${this.reviewNum}/${this.avgVote}`)
             .then( (response) => {
-                console.log(response.data.data);
+                console.log(response.data.data,);
                 this.instrument = response.data.data;
+                axios.get(`api/instruments`)
+                .then((response) => {
+                    let nomi = response.data.data;
+                    nomi.forEach(elm => {
+                        if (elm.slug == this.selectedAdv){
+                            this.selectedParams = elm.name
+                        }
+                    } )
+                });
             });
         },
         reviewNum : function(){
@@ -53,7 +62,20 @@ export default {
                 console.log(response.data.data);
                 this.instrument = response.data.data;
             });
+        },
+
+        selectedParams: function(){
+            axios.get(`api/instruments`)
+            .then((response) => {
+                let nomi = response.data.data;
+                nomi.forEach(elm => {
+                    if (elm.slug == this.selectedAdv){
+                        this.selectedParams = elm.name
+                    }
+                } )
+            });
         }
+
     },
     mounted(){
         axios.get(`/api/instruments/${this.$route.params.slug}/${this.$route.params.rewMin}/${this.$route.params.avgVote}`)
@@ -62,7 +84,17 @@ export default {
                 this.instrument = response.data.data;
             });
 
+            axios.get(`api/instruments`)
+            .then((response) => {
+                let nomi = response.data.data;
+                nomi.forEach(elm => {
+                    if (elm.slug == this.selectedAdv){
+                        this.selectedParams = elm.name
+                    }
+                } )
+            });
         },
+
 
         methods: {
             instrumentSelected(instrument){
