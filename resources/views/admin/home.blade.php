@@ -18,7 +18,7 @@
                         <h2>Welcome to VibePick, {{$user['firstname']}}! </h2>
                     </div>
                     {{-- body card --}}
-                    <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center">                        
+                    <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center dashboard-box">                        
                         <ul class="d-flex flex-column gap">
                             {{-- ToDo questi devono diventare link per le varie sezioni del profilo --}}
                             <li><a href="{{route('admin.users.show')}}">Profilo personale</a></li>
