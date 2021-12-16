@@ -35,4 +35,9 @@ class ReviewController extends Controller
         return redirect('/showartist'.'/'.$newReview->user_id);
     } */
 
+    public function show()
+    {   
+        return redirect('/404');
+    }
+
 }

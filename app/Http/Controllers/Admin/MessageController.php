@@ -22,4 +22,9 @@ class MessageController extends Controller
         }
         return view("admin.messages.index", compact("messages", "user"));
     }
+
+    public function show()
+    {   
+        return redirect('/404');
+    }
 }
