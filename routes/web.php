@@ -66,10 +66,10 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
         ]);
         
         $sponsorship=Sponsorship::find($id);
-
-    
+        if(!$sponsorship){
+            return redirect('/404');
+        };
         $token = $gateway->ClientToken()->generate();
-    
         return view('admin.sponsor.checkout', compact('token', 'sponsorship'));
     })->name('payment');
     
