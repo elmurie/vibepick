@@ -2,7 +2,6 @@
 	<section>
 		<div class="container">
 			<div class="user">
-                <!-- <a :href="`http://127.0.0.1:8000/showartist/${artist.id}`" v-for="artist in artists" :key="artist.id"><ArtistCard :data="artist"/></a> -->
                 <ArtistCard v-for="artist in artists" :key="artist.id" :data="artist"/>
 			</div>
 		</div>

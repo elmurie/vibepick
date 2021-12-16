@@ -9,7 +9,6 @@
 
 <script>
 import Search from '../components/Search';
-// import ArtistCard from '../components/ArtistCard';
 import FilterArtist from '../components/FilterArtist';
 import FoundArtist from '../components/FoundArtist';
 import ArtistsContainer from '../components/ArtistsContainer.vue';
@@ -18,7 +17,6 @@ import ArtistsContainer from '../components/ArtistsContainer.vue';
 export default {
     components: { 
         Search,
-        // ArtistCard,
         FilterArtist,
         FoundArtist,
         ArtistsContainer 
