@@ -7,7 +7,7 @@
             <h3>{{data.firstname}}</h3>
             <h3>{{data.lastname}}</h3>
             <span>Numero recensioni: {{data.reviews.length}}</span>
-            <button class="button-view"><a :href="`http://127.0.0.1:8000/showartist/${data.id}`">Visualizza</a></button>
+            <button class="button-view"><router-link :to="{name : 'ShowArtist', params: {id: data.id}}">Visualizza</router-link></button>
             <div class="stars">
                 <span>Media voti :</span>
                 <div class="vote">

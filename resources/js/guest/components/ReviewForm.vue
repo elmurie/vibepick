@@ -1,5 +1,5 @@
 <template>
-        <form action="http://127.0.0.1:8000/reviews" method="POST">
+        <form action="/reviews" method="POST">
             <!-- equivalente del @csrf -->
             <input type="hidden" name="_token" :value="csrf">
             <input type="hidden" name="user_id" :value="user_id">
