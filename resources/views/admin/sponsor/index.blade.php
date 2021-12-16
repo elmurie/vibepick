@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <div class="card sponsors d-flex flex-column justify-content-center">
                     <div class="card-header bg-dark-blue b-radius-header text-center">
                         <h1>Mettiti in mostra!</h1>
