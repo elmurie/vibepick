@@ -1,6 +1,7 @@
 <template>
 	<div class="box-main-home">
 		<Search/>
+		<h1>I nostri artisti in primo piano</h1>
 		<ArtistsContainer :artists="artists"/>
 	</div>
 </template>
@@ -40,5 +41,8 @@ import Search from '../components/Search.vue';
 		margin: 0 auto;
 		text-align: center;
 		background-color: rgba(0, 0, 0, 0.068);
+		h1 {
+			margin: 20px 0 0 0;
+		}
 	}
 </style>
