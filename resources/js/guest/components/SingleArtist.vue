@@ -131,7 +131,9 @@ export default {
             mod.classList.remove('showMod');
         },
         formattedDate(reviewDate) {
-            return dayjs(reviewDate).locale('it').format('DD-MM-YYYY HH:mm:ss');
+            var giorno =  dayjs(reviewDate).locale('it').format('DD-MM-YYYY HH:mm:ss');
+            var giorno_alle = giorno.slice(0, 11) + 'alle ' + giorno.slice(11)
+            return giorno_alle;
         }
     },
 
