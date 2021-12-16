@@ -167,5 +167,11 @@ export default {
   }
 }
 
+@media only screen and (max-width: 320px) {
+  .box-card {
+    width: 200px;
+  }
+}
+
 
 </style>

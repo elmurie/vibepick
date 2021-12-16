@@ -19,10 +19,11 @@
                     <ul >
                         <li v-for="review, index in artist.reviews.slice().reverse()" :key="index">
                             <h3>{{review.title}}</h3>
+                            <h4>Recensito da: {{review.author}}</h4>
                             <h4>Voto: {{review.vote}}</h4>
                             <span>Recensito il : {{formattedDate(review.created_at)}}</span>
                             <br>
-                            <p>{{review.content}}.</p>
+                            <p>{{review.content}}</p>
                         </li>
                     </ul>
                 </div>
