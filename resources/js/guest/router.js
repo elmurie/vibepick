@@ -29,13 +29,50 @@ const router = new VueRouter({
                 }
             ] ,
             name: 'search',
-            component: AdvancedSearch
+            component: AdvancedSearch,
+            beforeEnter: (to, from, next) => {
+                function isValid(param) {
+                    axios.get(`api/instruments`)
+                        .then((response) =>{
+                            let nomi = response.data.data;
+                            let solonomi = [];
+                            nomi.forEach(elm => {
+                                solonomi.push(elm.slug) 
+                            });
+                            if(!solonomi.includes(param)){
+                                next({ path: '404' });
+                            } else  {
+                                next();
+                            }
+                        })
+                }
+
+                isValid(to.params.slug)
+
+                
+            }
         },
 
         {
             path: '/showartist/:id',
             name: 'ShowArtist',
-            component: ShowArtist
+            component: ShowArtist,
+            beforeEnter: (to, from, next) => {
+                function isValid(param) {
+                    axios.get(`/showartist/api/showartist/${param}`)
+                        .catch((error) => {
+                            if(error.response.status == 500){
+                                next({ path: '/404' });
+                            } else {
+                                next();
+                            }
+                        })
+                }
+
+                isValid(to.params.id)
+
+                next();
+            }
         },
 
         {
