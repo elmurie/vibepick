@@ -20,7 +20,7 @@
                         <li v-for="review, index in artist.reviews.slice().reverse()" :key="index">
                             <h3>{{review.title}}</h3>
                             <h4>Voto: {{review.vote}}</h4>
-                            <span>Recensito il: {{review.created_at}}</span>
+                            <span>Recensito il : {{formattedDate(review.created_at)}}</span>
                             <br>
                             <p>{{review.content}}.</p>
                         </li>
@@ -87,6 +87,9 @@
 </template>
 
 <script>
+var dayjs = require('dayjs')
+//import dayjs from 'dayjs' // ES 2015
+dayjs().format()
 import ReviewForm from './ReviewForm.vue';
 import MessageForm from './MessageForm.vue';
 export default {
@@ -126,7 +129,10 @@ export default {
         closeMessageModal (){
             let mod = document.getElementById('messageModal');
             mod.classList.remove('showMod');
-        } 
+        },
+        formattedDate(reviewDate) {
+            return dayjs(reviewDate).locale('it').format('DD-MM-YYYY HH:mm:ss');
+        }
     },
 
 
