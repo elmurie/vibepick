@@ -17,7 +17,7 @@
                 <p>Recensioni: {{artist.reviews_count}}</p>
                 <div class="reviews">
                     <ul >
-                        <li v-for="review, index in artist.reviews" :key="index">
+                        <li v-for="review, index in artist.reviews.slice().reverse()" :key="index">
                             <h3>{{review.title}}</h3>
                             <h4>Voto: {{review.vote}}</h4>
                             <span>Recensito il: {{review.created_at}}</span>
