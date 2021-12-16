@@ -3,6 +3,7 @@
 		<!-- <Header/> -->
 		<main>
 			<router-view></router-view>
+			<BgFrontOffice/>
 		</main>
 		<Footer/>
 	</div>
@@ -11,11 +12,13 @@
 <script>
 import Header from './components/Header';
 import Footer from './components/Footer';
+import BgFrontOffice from './components/BgFrontOffice';
 export default {
 	name: 'App',
 	components: {
 		Header,
 		Footer,
+		BgFrontOffice,
 	},
 	data() {
 		return {
@@ -27,8 +30,6 @@ export default {
 <style lang="scss">
 	main {
 		height: calc(100vh - 120px);
-		background: rgb(31,89,103);
-		background: linear-gradient(0deg, rgba(31,89,103,1) 0%, rgba(93,184,169,1) 100%);
-		overflow: auto;
+		overflow: auto;	
 	}
 </style>
