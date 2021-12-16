@@ -9,10 +9,10 @@
                 </ul>
                 <p>Voto: <span>{{artist.avgVote}}</span></p>
                 <p>Indirizzo: <span>{{artist.adress ? artist.adress : ` L'indirizzo non é presente`}}</span></p>
-                <p>Telefono: <span>+39 {{artist.phone_number}}</span></p>
+                <p>Telefono: <span>{{artist.phone_number? `+39 ${artist.phone_number}`: 'Il cellulare non é presente'}}</span></p>
                 <p>Email: <span>{{artist.email}}</span></p>
                 <p>Genere: <span>{{artist.genre ? artist.genre : "Il genere non é presente"}}</span></p>
-                <p>Servizi offerti: <span>{{artist.services}}</span></p>
+                <p>Servizi offerti: <span>{{artist.phone_number? artist.phone_number : 'I servizi non sono presenti'}}</span></p>
                 <p>CV: <span>{{artist.curriculum ? artist.curriculum : 'Il curriculum non é presente'}}</span></p>
                 <p>Recensioni: {{artist.reviews_count}}</p>
                 <div class="reviews">
@@ -207,8 +207,8 @@ export default {
             padding: 70px 15px;
             flex-direction:column;
             .img-box {
-                max-width: 240px;
-                max-height: 240px;
+                width: 240px;
+                height: 240px;
                 border-radius: 50%;
                 justify-content: center;
                 align-items: center;
@@ -219,6 +219,8 @@ export default {
                 overflow: hidden;
                 img {
                     width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                 }
             }
             .box-btn {
@@ -284,8 +286,8 @@ export default {
         .box{
            .r-col{
                 .img-box{
-                    max-width: 138px;
-                    max-height: 138px;
+                    width: 138px;
+                    height: 138px;
                 }
             } 
         }
@@ -304,8 +306,8 @@ export default {
                     flex-wrap: wrap;
                     padding-top: 0;
                     .img-box{
-                    max-width:240px;
-                    max-height:240px;
+                    width:240px;
+                    height:240px;
                 }
                 }
                 .l-col{
