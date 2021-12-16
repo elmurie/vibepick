@@ -420,12 +420,19 @@ footer {
     .alert {
         padding: 5px;
     }
-    .alert.alert-success {
-        background-color: green;
-    }
     .alert.alert-danger {
         background-color: red;
     }
+}
+
+// Pagina Sponsorship index
+.alert {
+    margin-bottom: 5px;
+    border-radius: 0.625rem;    
+    padding: 5px 10px;
+}
+.alert.alert-success {
+    background-color: green;
 }
 @media only screen and (max-width: 340px) {
     .checkout.col-md-8 {
