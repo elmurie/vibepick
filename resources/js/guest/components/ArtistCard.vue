@@ -8,7 +8,7 @@
             <h3>{{data.lastname}}</h3>
 
             <span>Numero recensioni: {{data.reviews.length}}</span>
-            <button class="button-view"><router-link :to="{name : 'ShowArtist', params: {id: data.id}}">Visualizza</router-link></button>
+            <router-link :to="{name : 'ShowArtist', params: {id: data.id}}" class="button-view">Visualizza</router-link>
 
             <div class="stars">
                 <span>Media voti</span>
@@ -56,6 +56,7 @@ export default {
         img{
             object-fit: cover;
             width: 100%;
+            height: 100%;
         }
     }
     .text{
@@ -75,6 +76,8 @@ export default {
             border: none;
             margin: auto;
             margin-bottom: 5px;
+            color: #fff;
+            line-height: 30px;
         }
         .stars{
             display: flex;
@@ -125,6 +128,7 @@ export default {
             border: none;
             margin: auto;
             margin-bottom: 5px;
+            
         }
         .stars{
             display: flex;
