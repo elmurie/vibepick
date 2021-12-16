@@ -155,12 +155,15 @@ header{
 @media screen and (max-width: 767px){
     #myLinks {
         display: none;
+    }
+    #myLinksMobile {
+        display: none;
         flex-direction: column;
         align-items: flex-end;
         width: 0;
         height: 0;
         position: absolute;
-        top: 70px;
+        top: 4.375rem;
         right: 0;
         background-color: #213e74;
         opacity: .9;
@@ -195,6 +198,10 @@ header{
         flex-direction: row;
     }
 
+    #myLinksMobile {
+        display: none;
+    }
+
     #myLinks a {
         padding: 5px 13px;
     }
@@ -204,7 +211,7 @@ header{
 }
 
 @keyframes expandAfter {
-    from { width: 0; height: 100vh;}
-    to { width: 50%; height: 100vh;padding: 90px 15px; }
+    from { width: 0; height: calc(100% - 70px);}
+    to { width: 50%; height: calc(100% - 70px); padding: 90px 15px; }
 }
 
