@@ -89,6 +89,59 @@
                             </div>
                             @endguest
                         </div>
+                        <div id="myLinksMobile">
+                            @guest
+                            <div>
+                                <ul class="d-flex align-center">
+                                    <li>
+                                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                    @if (Route::has('register'))
+                                        <li>
+                                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        </li>
+                                    @endif
+                                </ul>
+                            </div>                           
+                            @else
+                            {{-- link --}}
+                            <div>
+                                <ul class="d-flex align-center">
+                                @if (@isset($user))
+                                    <li>
+                                        <a href="{{ route('admin.users.show') }}">
+                                            {{ __('Profilo') }}
+                                        </a>
+                                    </li>
+                                @endif
+                                    <li>
+                                        <a href="{{ route('admin.home') }}">
+                                            {{ __('Dashboard') }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <ul class="d-flex align-center">
+                                    {{-- <li>
+                                        <a href="#">
+                                            {{ Auth::user()->firstname }}
+                                        </a>
+                                    </li> --}}
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                    </li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </ul>
+                            </div>
+                            @endguest
+                        </div>
                         <div class="menu-btn">
                             <div class="menu-btn_burger"></div>
                         </div>

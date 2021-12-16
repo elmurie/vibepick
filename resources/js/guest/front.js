@@ -15,7 +15,7 @@ const app = new Vue({
 
 // hamburger
 
-const toggleMenu = document.getElementById('myLinks');
+const toggleMenu = document.getElementById('myLinksMobile');
 const menuBtn = document.querySelector('.menu-btn');
 
 let menuOpen = false;
