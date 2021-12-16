@@ -9,10 +9,10 @@
                 </ul>
                 <p>Voto: <span>{{artist.avgVote}}</span></p>
                 <p>Indirizzo: <span>{{artist.adress ? artist.adress : ` L'indirizzo non é presente`}}</span></p>
-                <p>Telefono: <span>{{artist.phone_number? `+39 ${artist.phone_number}`: 'Il cellulare non é presente'}}</span></p>
+                <p>Telefono: <span>{{artist.phone_number? `${artist.phone_number}`: 'Il cellulare non é presente'}}</span></p>
                 <p>Email: <span>{{artist.email}}</span></p>
                 <p>Genere: <span>{{artist.genre ? artist.genre : "Il genere non é presente"}}</span></p>
-                <p>Servizi offerti: <span>{{artist.phone_number? artist.phone_number : 'I servizi non sono presenti'}}</span></p>
+                <p>Servizi offerti: <span>{{artist.services? artist.services : 'I servizi non sono presenti'}}</span></p>
                 <p>CV: <span>{{artist.curriculum ? artist.curriculum : 'Il curriculum non é presente'}}</span></p>
                 <p>Recensioni: {{artist.reviews_count}}</p>
                 <div class="reviews">
