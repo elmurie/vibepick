@@ -6,10 +6,41 @@ header {
     .container {
         height: 100%;
     }
-    
-    a {
-        color: #ffffff;
+}
+
+header a, .dashboard-box a {
+    color: #ffffff;
+    transition: 0.2s;
+    position: relative;
+
+    &:hover {
+        cursor: pointer;
+        color: #ffa600;
+        transition: 0.2s;
+    } 
+    &:active {
+        cursor: pointer;
+        color: #d37f00;
+        transition: 0.1s;
     }
+    &::after {
+        content: '';
+        width: 0;
+        position: absolute;
+        background-color: #ffa600;
+        height: .1875rem;
+        left: 0;
+        bottom: -4px;
+        transition: 0.3s;
+    }
+    &:hover::after {
+        width: 100%;
+        transition: 0.3s;
+        background-color: #ffa600;
+    }
+    &:active::after {
+        background-color: #d37f00;
+    } 
 }
 .logo {
     height: 60%;
@@ -21,8 +52,10 @@ header {
 
 main {
     padding: 3.125rem;
-    background: rgb(0,149,209);
-    background: linear-gradient(90deg, rgba(0,149,209,1) 48%, rgba(70,189,236,1) 100%);
+    // background: rgb(0,149,209);
+    // background: linear-gradient(90deg, rgba(0,149,209,1) 48%, rgba(70,189,236,1) 100%);
+    background-image: url('storage/app/public/img/Bg-backoffice.png');
+    background-size: 100%;
     height:calc(100vh - 4.375rem - 2.8125rem);
     overflow-y: auto;
 }

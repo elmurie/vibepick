@@ -89,14 +89,30 @@ a {
 //bottoni
 .btn {
     background-color: #f39200;
+    transition: 0.2s;
     border: none;
     border-radius: 25px;
     color: #ffffff;
+    
     &:hover {
         cursor: pointer;
+        background-color: #c96100;
+        transition: 0.2s;
+    }
+    &:active {
+        cursor: pointer;
+        background-color: #9c4c00;
+        transition: 0.1s;
     }
     &.btn-danger {
         background-color: red;
+
+        &:hover {
+            background-color: rgb(175, 0, 53);
+        }
+        &:active {
+            background-color: rgb(141, 0, 42);
+        }
     }
 }
 
@@ -286,7 +302,7 @@ small {
     }
 
     #myLinks a {
-        padding: 5px 13px;
+        margin: 5px 13px;
     }
     .menu-btn {
         display: none;
