@@ -60,7 +60,7 @@ export default {
             background-size: 15px;
             background-repeat: no-repeat;
             background-position: 96% 50%;
-            margin: 3px;
+            margin: 0px 7px;
             &:focus-visible{
                 outline: none;
             }
@@ -73,11 +73,14 @@ export default {
         //     top: -50px;
         //     text-indent: 15px;
         // }
-
+        label {
+            margin-bottom: 5px;
+        }
 
         @media only screen and (max-width: 425px) {
             select{
-                width: 150px;
+                width: 148px;
+                margin: 3px;
             }
         }
 </style>

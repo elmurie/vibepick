@@ -91,5 +91,7 @@ export default {
         .column{
             flex-direction: column;
         }
-    
+    label {
+        margin-bottom: 5px;
+    }
 </style>
