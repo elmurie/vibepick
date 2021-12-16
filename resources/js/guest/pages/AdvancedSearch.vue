@@ -2,8 +2,14 @@
     <div class="box-main-home box-search">
         <Search class="instrument_filter " @search="instrumentSelected"/>
         <FilterArtist class="review_vote_filter" @revSearch="revSelected" @avgSearch="avgSelected"/>
-        <h1 v-if="instrument != null">{{selectedParams}}</h1>
-        <ArtistsContainer :artists="instrument"/>
+        <h2 v-if="instrument != null">{{selectedParams}}</h2>
+        <template v-if="instrument.length > 0">
+            <ArtistsContainer :artists="instrument"/>
+        </template>
+        <template v-else>
+            <h3>Mi disciace, non ci sono artisti in questa sezione :(</h3>
+        </template>
+        
     </div>
 </template>
 
@@ -140,6 +146,9 @@ export default {
     }
     div {
         text-align: center;
+    }
+    h3{
+        padding-bottom: 15px;
     }
 
     @media only screen and (max-width: 1024px) {
