@@ -1,7 +1,7 @@
 <template>
 	<div class="box-main-home">
 		<Search/>
-		<ArtistsContainer/>
+		<ArtistsContainer :artists="artists"/>
 	</div>
 </template>
 
@@ -15,7 +15,22 @@ import Search from '../components/Search.vue';
 			ArtistsContainer,
 			Search,
 		},
-		
+		data() {
+        return {
+            artists : []
+        }
+		},
+		mounted() {
+			axios.get('api/users')
+			.then((response) => {
+				// se passa
+				this.artists = response.data.data;
+			})
+			.catch( (error) => {
+				// se c'è un errore
+				console.log(error);
+			})
+		}
     
 	}
 </script>

@@ -16,22 +16,9 @@ export default {
     components : {
         ArtistCard
     },
-    data() {
-        return {
-            artists : []
-        }
+    props:{
+        artists: Array
     },
-    mounted() {
-        axios.get('api/users')
-        .then((response) => {
-            // se passa
-            this.artists = response.data.data;
-        })
-        .catch( (error) => {
-            // se c'è un errore
-            console.log(error);
-        })
-    }
 }
 </script>
 

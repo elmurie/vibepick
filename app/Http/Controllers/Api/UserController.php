@@ -21,6 +21,7 @@ class UserController extends Controller
         ->withCount('reviews')
         ->get();
 
+        $usersFiltered = [];
         foreach($users as $user){
             //ToDo rendere questo snippet di codice una funzione da richiamare qui e nello show in modo da non ripetere
             $vote=0;
@@ -35,6 +36,7 @@ class UserController extends Controller
             }
     
             $user['avgVote'] = $average;
+            $usersFiltered[] = $user;
         }
         
         
@@ -42,7 +44,7 @@ class UserController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => $users
+            'data' => $usersFiltered,
         ]);
     }
 

@@ -1,7 +1,7 @@
 <template>
     <div class="box-card">
         <div class="img">
-            <img :src="data.profile_pic != null ? `storage/${data.profile_pic}` : `./storage/profile-placeholder.png`" :alt="data.profile_pic != null ? `Profilo di ${data.firstname}` : 'Foto Profilo' "> 
+            <img :src="data.profile_pic != null ? require(`../../../../public/storage/${data.profile_pic}`) : require(`../../../../public//storage/profile-placeholder.png`)" :alt="data.profile_pic != null ? `Profilo di ${data.firstname}` : 'Foto Profilo' "> 
         </div>
         <div class="text">
             <h3>{{data.firstname}}</h3>
@@ -9,13 +9,13 @@
             <span>Numero recensioni: {{data.reviews_count}}</span>
             <button class="button-view"><a :href="`http://127.0.0.1:8000/showartist/${data.id}`">Visualizza</a></button>
             <div class="stars">
-                <span>Media voti :</span>
+                <span>Media voti</span>
                 <div class="vote">
                     <div class="picks silver_picks">
-                        <img class="image" :src="`./storage/img/5_plettri_grigio.png`" alt="">
+                        <img class="image" :src="require(`../../../../public/storage/img/5_plettri_grigio.png`)" alt="">
                     </div>
                     <div :style="{width : goldenWidth + '%'}" class="picks gold_picks">
-                        <img class="image" :src="`./storage/img/5_plettri_oro.png`" alt="">
+                        <img class="image" :src="require(`../../../../public/storage/img/5_plettri_oro.png`)" alt="">
                     </div>
                 </div>
             </div>
@@ -32,7 +32,6 @@ export default {
     },
     data(){
         return{
-            reviews : this.data.reviews,
             goldenWidth : (this.data.avgVote * 100) / 5
         }
     },
