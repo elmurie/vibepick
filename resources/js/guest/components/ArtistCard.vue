@@ -6,7 +6,7 @@
         <div class="text">
             <h3>{{data.firstname}}</h3>
             <h3>{{data.lastname}}</h3>
-            <span>Numero recensioni: {{data.reviews.length}}</span>
+            <span>Numero recensioni: {{data.reviews_count}}</span>
             <button class="button-view"><a :href="`http://127.0.0.1:8000/showartist/${data.id}`">Visualizza</a></button>
             <div class="stars">
                 <span>Media voti :</span>
@@ -33,29 +33,9 @@ export default {
     data(){
         return{
             reviews : this.data.reviews,
-            avg: 0,
-            goldenWidth : 0
+            goldenWidth : (this.data.avgVote * 100) / 5
         }
     },
-    created() {
-        this.avgs()
-    },
-    methods: {
-        avgs() {
-            var voto = 0;
-            this.reviews.forEach((elm)=>{
-                voto += elm.vote;
-            })
-            voto = voto / this.reviews.length;
-            if(!voto){
-                voto = 0
-            }
-            this.avg = voto;
-            // modifica width del div con i plettri color oro a seconda del voto
-            this.goldenWidth = (this.avg * 100) / 5;
-        }
-        
-    }
 }
 </script>
 <style lang="scss" scoped>

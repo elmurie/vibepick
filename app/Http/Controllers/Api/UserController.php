@@ -15,7 +15,27 @@ class UserController extends Controller
             date_default_timezone_set('Europe/Rome');
             $nowDate = date("Y-m-d H:i:s");
             $query->where('end_time', '>', $nowDate)->where('start_time', '<', $nowDate);
-        })->get();
+        })
+        ->with('instruments')
+        ->with('reviews')
+        ->withCount('reviews')
+        ->get();
+
+        foreach($users as $user){
+            
+            //ToDo rendere questo snippet di codice una funzione da richiamare qui e nello show in modo da non ripetere
+            $vote=0;
+            $average=0;
+            if($user['reviews_count'] > 0) {
+                foreach ($user['reviews'] as $review) {
+                    $vote+= $review['vote'];
+                }
+        
+                $average=$vote/$user['reviews_count'];
+            }
+    
+            $user['avgVote'] = $average;
+        }
         
         
         
