@@ -55,10 +55,10 @@ class UsersTableSeeder extends Seeder
             'rap',
             'pop',
             'indie',
-            'folck',
+            'folk',
             'country',
             'blues',
-            'funky',
+            'funk',
             'jazz',
             'dance',
             "rock'n'roll",
@@ -80,10 +80,10 @@ class UsersTableSeeder extends Seeder
             $varLastname=$faker->lastName();
             $varAddress=$arrAddress[$countAddress] . ' ' . ucwords($faker->words(rand(1,3), true)) . ', ' . rand(1,200);
             $varPhoneNumber='+39 ' . rand(320, 399) . $faker->randomNumber(7, true);
-            $varEmail= $varFirstname . $separator[$countSeparator] . $varLastname . $emailDom[$countDom];
+            $varEmail= strtolower($varFirstname . $separator[$countSeparator] . $varLastname . $emailDom[$countDom]);
             $varPassword= Hash::make("prova1234");
 
-            //--per avere sempre array con elementi posizioneti in diverso modo
+            //--per avere sempre array con elementi posizioneti in diverso modo: servizi e generi
             shuffle($arrServices);
             
             if($countServices==0){
@@ -95,11 +95,12 @@ class UsersTableSeeder extends Seeder
                 $varServices[] = ucfirst($arrServices[$j]);
             }
 
+            shuffle($arrGenre);
+            
             if($countGenre==0){
                 $countGenre=1;
             }
 
-            shuffle($arrGenre);
             $varGenre=[];
             for($j=0; $j<$countGenre; $j++) {
                 $varGenre[] = ucfirst($arrGenre[$j]);
