@@ -2,17 +2,22 @@
     <div class="box-search">
         <h1>Cerca il tuo Musicista!</h1>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi quam quos et error cum voluptate nostrum am. Debitis ipsa sapiente hic.</p>
-        <select v-model="selected" v-on:change="searchPage(), $emit('search', selected)">
-            <option disabled value="">&nbsp; &nbsp; Filtra per strumento!</option>
-            <option 
-                v-for="(instrument, index) in instruments" 
-                :key="index"
-                :data="instrument"
-                :value="instrument.slug">
-                &nbsp; &nbsp; {{instrument.name}}
-            </option>
+        <div class="d-flex justify-center">
+            <div class="d-flex column">
+                <label for="search">Ricerca per strumento</label>
+                <select name="search" v-model="selected" v-on:change="searchPage(), $emit('search', selected)">
+                    <option disabled value="">&nbsp; &nbsp; Filtra per strumento!</option>
+                    <option 
+                        v-for="(instrument, index) in instruments" 
+                        :key="index"
+                        :data="instrument"
+                        :value="instrument.slug">
+                        &nbsp; &nbsp; {{instrument.name}}
+                    </option>
 
-        </select>
+                </select>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -81,6 +86,10 @@ export default {
             &:focus-visible{
                 outline: none;
             }
+        }
+
+        .column{
+            flex-direction: column;
         }
     
 </style>
