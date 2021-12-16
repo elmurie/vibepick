@@ -7,7 +7,7 @@
                 <ul>
                     <li v-for="instrument in artist.instruments" :key="instrument.id">{{instrument.name}}</li>
                 </ul>
-                <p>Voto: <span>{{getScore(artist.avgVote)}}</span></p>
+                <p>Voto: <span>{{artist.avgVote}}</span></p>
                 <p>Indirizzo: <span>{{artist.adress ? artist.adress : ` L'indirizzo non é presente`}}</span></p>
                 <p>Telefono: <span>+39 {{artist.phone_number}}</span></p>
                 <p>Email: <span>{{artist.email}}</span></p>
@@ -17,7 +17,7 @@
                 <p>Recensioni: {{artist.reviews_count}}</p>
                 <div class="reviews">
                     <ul >
-                        <li v-for="review, index in artist.reviews" :key="index">
+                        <li v-for="review, index in artist.reviews.slice().reverse()" :key="index">
                             <h3>{{review.title}}</h3>
                             <h4>Voto: {{review.vote}}</h4>
                             <span>Recensito il: {{review.created_at}}</span>

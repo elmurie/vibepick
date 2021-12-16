@@ -13,7 +13,12 @@ class ReviewController extends Controller
     public function index(User $user)
     {   
         $user=Auth::user();
-        $reviews = Review::all()->where('user_id', $user->id);
+        $reviews = Review::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+        foreach($reviews as $review){
+            // dd(date_format($review['created_at'], "H:i:s d-m-Y"));
+            $format_date = date_format($review['created_at'], "H:i:s d-m-Y");
+            $review['format_date'] = $format_date;
+        }
         return view("admin.reviews.index", compact("reviews", "user"));
     }
 

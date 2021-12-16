@@ -22,7 +22,7 @@
                                         <h4>Voto: {{$review['vote']}}</h4>
                                     </div>
                                     <div class="bottom-rx">
-                                        <h4>{{$review['created_at']}}</h4>
+                                        <h4>{{$review['format_date']}}</h4>
                                     </div>
                                     
                                 </div>

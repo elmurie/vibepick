@@ -16,7 +16,7 @@
                             <div class="message-header">
                                 <h4>Da: {{$message['firstname']}} {{$message['lastname']}}</h4>
                                 <h4>E-mail: <a href="mailto:{{$message['email']}}">{{$message['email']}}</a></h4>
-                                <h5>Ricevuto il: {{$message['created_at']}}</h5>
+                                <h5>Data ricezione: {{$message['format_date']}}</h5>
                             </div>
                             <div class="message-body">
                                 <p>{{$message['text']}}</p>

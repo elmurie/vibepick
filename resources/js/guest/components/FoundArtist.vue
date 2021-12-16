@@ -32,13 +32,9 @@ export default {
     },
     data(){
         return{
-            avgVotes: this.data.avgVote,
-            goldenWidth : 0
+            goldenWidth : (this.data.avgVote * 100) / 5
         }
     },
-    created() {
-        this.goldenWidth = (this.avgVotes * 100) / 5;
-    }
 }
 </script>
 <style lang="scss" scoped>

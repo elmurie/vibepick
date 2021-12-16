@@ -2,7 +2,6 @@
 	<section>
 		<div class="container">
 			<div class="user">
-                <!-- <a :href="`http://127.0.0.1:8000/showartist/${artist.id}`" v-for="artist in artists" :key="artist.id"><ArtistCard :data="artist"/></a> -->
                 <ArtistCard v-for="artist in artists" :key="artist.id" :data="artist"/>
 			</div>
 		</div>
@@ -16,22 +15,9 @@ export default {
     components : {
         ArtistCard
     },
-    data() {
-        return {
-            artists : []
-        }
+    props:{
+        artists: Array
     },
-    mounted() {
-        axios.get('api/users')
-        .then((response) => {
-            // se passa
-            this.artists = response.data.data;
-        })
-        .catch( (error) => {
-            // se c'è un errore
-            console.log(error);
-        })
-    }
 }
 </script>
 
