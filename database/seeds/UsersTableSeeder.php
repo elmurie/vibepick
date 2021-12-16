@@ -69,9 +69,9 @@ class UsersTableSeeder extends Seeder
         for ($i=0; $i<25; $i++) {
 
             //contatori array
-            $countAddress=array_rand($arrAddress, 1);
             $countSeparator=array_rand($separator, 1);
             $countDom=array_rand($emailDom, 1);
+            $countAddress=array_rand($arrAddress, 1);
             $countServices=array_rand($arrServices);
             $countGenre=array_rand($arrGenre);
 
@@ -120,3 +120,4 @@ class UsersTableSeeder extends Seeder
         }
     }
 }
+
