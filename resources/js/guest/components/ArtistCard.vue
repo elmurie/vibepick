@@ -1,21 +1,23 @@
 <template>
     <div class="box-card">
         <div class="img">
-            <img :src="data.profile_pic != null ? `storage/${data.profile_pic}` : `./storage/profile-placeholder.png`" :alt="data.profile_pic != null ? `Profilo di ${data.firstname}` : 'Foto Profilo' "> 
+            <img :src="data.profile_pic != null ? require(`../../../../public/storage/${data.profile_pic}`) : require(`../../../../public//storage/profile-placeholder.png`)" :alt="data.profile_pic != null ? `Profilo di ${data.firstname}` : 'Foto Profilo' "> 
         </div>
         <div class="text">
             <h3>{{data.firstname}}</h3>
             <h3>{{data.lastname}}</h3>
+
             <span>Numero recensioni: {{data.reviews.length}}</span>
             <button class="button-view"><router-link :to="{name : 'ShowArtist', params: {id: data.id}}">Visualizza</router-link></button>
+
             <div class="stars">
-                <span>Media voti :</span>
+                <span>Media voti</span>
                 <div class="vote">
                     <div class="picks silver_picks">
-                        <img class="image" :src="`./storage/img/5_plettri_grigio.png`" alt="">
+                        <img class="image" :src="require(`../../../../public/storage/img/5_plettri_grigio.png`)" alt="">
                     </div>
                     <div :style="{width : goldenWidth + '%'}" class="picks gold_picks">
-                        <img class="image" :src="`./storage/img/5_plettri_oro.png`" alt="">
+                        <img class="image" :src="require(`../../../../public/storage/img/5_plettri_oro.png`)" alt="">
                     </div>
                 </div>
             </div>
@@ -32,30 +34,9 @@ export default {
     },
     data(){
         return{
-            reviews : this.data.reviews,
-            avg: 0,
-            goldenWidth : 0
+            goldenWidth : (this.data.avgVote * 100) / 5
         }
     },
-    created() {
-        this.avgs()
-    },
-    methods: {
-        avgs() {
-            var voto = 0;
-            this.reviews.forEach((elm)=>{
-                voto += elm.vote;
-            })
-            voto = voto / this.reviews.length;
-            if(!voto){
-                voto = 0
-            }
-            this.avg = voto;
-            // modifica width del div con i plettri color oro a seconda del voto
-            this.goldenWidth = (this.avg * 100) / 5;
-        }
-        
-    }
 }
 </script>
 <style lang="scss" scoped>

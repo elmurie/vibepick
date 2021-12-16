@@ -3,26 +3,23 @@
         <Search class="instrument_filter " @search="instrumentSelected"/>
         <FilterArtist class="review_vote_filter" @revSearch="revSelected" @avgSearch="avgSelected"/>
         <h1 v-if="instrument != null">{{selectedAdv}}</h1>
-        <div class="artists" v-if="instrument != null">
-            <!-- <a class="found_artist" :href="`http://127.0.0.1:8000/showartist/${user.id}`" v-for="user in instrument" :key="user.id"><FoundArtist :data="user"/></a>  -->
-            <FoundArtist v-for="user in instrument" :key="user.id" :data="user"/>
-        </div>
+        <ArtistsContainer :artists="instrument"/>
     </div>
 </template>
 
 <script>
 import Search from '../components/Search';
-// import ArtistCard from '../components/ArtistCard';
 import FilterArtist from '../components/FilterArtist';
 import FoundArtist from '../components/FoundArtist';
+import ArtistsContainer from '../components/ArtistsContainer.vue';
 
 
 export default {
     components: { 
         Search,
-        // ArtistCard,
         FilterArtist,
-        FoundArtist 
+        FoundArtist,
+        ArtistsContainer 
     },
     name : 'AdvancedSearch',
     data() {
