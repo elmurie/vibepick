@@ -7,7 +7,7 @@
                 <ul>
                     <li v-for="instrument in artist.instruments" :key="instrument.id">{{instrument.name}}</li>
                 </ul>
-                <p>Voto: <span>{{getScore(artist.avgVote)}}</span></p>
+                <p>Voto: <span>{{artist.avgVote}}</span></p>
                 <p>Indirizzo: <span>{{artist.adress ? artist.adress : ` L'indirizzo non é presente`}}</span></p>
                 <p>Telefono: <span>+39 {{artist.phone_number}}</span></p>
                 <p>Email: <span>{{artist.email}}</span></p>

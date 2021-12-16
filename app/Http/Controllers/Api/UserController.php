@@ -22,7 +22,6 @@ class UserController extends Controller
         ->get();
 
         foreach($users as $user){
-            
             //ToDo rendere questo snippet di codice una funzione da richiamare qui e nello show in modo da non ripetere
             $vote=0;
             $average=0;
@@ -31,7 +30,8 @@ class UserController extends Controller
                     $vote+= $review['vote'];
                 }
         
-                $average=$vote/$user['reviews_count'];
+                $avg = $vote/$user['reviews_count'];
+                $average=round($avg, 1);
             }
     
             $user['avgVote'] = $average;
@@ -64,8 +64,8 @@ class UserController extends Controller
             foreach ($user['reviews'] as $review) {
                 $vote+= $review['vote'];
             }
-    
-            $average=$vote/$user['reviews_count'];
+            $avg = $vote/$user['reviews_count'];
+            $average=round($avg, 1);
         }
 
         $user['avgVote'] = $average;
