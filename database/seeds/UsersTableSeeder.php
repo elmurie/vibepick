@@ -65,7 +65,7 @@ class UsersTableSeeder extends Seeder
         ];
 
 
-        //Riempimento tabella utenti tramite Faker
+        //ompilazione tabella utenti tramite Faker
         for ($i=0; $i<25; $i++) {
 
             //contatori array
