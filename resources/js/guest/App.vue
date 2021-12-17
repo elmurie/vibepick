@@ -85,231 +85,203 @@ export default {
 			instruments : []
 		}
 	},
+	methods : {
+		randomHeight() {
+			let random = Math.floor(Math.random() * (60 - 0) + 0); 
+			return random;
+		}
+	},
 	mounted(){
 			let tl = anime.timeline({
-				duration: 200,
-				loop: true,
+				duration: 1000,
+				loop: 1,
 				easing: 'linear',
-				direction : 'alternate'
+				direction : 'normal'
 			})
 			tl.add({
-				targets : '.alfa', 
-				height : 140
-			})
-			.add({
-				targets : '.beta', 
-				height : 160
-			})
-			.add({
-				targets : '.gamma', 
-				height : 100
-
-			})
-			.add({
-				targets : '.delta', 
-				height : 160
-			})
-			.add({
-				targets : '.epsilon', 
-				height : 80
-			})
-			.add({
-				targets : '.zeta', 
-				height : 140
+				targets : '.bar', 
+				opacity : 1,
+				delay : anime.stagger(50)
 			})
 			.add({
 				targets : '.bar', 
-				height : 180
-			})
-			.add({
-				targets : '.delta', 
-				height : 110
-			})
-			.add({
-				targets: '.alfa',
-				height: 180
-			})
-			.add({
-				targets: '.beta',
-				height : 160
-			})
-			.add({
-				targets: '.epsilon',
-				height : 200
-
-			})
-			.add({
-				targets: '.zeta',
-				height: 100
-			})
-			.add({
-				targets: '.gamma',
-				height: 160
-			})
-			.add({
-				targets: '.bar',
-				height: 150
-			})
-			.add({
-				targets: '.kappa',
-				height: 180
-			})
-			.add({
-				targets: '.bar',
-				height: 200,
-			})
-			.add({
-				targets : '.beta', 
-				height : 160
-			})
-			.add({
-				targets : '.gamma', 
-				height : 100
-
-			})
-			.add({
-				targets : '.delta', 
-				height : 160
-			})
-			.add({
-				targets : '.epsilon', 
-				height : 80
-			})
-			.add({
-				targets : '.zeta', 
-				height : 140
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
 				targets : '.bar', 
-				height : 180
-			})
-			.add({
-				targets : '.delta', 
-				height : 110
-			})
-			.add({
-				targets: '.alfa',
-				height: 180
-			})
-			.add({
-				targets: '.beta',
-				height : 160
-			})
-			.add({
-				targets: '.epsilon',
-				height : 200
-
-			})
-			.add({
-				targets: '.zeta',
-				height: 100
-			})
-			.add({
-				targets: '.gamma',
-				height: 160
-			})
-			.add({
-				targets: '.bar',
-				height: 150
-			})
-			.add({
-				targets: '.kappa',
-				height: 180
-			})
-			.add({
-				targets: '.bar',
-				height: 200,
-			})
-			.add({
-				targets: '.beta',
-				height : 160
-			})
-			.add({
-				targets : '.gamma', 
-				height : 100
-
-			})
-			.add({
-				targets : '.delta', 
-				height : 160
-			})
-			.add({
-				targets : '.epsilon', 
-				height : 80
-			})
-			.add({
-				targets : '.zeta', 
-				height : 140
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
 				targets : '.bar', 
-				height : 180
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets : '.delta', 
-				height : 110
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.alfa',
-				height: 180
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.beta',
-				height : 160
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.epsilon',
-				height : 200
-
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.zeta',
-				height: 100
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.gamma',
-				height: 160
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.bar',
-				height: 150
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.kappa',
-				height: 180
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.bar',
-				height: 200,
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.beta',
-				height : 160
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.epsilon',
-				height : 200
-
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.zeta',
-				height: 100
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.gamma',
-				height: 160
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.bar',
-				height: 150
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.kappa',
-				height: 180
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			})
 			.add({
-				targets: '.bar',
-				height: 200,
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (200 - 20) + 20);
+				}
 			});
 		}
 
@@ -339,6 +311,7 @@ export default {
 			background-color: #213e74;
 			border-radius: 25px;
 			flex-shrink: 0;
+			opacity: 0;
 		}
 		.bar-1 {
 			height: 20px;
@@ -357,6 +330,14 @@ export default {
 		}
 		.bar-10 {
 			height: 200px;
+		}
+	}
+	.blue {
+		background-color: red;
+	}
+	@media screen and (max-width: 767px) {
+		.animation {
+			top: 85px;
 		}
 	}
 </style>
