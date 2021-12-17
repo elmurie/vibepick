@@ -9,7 +9,7 @@ body {
     background-color: #26282b;
     color: #fff;
     a {
-        color: #fff;
+        color: #fff; 
     }
 }
 
@@ -26,8 +26,39 @@ header {
         margin: 0 auto;
     }
     
-    a {
+    #myLinks a {
         color: #ffffff;
+        transition: 0.2s;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
+            color: #6cb2eb;
+            transition: 0.2s;
+        } 
+        &:active {
+            cursor: pointer;
+            color: #3490dc;
+            transition: 0.1s;
+        }
+        &::after {
+            content: '';
+            width: 0;
+            position: absolute;
+            background-color: #6cb2eb;
+            height: .1875rem;
+            left: 0;
+            bottom: -4px;
+            transition: 0.3s;
+        }
+        &:hover::after {
+            width: 100%;
+            transition: 0.3s;
+            background-color: #6cb2eb;
+        }
+        &:active::after {
+            background-color: #3490dc;
+        } 
     }
 }
 .logo {
@@ -203,7 +234,7 @@ header{
     }
 
     #myLinks a {
-        padding: 5px 13px;
+        margin: 5px 13px;
     }
     .menu-btn {
         display: none;
