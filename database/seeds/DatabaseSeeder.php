@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             MessagesTableSeeder::class,
             ReviewsTableSeeder::class,
             SponsorshipsTableSeeder::class,
+            InstrumentUserTableSeeder::class,
         ]);
     }
 }
