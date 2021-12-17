@@ -153,8 +153,11 @@
                 @yield('content')
             </main>
             <footer>
-                <div>
-                    | Copyright &copy; VibePick 2021
+                <div class="box-footer">
+                    <div class="box-logo-footer">
+                        <img src="{{asset('storage/img/logo_pick_white.png')}}" alt="">
+                    </div>
+                    <div>| Copyright &copy; VibePick 2021</div>
                 </div>
             </footer>
         </div>
