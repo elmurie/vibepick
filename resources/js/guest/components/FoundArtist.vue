@@ -155,11 +155,6 @@ export default {
   }
 }
 
-::-webkit-scrollbar-thumb {
-    background: #f5980b; 
-    border-radius: 5px;
-    }
-
 @media only screen and (max-width: 425px) {
   .box-card {
     width: 160px;
