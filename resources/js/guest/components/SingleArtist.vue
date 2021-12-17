@@ -271,6 +271,11 @@ export default {
 
     }
 
+    ::-webkit-scrollbar-thumb {
+    background: #f5980b; 
+    border-radius: 5px;
+    }
+
 
 
     @media only screen and (max-width: 1200px) {

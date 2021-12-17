@@ -285,7 +285,7 @@ export default {
 		.bar {
 			margin: 0 10px;
 			width: 20px;
-			background-color: #213e74;
+			background-color: #213e7482;
 			border-radius: 25px;
 			flex-shrink: 0;
 			opacity: 0;
