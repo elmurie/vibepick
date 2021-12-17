@@ -267,14 +267,29 @@ export default {
                 }
                 
             }
+
+         
         }
 
     }
+   ::-webkit-scrollbar {
+            width: .375rem;
+            }
 
-    ::-webkit-scrollbar-thumb {
-    background: #f5980b; 
-    border-radius: 5px;
-    }
+            ::-webkit-scrollbar-track {
+                background: transparent; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #f5980b; 
+                border-radius: 5px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #9b610a; 
+                ; 
+            }
+  
 
 
 
