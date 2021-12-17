@@ -489,3 +489,74 @@ footer {
 
     }
 }
+
+
+#bt-dropin{
+    .braintree-show-options{
+        .braintree-dropin.braintree-loaded{
+            .braintree-placeholder{
+                margin-bottom:0;
+            }
+            .braintree-heading{
+                display:none;
+            }
+            &::before{
+                content: 'Seleziona un metodo di pagamento';
+                color: white;
+            }
+            .braintree-upper-container{
+                .braintree-test-class.braintree-options.braintree-options-initial{
+                    .braintree-options-list{
+                        .braintree-option.braintree-option__card{
+                            .braintree-option__label{
+                                display: none;
+                            }
+                            &::after{
+                                content: 'Carta di credito';
+                                margin-left: 20px;
+                            }
+                        }
+                        .braintree-option.braintree-option__paypal.braintree-disabled{
+                            .braintree-option__label{
+                                .braintree-option__disabled-message{
+                                    display: none;
+                                }
+                                &::after{
+                                    content: 'al momento non é disponibile';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .braintree-show-card{
+        .braintree-dropin.braintree-loaded{
+            .braintree-upper-container{
+                .braintree-card.braintree-form.braintree-sheet{
+                    .braintree-sheet__header{
+                        .braintree-sheet__header-label{
+                            .braintree-sheet__text{
+                                display: none;
+                            }
+                            &::after{
+                                content: 'Paga con carta di credito'
+                            }
+                        }
+                    }
+                    
+                }
+            }
+            .braintree-large-button.braintree-toggle{
+                span{
+                    display: none;
+                }
+                &::before{
+                    content: "Seleziona un'altro metodo di pagamento";
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

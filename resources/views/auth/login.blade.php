@@ -47,7 +47,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('Ricordami') }}
                                     </label>
                                 </div>
                             </div>
@@ -59,13 +59,13 @@
                                     {{ __('Login') }}
                                 </button>
                             </div>
-                            <div class="col-md-12 text-center forgot-password">    
+                            {{-- <div class="col-md-12 text-center forgot-password">    
                                 @if (Route::has('password.request'))
                                     <a href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                            </div>
+                            </div> --}}
                         </div>
                     </form>
                 </div>

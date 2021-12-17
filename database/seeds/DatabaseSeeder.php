@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             ReviewsTableSeeder::class,
             SponsorshipsTableSeeder::class,
             InstrumentUserTableSeeder::class,
+            SponsorshipUserTableSeeder::class,
         ]);
     }
 }
