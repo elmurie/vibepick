@@ -1,6 +1,6 @@
 <template>
     <div class="box-search">
-        <h1>Cerca il tuo Musicista!</h1>
+        <h1>VibePick</h1>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi quam quos et error cum voluptate nostrum am. Debitis ipsa sapiente hic.</p>
         <div class="d-flex justify-center">
             <div class="d-flex column">
