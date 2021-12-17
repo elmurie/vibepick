@@ -1,6 +1,6 @@
 <template>
     <div class="box-search">
-        <h1>Cerca il tuo Musicista!</h1>
+        <h1>VibePick</h1>
         <template v-if="currentPage()">
             <p>Vibepick é una web app dove puoi ricercare un tipo di musicista tra quelli sotto elencati.</p>
             <p>Sei un musicista? Registrati ed avrai la possibilitá di essere contattato da un utente!</p>
