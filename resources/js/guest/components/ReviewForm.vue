@@ -57,6 +57,7 @@ export default {
             input,
             textarea {
                 padding: .3125rem;
+                font-family: 'Ubuntu', sans-serif;
             }
             [type="number"] {
                 width: 30%;

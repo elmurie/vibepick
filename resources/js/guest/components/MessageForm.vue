@@ -65,6 +65,7 @@ export default {
             input,
             textarea {
                 padding: .3125rem;
+                font-family: 'Ubuntu', sans-serif;
             }
         }
         button {
