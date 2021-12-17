@@ -77,17 +77,28 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     
     Route::post('/checkout', function(Request $request, User $user){
 
+    // impostazione della timezone
+    //ToDo test per vedere se cambia anche la zona al dateTime
+        date_default_timezone_set('Europe/Rome');
+
         //Trasformazione delle date in oggetti DateTime per sfruttare la maggior precisione nei confronti 
         $nextSponsorStart = new DateTime($request->start_time);
-        
-        date_default_timezone_set('Europe/Rome');
-        $now = date("Y-m-d H:i:s");
-        $nowDate = new DateTime($now);
 
+        // date_default_timezone_set('Europe/Rome');
+
+        //impostazione della data attuale
+        //ToDo provare a darle un meno 2 minuti per evitare l'errore se si seleziona oggi nel calendario
+        $now = date("Y-m-d H:i:s");
+        $nowD = new DateTime($now);
+        $nowDate = date_modify($nowD,"-2 minutes");
+
+        //Se si inserisce una data precedente al momento attuale si ritorna alla pagina del pagamento con l'appposito messaggio d'errore
         if($nowDate > $nextSponsorStart){
             return back()->withErrors('Non puoi selezionare una data di inizio sponsorizzazione precedente al tempo attuale');
         }
         
+
+        //Dati d'accesso al server Braintree
         if($user = Auth::user()){
             $gateway = new Braintree\Gateway([
                 'environment' => config('services.braintree.environment'),
@@ -101,25 +112,48 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
             $amount = $sponsorship->price;
             $nonce = $request->payment_method_nonce;
 
-    //La chiamata restituisce l'oggetto con l'utente e le sponsorships a lui legate 
+            //Variabile di supporto per il calcolo della fine sponsor richiesta
+            $calcSponsorEnd = new DateTime($request->start_time);
+
+            //Calcolo fine sponsor
+            $nextSponsorEnd = date_add($calcSponsorEnd, date_interval_create_from_date_string($sponsorship->duration . " days"));
+
+            //La chiamata restituisce l'oggetto con l'utente e le sponsorships a lui legate 
             $loggedUser = User::where('id', $user->id)->with('sponsorships')->get();
 
     //Con questa assegnazione si accede all'array di sponsorship legate all'utente
             $userSponsorships = $loggedUser[0]['sponsorships'];
-        
+            
+            //Variabile di supporto per la verifica dell'accettabilità della sponsor richiesta
+            $sponsorNegate = false;
+    
+    
     //In questo ciclo confrontiamo il tempo di fine delle sponsorship legate all'user con la nuova che vuole attivare 
+            
             foreach($userSponsorships as $userSponsorship){
             
             //Trasformazione delle date in oggetti DateTime per sfruttare la maggior precisione nei confronti 
                 $prevSponsorEnd = new DateTime($userSponsorship['pivot']['end_time']);
 
-                //Se la nuova sponsorizzazione ha uno start_time all'interno di un periodo di sponsorizzazione attiva si torna alla pagina con un errore
-                if($prevSponsorEnd > $nextSponsorStart){
-                    return back()->withErrors('Hai una sponsorizzazione in corso per la data di inizio selezionata, si conclude il: ' . date_format($prevSponsorEnd , 'd-m-Y') . ' alle ' . date_format($prevSponsorEnd , 'H:i:s'));
+                $prevSponsorStart = new DateTime($userSponsorship['pivot']['start_time']);
+
+            //Se la nuova sponsorizzazione ha uno start_time all'interno di un periodo di sponsorizzazione attiva si torna alla pagina con un errore
+                if(($nextSponsorStart > $prevSponsorStart && $nextSponsorStart < $prevSponsorEnd) || ($nextSponsorEnd > $prevSponsorStart && $nextSponsorEnd < $prevSponsorEnd)){
+                    
+                    $sponsorNegate = true;
+
+                    //Salvataggio in queste due variabili delle date della sponsor che si accavalla per poterle stampare nell'errore
+                    $sponsorNegStart = $prevSponsorStart;
+                    $sponsorNegEnd = $prevSponsorEnd;
+                }
+
+                //Controllo sui conflitti con le precedenti sponsor tramite la variabile di supporto
+                if($sponsorNegate){
+                    return back()->withErrors('La sponsorizzazione che hai cercato di attivare si accavalla con la sponsorizzazione che hai già attivato che va dal '. date_format($sponsorNegStart , 'd-m-Y') . ' alle ' . date_format($sponsorNegStart , 'H:i')  . ' e si conclude il ' . date_format($sponsorNegEnd , 'd-m-Y') . ' alle ' . date_format($sponsorNegEnd , 'H:i'));
                 }
             }
-
-        
+            
+        //Risultato transazione con i dati dell'user che vengono passati al server BrainTree
             $result = $gateway->transaction()->sale([
                 'amount' => $amount,
                 'paymentMethodNonce' => $nonce,
@@ -133,43 +167,42 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
                 ]
             ]);
         
+            //Transazione a buon fine
             if ($result->success) {
                 $transaction = $result->transaction;
 
-                // inserimento manuale del created_at per avere disponibile uno stroico privato di attivazione della sponsorship
-                date_default_timezone_set('Europe/Rome');
-                $created = date('Y-m-d H:i:s');
-                
-                //settiamo la data di partenza come oggetto DateTime
+                //Setta la data di partenza come oggetto DateTime
                 $start_date = new DateTime($request->start_time);
+                $calcEnd = new DateTime($request->start_time);
 
-                //Aggiungiamo la durata della sponsor in giorni
-                $end_date = date_add($start_date, date_interval_create_from_date_string($sponsorship->duration . " days"));
-                // $request->start_time + $sponsorship->duration;
+                //Aggiunge la durata della sponsor in giorni
+                $end_date = date_add($calcEnd, date_interval_create_from_date_string($sponsorship->duration . " days"));
 
                 //Questo array prende i dati di inizio e fine della sponsor e li raggruppa
                 $sponsor_dati = [
-                    'start_time' => $request->start_time,
+                    'start_time' => $start_date,
                     'end_time' => $end_date,
-                    'created_at' =>  $created,
                 ];
     
     
-                //grazie all'attach colleghiamo user_id e sponsorship_id e aggiungiamo i dati ulteriori sulla durata nella tabella pivot sponsorship_user
+                //Grazie all'attach colleghiamo user_id e sponsorship_id e aggiungiamo i dati ulteriori sulla durata nella tabella pivot sponsorship_user
                 $user->sponsorships()->attach($request->sponsor_id, $sponsor_dati );
-                $startHour = date_format($nextSponsorStart, "H:i:s");
+                
+                //Formattazione sponsor Start per la tra
+                $startHour = date_format($nextSponsorStart, "H:i");
                 $startDay = date_format($nextSponsorStart, "d-m-Y");
-                return redirect()->route('admin.sponsorship')->with('success_message', 'Acquisto completato. Avrai la sponsor ' . $sponsorship->name . ' per ' . $sponsorship->duration*24 . 'ore. A partire dalle ' . $startHour . ' del ' . $startDay . '. Identificativo della transazione: '. $transaction->id);
+
+                //Si ritorna alla pagina con tutte le sponsorizzazioni disponibili con un messaggio 
+                return redirect()->route('admin.sponsorship')->with('success_message', "Acquisto completato. Avrai la sponsor " . $sponsorship->name . " per " . $sponsorship->duration*24 . "ore. A partire dalle " . $startHour . " del " . $startDay . "\n" . ". Identificativo della transazione: ". $transaction->id);
             } else {
+                //Transazione fallita
                 $errorString = "";
         
                 foreach ($result->errors->deepAll() as $error) {
                     $errorString .= 'Errore: ' . $error->code . ": " . $error->message . "\n";
                 }
-        
-                // $_SESSION["errors"] = $errorString;
-                // header("Location: index.php");
-                return back()->withErrors('An error occurred with the message: '.$result->message);
+                //Si ritorna alla pagina di acquisto 
+                return back()->withErrors('Errore nella transazione: '.$result->message);
             }
         };
 
