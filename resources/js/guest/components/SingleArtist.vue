@@ -244,7 +244,7 @@ export default {
         }
 
         .reviews{
-            overflow-y: scroll;
+            overflow-y: auto;
             height: 200px;
             p{
                 margin-bottom: 2px;
