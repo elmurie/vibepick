@@ -65,6 +65,7 @@ class UsersTableSeeder extends Seeder
         ];
 
 
+
         //ompilazione tabella utenti tramite Faker
         for ($i=0; $i<25; $i++) {
 
@@ -116,6 +117,7 @@ class UsersTableSeeder extends Seeder
             $newUser->password = $varPassword;
             $newUser->services = implode('. ', $varServices).'.';
             $newUser->genre = implode('. ', $varGenre);
+            $newUser->curriculum = 'Esperienza di '. rand(1, 7) . ' anni nel campo della musica. I miei generi preferiti sono: '. implode(', ', $varGenre). '. Mi occupo principalmente di '. strtolower(implode(', ', $varServices)).'.'; 
             $newUser->save();
         }
     }
