@@ -53,7 +53,9 @@ class SponsorshipUserTableSeeder extends Seeder
                     'sponsorship_id'=>$randomSponsor,
                     'user_id'=>$randomUser,
                     'start_time'=>$dateMax,
-                    'end_time' =>$lastDate
+                    'end_time' =>$lastDate,
+                    'created_at' =>$dateMax,
+                    'updated_at' =>$dateMax
                 ]);
 
                 $arrayUser[] = $randomUser;
