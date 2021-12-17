@@ -248,13 +248,12 @@ small {
         position: absolute;
         top: 4.375rem;
         right: 0;
-        background-color: #213e74;
-        opacity: .9;
+        background-color: #f5980b;;
         z-index: 20;
         color: #000;
         animation-name: expandAfter;
         animation-duration: .5s;
-        animation-timing-function: ease-in-out;
+        animation-timing-function: cubic-bezier(.29,.86,.16,1);
         animation-direction: normal;
         animation-fill-mode: forwards;
         & ul {
