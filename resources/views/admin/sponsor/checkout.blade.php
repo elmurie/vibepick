@@ -44,11 +44,6 @@
                             </div>
                         </div>
                     </div>
-                    @if (session('success_message'))
-                    <div class="alert alert-success">
-                        {{ session('success_message') }}
-                    </div>
-                    @endif
 
                     @if(count($errors) > 0)
                     <div class="alert alert-danger">
