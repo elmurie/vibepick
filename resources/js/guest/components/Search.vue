@@ -1,7 +1,10 @@
 <template>
     <div class="box-search">
         <h1>Cerca il tuo Musicista!</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi quam quos et error cum voluptate nostrum am. Debitis ipsa sapiente hic.</p>
+        <template v-if="currentPage()">
+            <p>Vibepick é una web app dove puoi ricercare un tipo di musicista tra quelli sotto elencati.</p>
+            <p>Sei un musicista? Registrati ed avrai la possibilitá di essere contattato da un utente!</p>
+        </template>
         <div class="d-flex justify-center">
             <div class="d-flex column">
                 <label for="search">Ricerca per strumento</label>
@@ -37,6 +40,11 @@ export default {
         searchPage() {
             router.push({ name : 'search', params: { slug: this.selected , rewMin: this.rewMin , avgVote: this.avgVote}})
         },
+        currentPage() {
+            if(document.URL == 'http://127.0.0.1:8000/'){ 
+                return true
+            }
+        }
     },
 
     mounted() {
@@ -65,10 +73,10 @@ export default {
             font-size: 55px;
         }
         p {
-            max-width: 600px;
+            // max-width: 600px;
             margin: auto;
             color: rgb(233, 233, 233);
-            margin-bottom: 30px;
+            margin-bottom: 5px;
         }
     }
     

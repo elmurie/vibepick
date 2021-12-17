@@ -10,6 +10,9 @@
                         <h2>Recensioni di {{$user['firstname']}}</h2>
                     </div>
                     <div class="card-body bg-light-blue b-radius-body d-flex flex-column justify-center">
+                        @if(count($reviews) == 0)
+                            <h2>Non hai ricevuto ancora messaggi :(</h2>
+                        @endif
                         @foreach ($reviews as $review)
                         <div class="review-card">
                             <div class="review-header">

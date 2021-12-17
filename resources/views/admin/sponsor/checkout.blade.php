@@ -38,12 +38,20 @@
                                     </section>
                                     <div class="btn-wrapper">
                                         <input id="nonce" name="payment_method_nonce" value="fake-valid-visa-nonce" type="hidden" />
-                                        <button class="btn button" type="submit"><span>Test Transaction</span></button>
+                                        <button class="btn button" type="submit"><span>Paga</span></button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
+
+                    @if (session('success_message'))
+                    <div class="alert alert-success">
+                        {{ session('success_message') }}
+                        <a style="text-decoration: underline" href="/admin">Torna alla Dashboard</a>
+                    </div>
+                    @endif
+
 
                     @if(count($errors) > 0)
                     <div class="alert alert-danger">
