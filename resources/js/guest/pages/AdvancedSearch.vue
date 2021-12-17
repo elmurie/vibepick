@@ -7,7 +7,7 @@
             <ArtistsContainer :artists="instrument"/>
         </template>
         <template v-else>
-            <h3>Mi disciace, non ci sono artisti in questa sezione :(</h3>
+            <h3>Ci dispiace, non ci sono artisti in questa sezione :(</h3>
         </template>
         
     </div>
