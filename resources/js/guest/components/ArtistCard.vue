@@ -47,6 +47,10 @@ export default {
     border: 1px solid #ffffff;
     border-radius:20px;
     margin: 30px;
+    transition: .5s;
+    &:hover {
+        transform: translateY(-5px);
+    }
     .img{
         overflow: hidden;
         width: 140px;
@@ -79,6 +83,10 @@ export default {
             margin-bottom: 5px;
             color: #fff;
             line-height: 30px;
+            transition: .5s;
+            &:hover {
+                background-color: #213e74;
+            }
         }
         .stars{
             display: flex;
