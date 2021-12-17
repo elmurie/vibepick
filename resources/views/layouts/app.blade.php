@@ -45,7 +45,7 @@
                                     </li>
                                     @if (Route::has('register'))
                                         <li>
-                                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                                            <a href="{{ route('register') }}">{{ __('Registrati') }}</a>
                                         </li>
                                     @endif
                                 </ul>
