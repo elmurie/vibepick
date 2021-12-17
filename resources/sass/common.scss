@@ -16,12 +16,18 @@ header{
 
 footer {
     background-color: #353942;
-    div{
+    .box-footer{
         display: flex;
         align-items: center;
         justify-content: flex-end;
         margin-right: 40px;
         height: 45px;
+        .box-logo-footer {
+            height: 18px;
+            img {
+                height: 100%;
+            }
+        }
     }
 }
 
