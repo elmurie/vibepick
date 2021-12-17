@@ -11,6 +11,9 @@
                         <h2>I messaggi di {{$user['firstname']}}</h2>
                     </div>
                     <div class="card-body bg-light-blue b-radius-body d-flex flex-column justify-center">
+                        @if(count($messages) == 0)
+                            <h2>Non hai ricevuto ancora messaggi :(</h2>
+                        @endif
                         @foreach ($messages as $message)
                         <div class="message-card">
                             <div class="message-header">
