@@ -202,7 +202,7 @@ export default {
         }
 
         .r-col {
-            background-color: rgba(65, 65, 65, 0.61);
+            background-color: #a3a1a14d;
             width: 40%;
             // height: 100%;
             padding: 70px 15px;
@@ -227,8 +227,8 @@ export default {
             .box-btn {
                 margin-top: 40px;
                 text-align: center;
-
                 button {
+                    font-family: 'Ubuntu', sans-serif;
                     max-width:230px;
                     background-color: #3ba7ff; /* Green */
                     border: none;
@@ -239,6 +239,10 @@ export default {
                     font-size: 16px;
                     border-radius: 20px;
                     cursor: pointer;
+                    transition: .5s;
+                    &:hover {
+                        background-color: #213e74;
+                    }
                 }
             }
         }
@@ -265,6 +269,11 @@ export default {
             }
         }
 
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background: #f5980b; 
+    border-radius: 5px;
     }
 
 

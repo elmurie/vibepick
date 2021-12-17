@@ -1,4 +1,5 @@
 <template>
+    <router-link :to="{name : 'ShowArtist', params: {id: data.id}}">
     <div class="box-card">
         <div class="img">
             <img :src="data.profile_pic != null ? require(`../../../../public/storage/${data.profile_pic}`) : require(`../../../../public//storage/profile-placeholder.png`)" :alt="data.profile_pic != null ? `Profilo di ${data.firstname}` : 'Foto Profilo' "> 
@@ -8,8 +9,6 @@
             <h3>{{data.lastname}}</h3>
 
             <span>Numero recensioni: {{data.reviews.length}}</span>
-            <router-link :to="{name : 'ShowArtist', params: {id: data.id}}" class="button-view">Visualizza</router-link>
-
             <div class="stars">
                 <span>Media voti</span>
                 <div class="vote">
@@ -24,6 +23,7 @@
 
         </div>
     </div>
+    </router-link>
 </template>
 
 <script>
@@ -47,6 +47,10 @@ export default {
     border: 1px solid #ffffff;
     border-radius:20px;
     margin: 30px;
+    transition: .5s;
+    &:hover {
+        transform: translateY(-5px);
+    }
     .img{
         overflow: hidden;
         width: 140px;
@@ -63,10 +67,9 @@ export default {
     .text{
         display: flex;
         flex-direction: column;
-        text-align: center;
         width: 100%;
         h3, span{
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         }
         .button-view{
             background-color: #3ba7ff;
@@ -79,6 +82,10 @@ export default {
             margin-bottom: 5px;
             color: #fff;
             line-height: 30px;
+            transition: .5s;
+            &:hover {
+                background-color: #213e74;
+            }
         }
         .stars{
             display: flex;
@@ -118,7 +125,7 @@ export default {
         text-align: center;
         width: 100%;
         h3, span{
-        margin-bottom: 5px;
+        margin-bottom: 15px;
         }
         .button-view{
             background-color: #3ba7ff;

@@ -5,6 +5,7 @@
             <p>Vibepick é una web app dove puoi ricercare un tipo di musicista tra quelli sotto elencati.</p>
             <p>Sei un musicista? Registrati ed avrai la possibilitá di essere contattato da un utente!</p>
         </template>
+
         <div class="d-flex justify-center">
             <div class="d-flex column">
                 <label for="search">Ricerca per strumento</label>

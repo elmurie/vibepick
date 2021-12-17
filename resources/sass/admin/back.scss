@@ -235,15 +235,6 @@ footer {
     .card-right {
         border-radius: 0 0 .625rem .625rem;
     }
-    body::-webkit-scrollbar {
-        display: none;
-      }
-      
-      /* Hide scrollbar for IE, Edge add Firefox */
-      body::-webkit-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none; /* Firefox */
-      }
     footer {
         display: none;
     }
@@ -265,6 +256,7 @@ footer {
 .edit textarea {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
 }
 
 .edit .info {

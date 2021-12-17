@@ -27,30 +27,17 @@ footer {
 
 //font-style
 body {
-    font-family: Nunito, sans-serif;
+    font-family: 'Ubuntu', sans-serif;;
 }
 ul {
     list-style: none;
 }
 
 a {
+    font-family: 'Ubuntu', sans-serif;
     text-decoration: none;
     color : #ffffff; 
 }
-
-
-*::-webkit-scrollbar {
-    width: .75rem; //lasciare cosi per togliere le freccette
-}
-
-*::-webkit-scrollbar-track {
-    background: lightgray;
-}
-
-*::-webkit-scrollbar-thumb {
-    background-color: gray;
-}
-// fine scrollbar
 
 // FlexBox
 
@@ -313,3 +300,20 @@ small {
     from { width: 0; height: calc(100% - 70px);}
     to { width: 50%; height: calc(100% - 70px); padding: 90px 15px; }
 }
+
+::-webkit-scrollbar {
+    width: .375rem;
+    }
+
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #213e74; 
+    border-radius: 5px;
+    }
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8a8989; 
+    }
