@@ -22,8 +22,8 @@ class CreateSponsorshipUserTable extends Migration
             $table->unsignedBigInteger('sponsorship_id');
             $table->foreign('sponsorship_id')->references('id')->on('sponsorships')->onDelete("cascade");
 
-            $table->dateTime('start_time')->default('2006-07-09 22:55:19'); //inclusione del dato 'inizio sponsorizzazione'
-            $table->dateTime('end_time')->default('2006-07-09 23:55:19'); //inclusione del dato 'fine sponsorizzazione'
+            $table->dateTime('start_time'); //inclusione del dato 'inizio sponsorizzazione'
+            $table->dateTime('end_time'); //inclusione del dato 'fine sponsorizzazione'
             $table->timestamps();
         });
     }
