@@ -43,7 +43,8 @@ export default {
 .box-card{
     height: 375px;
     width: 200px;
-    background-color: #7883a5;
+    background-color: #ffffff29;
+    border: 1px solid #ffffff;
     border-radius:20px;
     margin: 30px;
     .img{

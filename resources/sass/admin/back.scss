@@ -1,3 +1,6 @@
+body {
+    background: linear-gradient(90deg, rgb(255, 145, 0) 40%, rgb(245, 213, 70) 100%);
+}
 //header
 header {
     height: 4.375rem;
@@ -8,14 +11,14 @@ header {
     }
 }
 
-header a, .dashboard-box a {
+#myLinks a, .dashboard-box a {
     color: #ffffff;
     transition: 0.2s;
     position: relative;
 
     &:hover {
         cursor: pointer;
-        color: #ffa600;
+        color: #ffbb00;
         transition: 0.2s;
     } 
     &:active {
@@ -54,8 +57,9 @@ main {
     padding: 3.125rem;
     // background: rgb(0,149,209);
     // background: linear-gradient(90deg, rgba(0,149,209,1) 48%, rgba(70,189,236,1) 100%);
-    background-image: url('storage/app/public/img/Bg-backoffice.png');
+    background-image: url('storage/app/public/img/Senza_titolo-1.svg');
     background-size: 100%;
+    background-repeat: no-repeat;
     height:calc(100vh - 4.375rem - 2.8125rem);
     overflow-y: auto;
 }
@@ -453,12 +457,19 @@ footer {
     .alert {
         padding: 5px;
     }
-    .alert.alert-success {
-        background-color: green;
-    }
     .alert.alert-danger {
         background-color: red;
     }
+}
+
+// Pagina Sponsorship index
+.alert {
+    margin-bottom: 5px;
+    border-radius: 0.625rem;    
+    padding: 5px 10px;
+}
+.alert.alert-success {
+    background-color: green;
 }
 @media only screen and (max-width: 340px) {
     .checkout.col-md-8 {
