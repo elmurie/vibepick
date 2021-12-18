@@ -275,7 +275,7 @@ export default {
 <style lang="scss" scoped>
 .animation {
 		z-index: -1;
-		position: absolute;
+		position: fixed;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -312,7 +312,28 @@ export default {
 
 	@media screen and (max-width: 767px) {
 		.animation {
-			top: 85px;
+			.bar {
+				margin: 0 5px;
+				width: 10px;
+			}
+			.bar-1 {
+				height: 10px;
+			}
+			.bar-2 {
+				height: 20px;
+			}
+			.bar-4 {
+				height: 40px;
+			}
+			.bar-6 {
+				height: 60px;
+			}
+			.bar-8 {
+				height: 80px;
+			}
+			.bar-10 {
+				height: 100px;
+			}
 		}
 	}
 </style>
