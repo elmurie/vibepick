@@ -54,6 +54,7 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     //Rotte messaggi e recensioni dei singoli user
     Route::resource('messages', 'MessageController');
     Route::resource('reviews', 'ReviewController');
+    Route::get('statistics', 'StatisticsController@index')->name('statistics');
 
 
     //Rotte Sponsorships

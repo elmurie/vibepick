@@ -25,6 +25,7 @@
                             <li><a href="{{route('admin.messages.index')}}">Messaggi</a></li>
                             <li><a href="{{route('admin.reviews.index')}}">Recensioni</a></li>
                             <li><a href="{{route('admin.sponsorship')}}">Sponsorships</a></li>
+                            <li><a href="{{route('admin.statistics')}}">Statistiche</a></li>
                         </ul>                       
                     </div>
                 </div>
