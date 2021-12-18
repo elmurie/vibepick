@@ -1,7 +1,10 @@
 <template>
     <footer>
-        <div>
-            | Copyright &copy; VibePick 2021
+        <div class="box-footer-fo">
+            <div class="box-logo-footer-fo">
+                <img src="storage/img/logo_pick_white.png" alt="">
+            </div>
+            <div>| Copyright &copy; VibePick 2021</div>
         </div>
     </footer>
 </template>
@@ -14,14 +17,20 @@ export default {
 
 <style lang="scss" scoped>
     footer {
-        height: 50px;
-        background-color: #353942;
-        div{
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            margin-right: 40px;
-            height: 50px;
+    background-color: #353942;
+    .box-footer-fo{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-right: 40px;
+        height: 45px;
+        .box-logo-footer-fo {
+            height: 18px;
+            img {
+                height: 100%;
+            }
         }
     }
+}
 </style>
