@@ -87,7 +87,7 @@ export default {
             border: none;
             text-indent: 15px;
             appearance: none;
-            background-image: url('/storage/arrow.jpg');
+            background-image: url('/storage/arrow.png');
             background-size: 15px;
             background-repeat: no-repeat;
             background-position: 97% 50%;
