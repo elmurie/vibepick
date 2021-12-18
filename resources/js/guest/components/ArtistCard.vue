@@ -3,7 +3,7 @@
     <div class="box-card">
         <div class="img">
             <img :src="data.profile_pic != null ? require(`../../../../public/storage/${data.profile_pic}`) : require(`../../../../public//storage/profile-placeholder.png`)" :alt="data.profile_pic != null ? `Profilo di ${data.firstname}` : 'Foto Profilo' "> 
-            <span v-if="data.sponsored ==  true" class="badge_sponsor"><font-awesome-icon :icon="sponsorGuitar" /></span>
+            <span v-if="data.sponsored ==  true" class="badge_sponsor"><font-awesome-icon :icon="bookmark" /></span>
         </div>
         <div class="text">
             <h3>{{data.firstname}}</h3>
@@ -41,7 +41,7 @@ export default {
     data(){
         return{
             goldenWidth : (this.data.avgVote * 100) / 5,
-            sponsorGuitar: faBookmark,
+            bookmark: faBookmark,
         }
     },
 }
