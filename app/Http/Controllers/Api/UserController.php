@@ -34,7 +34,9 @@ class UserController extends Controller
                 $avg = $vote/$user['reviews_count'];
                 $average=round($avg, 1);
             }
-    
+
+            //Si aggiunge il booleano per contrassegnare gli sponsorizzati
+            $user['sponsored'] = true;
             $user['avgVote'] = $average;
             $usersFiltered[] = $user;
         }

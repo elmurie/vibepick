@@ -109,16 +109,19 @@ class InstrumentController extends Controller
     //Riempimento risposta con gli utenti che rispettano i criteri di ricerca
         //Ciclo utenti hanno una sponsorizzazione attiva
         foreach ($usersSponsor as $sponsor) {
+            $sponsor['sponsored'] = true;
             $users[]=$sponsor;
         }
 
         //Ciclo utenti che hanno almeno una sponsorizzazione non attiva
         foreach ($usersNotActiveSponsor as $sponsor) {
+            $sponsor['sponsored'] = false;
             $users[]=$sponsor;
         }
 
         //Ciclo utenti che non hanno mai attivato una sponsorizzazione
         foreach ($usersNotSponsor as $sponsor) {
+            $sponsor['sponsored'] = false;
             $users[]=$sponsor;
         }
         

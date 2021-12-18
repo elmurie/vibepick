@@ -7,6 +7,7 @@
         <div class="text">
             <h3>{{data.firstname}}</h3>
             <h3>{{data.lastname}}</h3>
+            <span v-if="data.sponsored ==  true">Sponsorizzato</span>
 
             <span>Numero recensioni: {{data.reviews.length}}</span>
             <div class="stars">
