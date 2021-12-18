@@ -23,7 +23,7 @@
                             <h4>Voto: {{review.vote}}</h4>
                             <span>Recensito il : {{formattedDate(review.created_at)}}</span>
                             <br>
-                            <p>{{review.content}}</p>
+                            <p class="review-content">{{review.content}}</p>
                         </li>
                     </ul>
                 </div>
@@ -252,6 +252,7 @@ export default {
             height: 200px;
             p{
                 margin-bottom: 2px;
+                overflow-wrap: break-word;
             }
             ul{
                 list-style: none;
@@ -367,6 +368,7 @@ export default {
 }
 
 .instrument-list{
+    flex-wrap: wrap;
     li{
         list-style: none;
         font-size: 0.875rem;
@@ -374,6 +376,7 @@ export default {
         color: white;
         font-weight: 700;
         padding: 10px;
+        margin-top: 0.625rem;
         margin-right: 0.625rem;
         border-radius: 5px;
     }
