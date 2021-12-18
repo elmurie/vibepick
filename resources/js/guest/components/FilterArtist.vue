@@ -21,7 +21,7 @@
                     v-for="(num, index) in average" 
                     :key="`avg-${index}`"
                     :value="num">
-                    &nbsp; &nbsp; {{num}} o piú plettri
+                    &nbsp; &nbsp; Da {{num}} in su
                 </option>
             </select>
         </div>
@@ -36,7 +36,7 @@ export default {
             rewMin: '',
             avgVote: '',
             numReview : [
-                0,2,4,5
+                0,2,4,6
             ],
             average:[
                 0,1,2,3,4,5

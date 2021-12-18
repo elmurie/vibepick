@@ -7,10 +7,10 @@
                 <ul>
                     <li v-for="instrument in artist.instruments" :key="instrument.id">{{instrument.name}}</li>
                 </ul>
-                <p>Voto: <span>{{artist.avgVote}}</span></p>
+                <p>Media Voti: <span>{{artist.avgVote}}</span></p>
                 <p>Indirizzo: <span>{{artist.address ? artist.address : ` L'indirizzo non é presente`}}</span></p>
                 <p>Telefono: <span>{{artist.phone_number? `${artist.phone_number}`: 'Il cellulare non é presente'}}</span></p>
-                <p>Email: <span>{{artist.email}}</span></p>
+                <p>E-mail: <span>{{artist.email}}</span></p>
                 <p>Genere: <span>{{artist.genre ? artist.genre : "Il genere non é presente"}}</span></p>
                 <p>Servizi offerti: <span>{{artist.services? artist.services : 'I servizi non sono presenti'}}</span></p>
                 <p>CV: <span>{{artist.curriculum ? artist.curriculum : 'Il curriculum non é presente'}}</span></p>
