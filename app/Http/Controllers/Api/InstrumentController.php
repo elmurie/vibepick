@@ -126,7 +126,8 @@ class InstrumentController extends Controller
         }
         
         //Settaggio vuoto l'array di risposta dell'API
-        $usersFiltered = [];
+        $usersSponsored = [];
+        $usersNotSponsored = [];
 
         //Ciclo per riempire l'array di risposta con il dato aggiuntivo della media voto se la condizione su quest'ultima è verificato
         foreach($users as $user){
@@ -151,12 +152,20 @@ class InstrumentController extends Controller
 
             //se la media è maggiore di quella richiesta inietto l'utente nell'array che fungerà da risposta
             if( $averageVote >= $avgVote){
-                $usersFiltered[] = $user;
+                if($user['sponsored']){
+                    $usersSponsored[]=$user;
+                }else{
+                    $usersNotSponsored[]=$user;
+
+                }
             }
         }
         return response()->json([
             'success' => true,
-            'data' => $usersFiltered,
+            'data' => [
+                'sponsored' => $usersSponsored,
+                'notSponsored' => $usersNotSponsored,
+            ],
         ]);
     }
 }
