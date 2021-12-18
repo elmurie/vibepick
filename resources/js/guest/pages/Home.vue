@@ -3,6 +3,7 @@
 		<Search/>
 		<h1>I nostri artisti in primo piano</h1>
 		<ArtistsContainer :artists="artists"/>
+		<ArtistsContainer :artists="artistsNotSponsored"/>
 	</div>
 </template>
 
@@ -18,7 +19,8 @@ import Search from '../components/Search.vue';
 		},
 		data() {
         return {
-            artists : []
+            artists : [],
+			artistsNotSponsored: []
         }
 		},
 		mounted() {
@@ -30,7 +32,16 @@ import Search from '../components/Search.vue';
 			.catch( (error) => {
 				// se c'è un errore
 				console.log(error);
+			});
+			axios.get('api/usersnotsponsored')
+			.then((response) => {
+				// se passa
+				this.artistsNotSponsored = response.data.data;
 			})
+			.catch( (error) => {
+				// se c'è un errore
+				console.log(error);
+			});
 		}
     
 	}
