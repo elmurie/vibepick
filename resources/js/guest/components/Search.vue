@@ -69,7 +69,6 @@ export default {
 </script>
 <style lang="scss" scoped>
     .box-search {
-        margin-top: 3.125rem;
         h1 {
             font-size: 55px;
         }

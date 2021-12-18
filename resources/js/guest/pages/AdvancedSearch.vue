@@ -3,8 +3,9 @@
         <Search class="instrument_filter " @search="instrumentSelected"/>
         <FilterArtist class="review_vote_filter" @revSearch="revSelected" @avgSearch="avgSelected"/>
         <h2 v-if="instrument != null">{{selectedParams}}</h2>
-        <template v-if="instrument.length > 0">
-            <ArtistsContainer :artists="instrument"/>
+        <template v-if="instrument.sponsored.length > 0 || instrument.notSponsored.length > 0">
+            <ArtistsContainer :artists="instrument.sponsored"/>
+            <ArtistsContainer :artists="instrument.notSponsored"/>
         </template>
         <template v-else>
             <h3>Ci dispiace, non ci sono artisti in questa sezione :(</h3>
@@ -30,7 +31,7 @@ export default {
     name : 'AdvancedSearch',
     data() {
         return {
-            instrument : null,
+            instrument: '',
             selectedAdv : this.$route.params.slug,
             selectedParams : '',
             reviewNum: 0, 
@@ -121,13 +122,17 @@ export default {
 
 <style lang="scss" scoped>
     .box-main-home {
-		max-width: 	1200px;
 		margin: 0 auto;
+		max-width: 	1200px;
+        padding: 1rem 0;
+        min-height: calc(100vh - 100px - 120px); //i 100px sono i 3.125rem * 2 per renderlo equidistante da header e footer, i 120px sono la somma di header e footer
+        border-radius: .625rem;
 		text-align: center;
 		background-color: rgba(0, 0, 0, 0.068);
 	}
     .box-search{
         margin-top: 3.125rem;
+        margin-bottom: 3.125rem;
     }
     .instrument_filter,
     .review_vote_filter {
