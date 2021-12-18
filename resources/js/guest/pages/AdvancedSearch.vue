@@ -8,7 +8,7 @@
             <ArtistsContainer :artists="instrument.notSponsored"/>
         </template>
         <template v-else>
-            <h3>Ci dispiace, non ci sono artisti in questa sezione :(</h3>
+            <h3 class="no_result">Nessun risultato per la tua ricerca</h3>
         </template>
         
     </div>
@@ -153,7 +153,7 @@ export default {
         text-align: center;
     }
     h3{
-        padding-bottom: 15px;
+        padding: 15px 0;
     }
 
     @media only screen and (max-width: 1024px) {

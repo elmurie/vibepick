@@ -1,9 +1,9 @@
 <template>
     <div class="box-search">
         <h1>VibePick</h1>
-        <template v-if="currentPage()">
-            <p>Vibepick é una web app dove puoi ricercare un tipo di musicista tra quelli sotto elencati.</p>
-            <p>Sei un musicista? Registrati ed avrai la possibilitá di essere contattato da un utente!</p>
+        <template  v-if="currentPage()">
+            <p class="tagline">Talenti musicali a portata di click.</p>
+            <p>Sei un musicista freelance? <a class="register" href="/register">Registrati!</a></p>
         </template>
 
         <div class="d-flex justify-center">
@@ -72,12 +72,23 @@ export default {
         h1 {
             font-size: 55px;
         }
+        .tagline {
+            margin-top: 10px;
+        }
         p {
             // max-width: 600px;
             margin: auto;
             color: rgb(233, 233, 233);
             margin-bottom: 5px;
         }
+        .register {
+            color: #f39200;
+            font-weight: 700;
+        }
+        label {
+            margin: 15px;
+        }
+        
     }
     
         select{
