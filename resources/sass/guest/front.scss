@@ -32,19 +32,19 @@ header {
 
         &:hover {
             cursor: pointer;
-            color: #6cb2eb;
+            color: #ffa600;
             transition: 0.2s;
         } 
         &:active {
             cursor: pointer;
-            color: #3490dc;
+            color: #d37f00;
             transition: 0.1s;
         }
         &::after {
             content: '';
             width: 0;
             position: absolute;
-            background-color: #6cb2eb;
+            background-color: #ffa600;
             height: .1875rem;
             left: 0;
             bottom: -4px;
@@ -53,10 +53,10 @@ header {
         &:hover::after {
             width: 100%;
             transition: 0.3s;
-            background-color: #6cb2eb;
+            background-color: #ffa600;
         }
         &:active::after {
-            background-color: #3490dc;
+            background-color: #d37f00;
         } 
     }
 }
