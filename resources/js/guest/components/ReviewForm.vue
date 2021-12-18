@@ -9,18 +9,18 @@
             </div>
             <div class="field">
                 <label for="title">Titolo</label>
-                <input type="text" name="title" id="title" placeholder="Inserisci il titolo della recensione" required>
+                <input type="text" name="title" id="title" placeholder="Inserisci il titolo della recensione" required oninvalid="setCustomValidity('Titolo obbligatorio. Max: 50 caratteri')" oninput="setCustomValidity('')">
             </div>
             <div class="field">
                 <label for="content">Testo</label>
-                <textarea name="content" id="content" rows="10" placeholder="Inserisci il contenuto della recensione" required></textarea>
+                <textarea name="content" id="content" rows="10" placeholder="Inserisci il contenuto della recensione" required oninvalid="setCustomValidity('Testo obbligatorio. Max: 1500 caratteri')" oninput="setCustomValidity('')"></textarea>
             </div>
             <div class="field">
                 <label for="vote">Voto</label>
                 <input type="number" min="0" max="5" pattern="/[0-5]/m" name="vote" id="vote" placeholder="Da 0 a 5" required>
             </div>
             
-            <button type="submit" name="" @click="controllLength()" >Invia</button>
+            <button type="submit" name="" @click="controllLength(50, 50, 1500)" >Invia</button>
         </form>
 </template>
 
@@ -35,13 +35,16 @@ export default {
     },
 
     methods : {
-        controllLength: function() {
-            if(document.review.author.value.length > 50) {
+        controllLength: function(countAuthor, countTitle, countText) {
+            if(document.review.author.value.length > countAuthor) {
                 document.review.author.value = null;
-            } else {
-                return document.review.author.value;
             }
-            
+            if(document.review.title.value.length > countTitle) {
+                document.review.title.value = null;
+            }
+            if(document.review.content.value.length > countText) {
+                document.review.content.value = null;
+            }
         }
     },
 
