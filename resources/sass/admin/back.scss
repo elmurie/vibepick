@@ -341,7 +341,6 @@ footer {
 }
 
 /*PAGINA SPONSORSHIP*/
-
 .sponsors .card-header {
     padding : 15px 20px;
 }
@@ -387,6 +386,17 @@ footer {
             }
         }
     }
+}
+
+@media only screen and (max-width: 991px) {
+    .img-sponsor {
+        padding: 5px !important;
+        width: clamp(45px, 20%, 627px) !important;
+    }
+    .title.font{
+        font-size: 15px !important;
+    }
+    
 }
 
 /*Pagina checkout*/
