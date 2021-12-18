@@ -6,9 +6,9 @@
             <span v-if="data.sponsored ==  true" class="badge_sponsor"><font-awesome-icon :icon="bookmark" /></span>
         </div>
         <div class="text">
-            <h3>{{data.firstname}}</h3>
+            <h3 class="firstname">{{data.firstname}}</h3>
             <h3>{{data.lastname}}</h3>
-
+            <h4 class="instrument" v-if="data.instruments != null">{{data.instruments[0].name}}</h4>
             <span>Numero recensioni: {{data.reviews.length}}</span>
             <div class="stars">
                 <span>Media voti</span>
@@ -85,6 +85,12 @@ export default {
         width: 100%;
         h3, span{
         margin-bottom: 10px;
+        }
+        .firstname{
+            margin-bottom: 0;
+        }
+        .instrument {
+            margin-bottom: 5px;
         }
         .button-view{
             background-color: #3ba7ff;
