@@ -21,10 +21,10 @@ class MessageController extends Controller
         
         $newMessage = new Message();
         $newMessage->user_id=$request->user_id;
-        $newMessage->firstname=$request->firstname;
-        $newMessage->lastname=$request->lastname;
+        $newMessage->firstname=ucfirst(strtolower($request->firstname));
+        $newMessage->lastname=ucfirst(strtolower($request->lastname));
         $newMessage->email=$request->email;
-        $newMessage->text=$request->text;
+        $newMessage->text=ucfirst($request->text);
         $newMessage->save();
 
         return redirect('/showartist'.'/'.$newMessage->user_id)->with('message_sent','Il messagio è stato inviato');

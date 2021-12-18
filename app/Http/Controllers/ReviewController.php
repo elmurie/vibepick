@@ -20,9 +20,9 @@ class ReviewController extends Controller
 
         $newReview = new Review();
         $newReview->user_id=$request->user_id;
-        $newReview->title=$request->title;
-        $newReview->author=$request->author;
-        $newReview->content=$request->content;
+        $newReview->title=ucfirst(strtolower(($request->title)));
+        $newReview->author=ucwords(strtolower($request->author));
+        $newReview->content=ucfirst($request->content);
         $newReview->vote=$request->vote;
         $newReview->save();
 
