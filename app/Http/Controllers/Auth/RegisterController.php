@@ -72,7 +72,7 @@ class RegisterController extends Controller
         $newUser = new User();
         $newUser->firstname = ucfirst(strtolower($data['firstname']));
         $newUser->lastname = ucfirst(strtolower($data['lastname']));
-        $newUser->address = $data['address'];
+        $newUser->address = ucwords($data['address']);
         $newUser->email = $data['email'];
         $newUser->password = Hash::make($data['password']);
         $newUser->save();
