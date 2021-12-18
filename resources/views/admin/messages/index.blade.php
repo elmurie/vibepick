@@ -10,9 +10,9 @@
                     <div class="card-header padding-card bg-dark-blue b-radius-header text-center">
                         <h2>I messaggi di {{$user['firstname']}}</h2>
                     </div>
-                    <div class="card-body bg-light-blue b-radius-body d-flex flex-column justify-center">
+                    <div class="card-body bg-light-blue b-radius-body d-flex flex-column justify-center box-card">
                         @if(count($messages) == 0)
-                            <h2>Non hai ricevuto ancora messaggi :(</h2>
+                            <h2 style="text-align: center;">Non hai ricevuto ancora messaggi :(</h2>
                         @endif
                         @foreach ($messages as $message)
                         <div class="message-card">

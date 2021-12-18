@@ -9,9 +9,9 @@
                     <div class="card-header padding-card bg-dark-blue b-radius-header text-center">
                         <h2>Recensioni di {{$user['firstname']}}</h2>
                     </div>
-                    <div class="card-body bg-light-blue b-radius-body d-flex flex-column justify-center">
+                    <div class="card-body bg-light-blue b-radius-body d-flex flex-column justify-center box-card">
                         @if(count($reviews) == 0)
-                            <h2>Non hai ricevuto ancora messaggi :(</h2>
+                            <h2 style="text-align: center;">Non hai ricevuto ancora messaggi :(</h2>
                         @endif
                         @foreach ($reviews as $review)
                         <div class="review-card">
