@@ -25,7 +25,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <button class="btn align-self-end"><a href="{{route('admin.users.edit')}}">Modifica</a></button>
+                        <a class="align-self-end" href="{{route('admin.users.edit')}}"><button class="btn">Modifica</button></a>
                     </div>
                 </div>
             </div>
