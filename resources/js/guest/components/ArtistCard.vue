@@ -3,11 +3,11 @@
     <div class="box-card">
         <div class="img">
             <img :src="data.profile_pic != null ? require(`../../../../public/storage/${data.profile_pic}`) : require(`../../../../public//storage/profile-placeholder.png`)" :alt="data.profile_pic != null ? `Profilo di ${data.firstname}` : 'Foto Profilo' "> 
+            <span v-if="data.sponsored ==  true" class="badge_sponsor"><font-awesome-icon :icon="sponsorGuitar" /></span>
         </div>
         <div class="text">
             <h3>{{data.firstname}}</h3>
             <h3>{{data.lastname}}</h3>
-            <span v-if="data.sponsored ==  true">Sponsorizzato <font-awesome-icon :icon="sponsorGuitar" /></span>
 
             <span>Numero recensioni: {{data.reviews.length}}</span>
             <div class="stars">
@@ -29,7 +29,7 @@
 
 <script>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faGuitar } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 export default {
     name : 'ArtistCard',
     components:{
@@ -41,13 +41,14 @@ export default {
     data(){
         return{
             goldenWidth : (this.data.avgVote * 100) / 5,
-            sponsorGuitar: faGuitar,
+            sponsorGuitar: faBookmark,
         }
     },
 }
 </script>
 <style lang="scss" scoped>
 .box-card{
+    position: relative;
     height: 375px;
     width: 200px;
     background-color: #ffffff29;
@@ -57,6 +58,13 @@ export default {
     transition: .5s;
     &:hover {
         transform: translateY(-5px);
+    }
+    .badge_sponsor{
+        position: absolute;
+        top: -5px;
+        right: 1.25rem;
+        font-size: 2rem;
+        color: #f5980f;
     }
     .img{
         overflow: hidden;
