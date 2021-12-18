@@ -29,6 +29,16 @@
                         </div>
                         @endforeach
                     </div>
+
+                    <div>
+                        @foreach ($prova as $sponsor)
+                            <h2>Tipo Sponsor: {{$sponsor->name}}</h2>
+                            <h2>Data inizio: {{$sponsor->pivot->start_time}}</h2>
+                            <h2>Data fine: {{$sponsor->pivot->end_time}}</h2>
+                            <h3>Data acquisto: {{$sponsor->pivot->created_at}}</h3>
+                            <hr>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
