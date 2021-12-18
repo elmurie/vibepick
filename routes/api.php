@@ -24,6 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // http://localhost:8000/api/users
 Route::namespace('Api')->name('api.')->group(function() {
 	Route::get('/users', 'UserController@index');
+	Route::get('/usersnotsponsored', 'UserController@indexnotsponsored');
 	Route::get('/instruments', 'InstrumentController@index'); // passa tutto l'elenco degli strumenti 
 	Route::get('/instruments/{slug}/{rewMin}/{avgVote}', 'InstrumentController@show'); // passa il singolo strumento individuato del nome con allegato la lista degli utenti con con lo strumento associato 
 	Route::get('/showartist/{id}', 'UserController@show');
