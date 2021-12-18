@@ -4,7 +4,7 @@
             <div class="l-col">
                 <h2>{{artist.firstname}} {{artist.lastname}}</h2>
                 <h3>Artista specializzato in:</h3>
-                <ul>
+                <ul class="instrument-list d-flex flex-wrap">
                     <li v-for="instrument in artist.instruments" :key="instrument.id">{{instrument.name}}</li>
                 </ul>
                 <p>Voto: <span>{{artist.avgVote}}</span></p>
@@ -360,4 +360,22 @@ export default {
                 height: 100%
             }
     }
+
+.box .l-col ul{
+    margin-left: 0;
+
+}
+
+.instrument-list{
+    li{
+        list-style: none;
+        font-size: 0.875rem;
+        background-color: #f39200;
+        color: white;
+        font-weight: 700;
+        padding: 10px;
+        margin-right: 0.625rem;
+        border-radius: 5px;
+    }
+}
 </style>
