@@ -26,6 +26,7 @@
                                     <div class="col-md-8">
                                         <input id="address" 
                                                 type="text" 
+                                                pattern="^(Via|via|Viale|viale|Corso|corso|Piazza|piazza)[ a-zA-z ]*[,][ ][0-9]*$"
                                                 class="form-control @error('address') is-invalid @enderror" 
                                                 name="address"
                                                 placeholder="Inserisci il tuo indirizzo..."

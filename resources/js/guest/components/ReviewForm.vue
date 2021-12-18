@@ -1,26 +1,26 @@
 <template>
-        <form action="/reviews" method="POST">
+        <form action="/reviews" name="review" method="POST">
             <!-- equivalente del @csrf -->
             <input type="hidden" name="_token" :value="csrf">
             <input type="hidden" name="user_id" :value="user_id">
             <div class="field">
                 <label for="author">Autore</label>
-                <input type="text" name="author" id="author" placeholder="Inserisci il tuo nome e cognome" required>
+                <input type="text" name="author" id="author" placeholder="Inserisci il tuo nome e cognome" required oninvalid="setCustomValidity('Autore obbligatorio. Max: 50 caratteri')" oninput="setCustomValidity('')">
             </div>
             <div class="field">
                 <label for="title">Titolo</label>
-                <input type="text" name="title" id="title" placeholder="Inserisci il titolo della recensione" required>
+                <input type="text" name="title" id="title" placeholder="Inserisci il titolo della recensione" required oninvalid="setCustomValidity('Titolo obbligatorio. Max: 50 caratteri')" oninput="setCustomValidity('')">
             </div>
             <div class="field">
                 <label for="content">Testo</label>
-                <textarea name="content" id="content" rows="10" placeholder="Inserisci il contenuto della recensione" required></textarea>
+                <textarea name="content" id="content" rows="10" placeholder="Inserisci il contenuto della recensione" required oninvalid="setCustomValidity('Testo obbligatorio. Max: 1500 caratteri')" oninput="setCustomValidity('')"></textarea>
             </div>
             <div class="field">
                 <label for="vote">Voto</label>
                 <input type="number" min="0" max="5" pattern="/[0-5]/m" name="vote" id="vote" placeholder="Da 0 a 5" required>
             </div>
             
-            <button type="submit" name="">Invia</button>
+            <button type="submit" name="" @click="controllLength(50, 50, 1500)" >Invia</button>
         </form>
 </template>
 
@@ -31,6 +31,20 @@ export default {
         return {
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             user_id : ''
+        }
+    },
+
+    methods : {
+        controllLength: function(countAuthor, countTitle, countText) {
+            if(document.review.author.value.length > countAuthor) {
+                document.review.author.value = null;
+            }
+            if(document.review.title.value.length > countTitle) {
+                document.review.title.value = null;
+            }
+            if(document.review.content.value.length > countText) {
+                document.review.content.value = null;
+            }
         }
     },
 

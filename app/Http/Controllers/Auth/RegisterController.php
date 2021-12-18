@@ -70,9 +70,9 @@ class RegisterController extends Controller
     {
         //Modifica del default di laravel per consentire l'attach
         $newUser = new User();
-        $newUser->firstname = $data['firstname'];
-        $newUser->lastname = $data['lastname'];
-        $newUser->address = $data['address'];
+        $newUser->firstname = ucfirst(strtolower($data['firstname']));
+        $newUser->lastname = ucfirst(strtolower($data['lastname']));
+        $newUser->address = ucwords($data['address']);
         $newUser->email = $data['email'];
         $newUser->password = Hash::make($data['password']);
         $newUser->save();

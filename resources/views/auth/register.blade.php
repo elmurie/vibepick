@@ -79,12 +79,13 @@
 
                                 <div class="col-md-6">
                                     <input id="address" 
-                                            type="text" 
+                                            type="text"
+                                            pattern="^(Via|via|Viale|viale|Corso|corso|Piazza|piazza)[ a-zA-z ]*[,][ ][0-9]*$"
                                             class="form-control @error('address') is-invalid @enderror" 
                                             name="address" 
                                             value="{{ old('address') }}"
                                             placeholder="Inserisci il tuo indirizzo..."
-                                            oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo indirizzo')"
+                                            oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo indirizzo in formato (via/viale/piazza/corso nome-via, numero)')"
                                             oninput="setCustomValidity('')"  
                                             required autocomplete="address" autofocus>
                                     @error('address')

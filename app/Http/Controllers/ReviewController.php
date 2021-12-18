@@ -12,17 +12,17 @@ class ReviewController extends Controller
 
         $request->validate([
             'user_id'=> 'required | numeric',
-            'title' => 'required | string | max:150',
-            'author' => 'required | string | max:150',
-            'content' => 'required | string | max:15000',
+            'title' => 'required | string | max:50',
+            'author' => 'required | string | max:50',
+            'content' => 'required | string | max:1500',
             'vote' => 'required | numeric | between:0,5',
         ]);
 
         $newReview = new Review();
         $newReview->user_id=$request->user_id;
-        $newReview->title=$request->title;
-        $newReview->author=$request->author;
-        $newReview->content=$request->content;
+        $newReview->title=ucfirst(strtolower(($request->title)));
+        $newReview->author=ucwords(strtolower($request->author));
+        $newReview->content=ucfirst($request->content);
         $newReview->vote=$request->vote;
         $newReview->save();
 
