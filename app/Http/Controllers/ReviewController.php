@@ -13,7 +13,7 @@ class ReviewController extends Controller
         $request->validate([
             'user_id'=> 'required | numeric',
             'title' => 'required | string | max:150',
-            'author' => 'required | string | max:150',
+            'author' => 'required | string | max:50',
             'content' => 'required | string | max:15000',
             'vote' => 'required | numeric | between:0,5',
         ]);
