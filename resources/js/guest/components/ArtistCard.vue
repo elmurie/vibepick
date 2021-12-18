@@ -7,7 +7,7 @@
         <div class="text">
             <h3>{{data.firstname}}</h3>
             <h3>{{data.lastname}}</h3>
-            <span v-if="data.sponsored ==  true">Sponsorizzato <font-awesome-icon :icon="sponsorStar" /></span>
+            <span v-if="data.sponsored ==  true">Sponsorizzato <font-awesome-icon :icon="sponsorGuitar" /></span>
 
             <span>Numero recensioni: {{data.reviews.length}}</span>
             <div class="stars">
@@ -29,7 +29,7 @@
 
 <script>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faGuitar } from '@fortawesome/free-solid-svg-icons'
 export default {
     name : 'ArtistCard',
     components:{
@@ -41,7 +41,7 @@ export default {
     data(){
         return{
             goldenWidth : (this.data.avgVote * 100) / 5,
-            sponsorStar: faStar,
+            sponsorGuitar: faGuitar,
         }
     },
 }
