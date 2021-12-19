@@ -169,15 +169,56 @@ footer {
 
 .card-left {
     border-radius: .625rem 0 0 .625rem;
+    position: relative;
+    .sponsorship{
+        margin-top: 1.625rem;
+        padding: .75rem 0;
+
+        &__title{
+            text-align: center;
+            margin-bottom: .875rem;
+
+            .color__1{
+                color: #cd7f32;
+            }
+
+            .color__2{
+                color: #bfc1c2;
+            }
+            .color__3{
+                color: #DAA520;
+            }
+            .container_img{
+                position: absolute;
+                top: 80px;
+                left: calc(50% + 70px);
+                transform: translate(-50%, -50%);
+                height: 4rem;
+                width: 4rem;
+                border-radius: 50%;
+                background-color: rgba(10, 90, 144, 0.76);
+                box-shadow: 11px -7px 17px -4px rgb(36, 36, 36, 0.79);
+            }
+            img{
+                height: 3rem;
+                position: absolute;
+                top: 53%;
+                left: 53%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
 }
 
 .card-right {
     border-radius: 0 .625rem .625rem 0;
+    
 }
 
 
 //cerchio immagine
 .personal_pic {
+    position: relative;
     overflow: hidden;
     object-fit: cover;
     width: 12.5rem;
@@ -341,12 +382,15 @@ footer {
 }
 
 /*PAGINA SPONSORSHIP*/
-
 .sponsors .card-header {
     padding : 15px 20px;
 }
 .sponsors .card-body {
     padding : 15px 20px;
+
+    .active{
+        border: 5px solid rgb(22, 173, 22);
+    }
     .sponsor-card {
         background-color: #0095d1;
         border-radius: 5px;
@@ -387,6 +431,17 @@ footer {
             }
         }
     }
+}
+
+@media only screen and (max-width: 991px) {
+    .img-sponsor {
+        padding: 5px !important;
+        width: clamp(45px, 20%, 627px) !important;
+    }
+    .title.font{
+        font-size: 15px !important;
+    }
+    
 }
 
 /*Pagina checkout*/
