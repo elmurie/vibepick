@@ -42,7 +42,7 @@ class UsersTableSeeder extends Seeder
             'registrazione in studio',
             'composizione colonne sonore',
             'composizione jingle',
-            'turnista per tours musicali',
+            'turnista per tour musicali',
             'piano bar feste private',
             'collaborazioni musicali',
             'lezioni private',
