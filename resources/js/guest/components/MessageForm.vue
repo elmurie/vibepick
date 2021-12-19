@@ -9,11 +9,13 @@
                     type="text"
                     name="firstname"
                     id="firstname"
+                    v-on:keyup="contCharFisrtname(50)"
                     placeholder="Inserisci il tuo nome"
                     oninvalid="setCustomValidity('Nome obbligatorio. Max: 50 caratteri')"
                     oninput="setCustomValidity('')"
                     required
-                    >
+                >
+                <small id="charFirstname"></small>
             </div>
             <div class="field">
                 <label for="lastname">Cognome</label>
@@ -21,11 +23,13 @@
                     type="text"
                     name="lastname"
                     id="lastname"
+                    v-on:keyup="contCharLastname(50)"
                     placeholder="Inserisci il tuo cognome"
                     oninvalid="setCustomValidity('Cognome obbligatorio. Max: 50 caratteri')"
                     oninput="setCustomValidity('')"
                     required
                 >
+                <small id="charLastname"></small>
             </div>
             <div class="field">
                 <label for="email">Indirizzo e-mail</label>
@@ -44,12 +48,14 @@
                 <textarea
                     name="text"
                     id="text"
+                    v-on:keyup="contCharText(250)"
                     rows="10"
                     placeholder="Inserisci il contenuto del tuo messaggio"
                     oninvalid="setCustomValidity('Messaggio obbligatorio. Max: 1500 caratteri')"
                     oninput="setCustomValidity('')"
                     required>
                 </textarea>
+                <small id="charText"></small>
             </div>
 
             <button type="submit" name="" @click="controllLength(50, 50, 1500)">Invia</button>
@@ -77,6 +83,22 @@ export default {
             if(document.message.text.value.length > countText) {
                 document.message.text.value = null;
             }
+
+        },
+
+        contCharFisrtname: function(char) {
+            let numChars = document.getElementById('firstname').value;
+            document.getElementById('charFirstname').innerHTML = 'Caratteri rimanenti: '+ (char - numChars.length);
+        },
+
+        contCharLastname: function(char) {
+            let numChars = document.getElementById('lastname').value;
+            document.getElementById('charLastname').innerHTML ='Caratteri rimanenti: '+ (char - numChars.length);
+        },
+
+        contCharText: function(char) {
+            let numChars = document.getElementById('text').value;
+            document.getElementById('charText').innerHTML = 'Caratteri rimanenti: '+ (char - numChars.length);
         }
     },
 
