@@ -34,7 +34,7 @@
                             <div class=" d-flex flex-column col-sm-7" style="overflow-y: scroll;">
                                 <h2>I tuoi acquisti</h2>
                                 @foreach ($prova as $sponsor)
-                                    <div class="sponsor-card  p-2">
+                                    <div class="sponsor-card  p-2 {{$sponsor->now_active}}">
                                         <div class="sponsor-header">
                                             <div class="d-flex align-center justify-content-between">
                                                 <h2 class="title">{{$sponsor->name}}</h2>
@@ -44,7 +44,7 @@
                                         <div class="sponsor-body">
                                             <h3 class="py-1">Data inizio: {{$sponsor->pivot->start_time}}</h3>
                                             <h3 class="py-1">Data fine: {{$sponsor->pivot->end_time}}</h3>
-                                            <h3 class="py-1">Acquistato il: {{$sponsor->pivot->created_at}}</h3>
+                                            <h3 class="py-1">Acquistato il: {{$sponsor->pivot->sale_time}}</h3>
                                         </div>
                                     </div>
                                 @endforeach

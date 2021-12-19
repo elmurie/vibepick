@@ -21,18 +21,35 @@ class SponsorshipController extends Controller
         ->with(['sponsorships' => function($query){
             $query->orderBy('start_time', 'desc');
         }])
-        // ->orderBy('start_time', 'asc')
         ->get();
         
+
+        //Recupero della data odierna
+        date_default_timezone_set('Europe/Rome');
+        $nowD = date("Y-m-d H:i:s");
+        // $nowD = "2021-12-26 12:00:00";
+
+        $nowDate = new DateTime($nowD);
+        
         foreach($userSponsor[0]['sponsorships'] as $spons){
+
+            //Rendere le date oggetti DateTime
             $start_time = new DateTime($spons['pivot']['start_time']);
-            $spons['pivot']['start_time'] = date_format($start_time, "d-m-Y H:i");
-
             $end_time = new DateTime($spons['pivot']['end_time']);
+            $created_at = $spons['pivot']['created_at'];
+            $created_at = $created_at->format("d-m-Y h:i");
+            // dd($created_at);
+            //Assegnazione di una classe per l'eventuale sponsorizzazione attiva
+            if($start_time < $nowDate && $end_time > $nowDate){
+                $spons['now_active'] = 'active';
+            }else{
+                $spons['now_active'] = 'not-active';
+            }
+            
+            //Formattazione delle date per la visione a video
+            $spons['pivot']['start_time'] = date_format($start_time, "d-m-Y H:i");
             $spons['pivot']['end_time'] = date_format($end_time, "d-m-Y H:i");
-
-            $created_at = new DateTime($spons['pivot']['created_at']);
-            $spons['pivot']['created_at'] = date_format($created_at, "d-m-Y H:i");
+            $spons['pivot']['sale_time'] = $created_at;
         };
 
         $prova = $userSponsor[0]['sponsorships']; 

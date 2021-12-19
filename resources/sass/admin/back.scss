@@ -346,6 +346,10 @@ footer {
 }
 .sponsors .card-body {
     padding : 15px 20px;
+
+    .active{
+        border: 5px solid rgb(22, 173, 22);
+    }
     .sponsor-card {
         background-color: #0095d1;
         border-radius: 5px;
