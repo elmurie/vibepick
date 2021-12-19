@@ -5,7 +5,11 @@
                 <h2>{{artist.firstname}} {{artist.lastname}}</h2>
                 <h3>Artista specializzato in:</h3>
                 <ul class="instrument-list d-flex flex-wrap">
-                    <li v-for="instrument in artist.instruments" :key="instrument.id">{{instrument.name}}</li>
+                    <li v-for="instrument in artist.instruments" :key="instrument.id">
+                        <router-link :to="{name : 'search', params: {slug: instrument.slug, rewMin: 0, avgVote: 0}}">
+                        {{instrument.name}}
+                        </router-link>
+                        </li>
                 </ul>
                 <p>Media Voti: <span>{{artist.avgVote}}</span></p>
                 <p>Indirizzo: <span>{{artist.address ? artist.address : ` L'indirizzo non é presente`}}</span></p>
