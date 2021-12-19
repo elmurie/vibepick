@@ -2,8 +2,10 @@
 	<div>
 		<!-- <Header/> -->
 		<main>
-			<Animation/>
-			<router-view></router-view>
+			<div class="animation-wrapper">
+				<Animation/>
+				<router-view></router-view>
+			</div>
 		</main>
 		<Footer/>
 	</div>
@@ -33,7 +35,13 @@ export default {
 		position: relative;
 		height: calc(100vh - 120px);
 		background: #0a5a90;
-		overflow: auto;
-		overflow-x: hidden;
+		// overflow-x: hidden;
+		.animation-wrapper {
+			z-index: 1;
+			width: 100%;
+			height:100%;
+			overflow: auto;
+			// background-color: red;
+		}
 	}
 </style>
