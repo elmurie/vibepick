@@ -17,12 +17,18 @@
             <label for="avg">Media voti</label>
             <select name="avg" v-model="avgVote" v-on:change="$emit('avgSearch', avgVote)">
                 <option disabled value=""> &nbsp; Media voto</option>
-                <option style="text-indent: 15px;"
+                <!-- <option style="text-indent: 15px;"
                     v-for="(num, index) in average" 
                     :key="`avg-${index}`"
                     :value="num">
                     &nbsp; &nbsp; Da {{num}} in su
-                </option>
+                </option> -->
+                <option value="0" style="text-indent: 15px;">&nbsp; &nbsp; Da 0 in su</option>
+                <option value="1" style="text-indent: 15px;">&nbsp; &nbsp; Da 1 in su</option>
+                <option value="2" style="text-indent: 15px;">&nbsp; &nbsp; Da 2 in su</option>
+                <option value="3" style="text-indent: 15px;">&nbsp; &nbsp; Da 3 in su</option>
+                <option value="4" style="text-indent: 15px;">&nbsp; &nbsp; Da 4 in su</option>
+                <option value="5" style="text-indent: 15px;">&nbsp; &nbsp; Uguale a 5</option>
             </select>
         </div>
     </div>
@@ -36,7 +42,7 @@ export default {
             rewMin: '',
             avgVote: '',
             numReview : [
-                0,2,4,6
+                0,4,8,12
             ],
             average:[
                 0,1,2,3,4,5
