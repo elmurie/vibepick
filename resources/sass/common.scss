@@ -248,14 +248,12 @@ small {
     }
     #myLinksMobile {
         display: none;
-        flex-direction: column;
-        align-items: flex-end;
         width: 0;
         height: 0;
         position: absolute;
         top: 4.375rem;
         right: 0;
-        background-color: hsla(36, 92%, 50%, 0.87);;
+        background-color: rgb(76, 76, 82);
         z-index: 20;
         color: #000;
         animation-name: expandAfter;
@@ -263,17 +261,33 @@ small {
         animation-timing-function: cubic-bezier(.29,.86,.16,1);
         animation-direction: normal;
         animation-fill-mode: forwards;
-        & ul {
-            align-items: flex-end;
-            flex-direction: column;
-        }
-        & li {
-            text-align: right;
-            a {
-                color: #fff;
-                font-weight: 800;
-                font-size: clamp(1.5rem, 5vw, 4rem);
+
+        .box-links-mobile {
+            // background-color: rgb(68, 68, 68);
+            width: 100%;
+        
+            .border-link-top{
+                border-top: 1px solid rgba(255, 255, 255, 0.575);
             }
+            & ul {
+                align-items: flex-start;
+                flex-direction: column;
+                width: 100%;
+
+            }
+            & li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.575);
+                color: white;
+                padding: 20px 0;
+                width: 100%;
+                font-size: 15px;
+
+                a {
+                    margin-left: 15px;
+                    color: #fff;
+                    // font-size: clamp(1.5rem, 5vw, 4rem);
+                }
+            }    
         }
     }
     .menu-btn {

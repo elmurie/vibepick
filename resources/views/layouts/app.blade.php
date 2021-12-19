@@ -90,47 +90,44 @@
                             </div>
                             @endguest
                         </div>
+
                         <div id="myLinksMobile">
+                            {{-- se non sei registrato vedi questo --}}
                             @guest
-                            <div>
-                                <ul class="d-flex align-center">
+                            <div class="box-links-mobile">
+                                <ul class="d-flex align-center border-link-top">
                                     <li>
+                                        <i class="fas fa-sign-in-alt"></i>
                                         <a href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
                                     @if (Route::has('register'))
                                         <li>
+                                            <i class="fas fa-user-plus"></i>
                                             <a href="{{ route('register') }}">{{ __('Register') }}</a>
                                         </li>
                                     @endif
                                 </ul>
                             </div>                           
                             @else
-                            {{-- link --}}
-                            <div>
-                                <ul class="d-flex align-center">
-                                @if (@isset($user))
+                            {{-- altrimenti se sei registrato vedi questo --}}
+                            <div class="box-links-mobile">
+                                <ul class="d-flex align-center border-link-top">
+                                    @if (@isset($user))
+                                        <li>
+                                            <i class="fas fa-user"></i>
+                                            <a href="{{ route('admin.users.show') }}">
+                                                {{ __('Profilo') }}
+                                            </a>
+                                        </li>
+                                    @endif
                                     <li>
-                                        <a href="{{ route('admin.users.show') }}">
-                                            {{ __('Profilo') }}
-                                        </a>
-                                    </li>
-                                @endif
-                                    <li>
+                                        <i class="fas fa-chart-line"></i>
                                         <a href="{{ route('admin.home') }}">
                                             {{ __('Dashboard') }}
                                         </a>
                                     </li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <ul class="d-flex align-center">
-                                    {{-- <li>
-                                        <a href="#">
-                                            {{ Auth::user()->firstname }}
-                                        </a>
-                                    </li> --}}
                                     <li>
+                                        <i class="fas fa-sign-out-alt"></i>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
@@ -143,6 +140,7 @@
                             </div>
                             @endguest
                         </div>
+                        
                         <div class="menu-btn">
                             <div class="menu-btn_burger"></div>
                         </div>
