@@ -80,7 +80,7 @@ class UsersTableSeeder extends Seeder
             $varFirstname=$faker->firstName();
             $varLastname=$faker->lastName();
             $varAddress=$arrAddress[$countAddress] . ' ' . ucwords($faker->words(rand(1,3), true)) . ', ' . rand(1,200);
-            $varPhoneNumber='+39 ' . rand(320, 399) . $faker->randomNumber(7, true);
+            $varPhoneNumber= rand(320, 399) . $faker->randomNumber(7, true);
             $varEmail= strtolower($varFirstname . $separator[$countSeparator] . $varLastname . $emailDom[$countDom]);
             $varPassword= Hash::make("prova1234");
 
