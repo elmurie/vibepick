@@ -12,10 +12,10 @@ class MessageController extends Controller
 
         $request->validate([
             'user_id'=> 'required | numeric',
-            'firstname' => 'required | string | max:100',
-            'lastname' => 'required | string | max:100',
+            'firstname' => 'required | string | max:50',
+            'lastname' => 'required | string | max:50',
             'email' => 'required | email',
-            'text' => 'required | string | max:15000',
+            'text' => 'required | string | max:1500',
         ]);
 
         

@@ -1,15 +1,31 @@
 <template>
-        <form action="/messages" method="POST">
+        <form action="/messages" name="message" method="POST">
             <!-- equivalente del @csrf -->
             <input type="hidden" name="_token" :value="csrf">
             <input type="hidden" name="user_id" :value="user_id">
             <div class="field">
                 <label for="firstname">Nome</label>
-                <input type="text" name="firstname" id="firstname" placeholder="Inserisci il tuo nome" required>
+                <input
+                    type="text"
+                    name="firstname"
+                    id="firstname"
+                    placeholder="Inserisci il tuo nome"
+                    oninvalid="setCustomValidity('Nome obbligatorio. Max: 50 caratteri')"
+                    oninput="setCustomValidity('')"
+                    required
+                    >
             </div>
             <div class="field">
                 <label for="lastname">Cognome</label>
-                <input type="text" name="lastname" id="lastname" placeholder="Inserisci il tuo cognome" required>
+                <input
+                    type="text"
+                    name="lastname"
+                    id="lastname"
+                    placeholder="Inserisci il tuo cognome"
+                    oninvalid="setCustomValidity('Cognome obbligatorio. Max: 50 caratteri')"
+                    oninput="setCustomValidity('')"
+                    required
+                >
             </div>
             <div class="field">
                 <label for="email">Indirizzo e-mail</label>
@@ -25,10 +41,18 @@
             </div>
             <div class="field">
                 <label for="text">Messaggio</label>
-                <textarea name="text" id="text" rows="10" placeholder="Inserisci il contenuto del tuo messaggio" required></textarea>
+                <textarea
+                    name="text"
+                    id="text"
+                    rows="10"
+                    placeholder="Inserisci il contenuto del tuo messaggio"
+                    oninvalid="setCustomValidity('Messaggio obbligatorio. Max: 1500 caratteri')"
+                    oninput="setCustomValidity('')"
+                    required>
+                </textarea>
             </div>
 
-            <button type="submit" name="">Invia</button>
+            <button type="submit" name="" @click="controllLength(50, 50, 1500)">Invia</button>
         </form>
 </template>
 
@@ -39,6 +63,20 @@ export default {
         return {
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             user_id : ''
+        }
+    },
+
+    methods : {
+        controllLength: function(countFirst, countLast, countText) {
+            if(document.message.firstname.value.length > countFirst) {
+                document.message.firstname.value = null;
+            }
+            if(document.message.lastname.value.length>countLast) {
+                document.message.lastname.value = null;
+            }
+            if(document.message.text.value.length > countText) {
+                document.message.text.value = null;
+            }
         }
     },
 
