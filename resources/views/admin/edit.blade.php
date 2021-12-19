@@ -51,15 +51,14 @@
                                     <div class="col-md-8">
                                         <input id="phone_number" 
                                                 type="tel"
-                                                {{--  RegEx per l'inserimento di soli numeri nell'input--}}
-                                                pattern="[0-9]{10,16}" 
+                                                {{-- pattern="^(00|\+)39[ ][0-9]{10,10}"  --}}
                                                 minlength="10" 
                                                 maxlength="16" 
                                                 class="form-control @error('phone_number') is-invalid @enderror" 
                                                 name="phone_number" 
                                                 value="{{ old('phone_number')  ?? $user['phone_number']}}"
                                                 placeholder="Inserisci il tuo numero di telefono..."
-                                                oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo numero di telefono')"
+                                                oninvalid="setCustomValidity('Ops... ricordati di inserire il tuo numero di telefono +39 -numero- ')"
                                                 oninput="setCustomValidity('')"  
                                                 autocomplete="phone_number" autofocus>
                                         @error('phone_number')

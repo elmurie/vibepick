@@ -5,15 +5,47 @@
             <input type="hidden" name="user_id" :value="user_id">
             <div class="field">
                 <label for="author">Autore</label>
-                <input type="text" name="author" id="author" placeholder="Inserisci il tuo nome e cognome" required oninvalid="setCustomValidity('Autore obbligatorio. Max: 50 caratteri')" oninput="setCustomValidity('')">
+                <input
+                    type="text"
+                    name="author"
+                    id="author"
+                    v-on:keyup="contCharAuthor(50)"
+                    placeholder="Inserisci il tuo nome e cognome"
+                    required
+                    oninvalid="setCustomValidity('Autore obbligatorio. Max: 50 caratteri')"
+                    oninput="setCustomValidity('')"
+                >
+                <small id="charAuthor"></small>
+
             </div>
             <div class="field">
                 <label for="title">Titolo</label>
-                <input type="text" name="title" id="title" placeholder="Inserisci il titolo della recensione" required oninvalid="setCustomValidity('Titolo obbligatorio. Max: 50 caratteri')" oninput="setCustomValidity('')">
+                <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    v-on:keyup="contCharTitle(50)"
+                    placeholder="Inserisci il titolo della recensione"
+                    required
+                    oninvalid="setCustomValidity('Titolo obbligatorio. Max: 50 caratteri')"
+                    oninput="setCustomValidity('')"
+                >
+                <small id="charTitle"></small>
             </div>
             <div class="field">
                 <label for="content">Testo</label>
-                <textarea name="content" id="content" rows="10" placeholder="Inserisci il contenuto della recensione" required oninvalid="setCustomValidity('Testo obbligatorio. Max: 1500 caratteri')" oninput="setCustomValidity('')"></textarea>
+                <textarea 
+                    name="content" 
+                    id="content"
+                    v-on:keyup="contCharText(1500)"
+                    rows="10" 
+                    placeholder="Inserisci il contenuto della recensione" 
+                    required 
+                    oninvalid="setCustomValidity('Testo obbligatorio. Max: 1500 caratteri')" 
+                    oninput="setCustomValidity('')"
+                >
+                </textarea>
+                <small id="charContent"></small>
             </div>
             <div class="field">
                 <label for="vote">Voto</label>
@@ -45,6 +77,21 @@ export default {
             if(document.review.content.value.length > countText) {
                 document.review.content.value = null;
             }
+        },
+
+        contCharAuthor: function(char) {
+            let numChars = document.getElementById('author').value;
+            document.getElementById('charAuthor').innerHTML = 'Caratteri rimanenti: '+ (char - numChars.length);
+        },
+
+        contCharTitle: function(char) {
+            let numChars = document.getElementById('title').value;
+            document.getElementById('charTitle').innerHTML ='Caratteri rimanenti: '+ (char - numChars.length);
+        },
+
+        contCharText: function(char) {
+            let numChars = document.getElementById('content').value;
+            document.getElementById('charContent').innerHTML = 'Caratteri rimanenti: '+ (char - numChars.length);
         }
     },
 
