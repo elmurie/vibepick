@@ -10,7 +10,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}"></script>
             <!-- script backend -->
         <script src="{{ asset('js/back.js')}}" defer></script>
         
@@ -18,8 +18,9 @@
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+
         <!-- Styles -->
         {{-- Toastr stylesheet --}}
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -152,14 +153,64 @@
                 @yield('content')
             </main>
             <footer>
-                <div>
-                    | Copyright &copy; VibePick 2021
+                <div class="box-footer">
+                    <div class="box-logo-footer">
+                        <img src="{{asset('storage/img/logo_pick_white.png')}}" alt="">
+                    </div>
+                    <div>| Copyright &copy; VibePick 2021</div>
                 </div>
             </footer>
         </div>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha512-ubuT8Z88WxezgSqf3RLuNi5lmjstiJcyezx34yIU2gAHonIi27Na7atqzUZCOoY4CExaoFumzOsFQ2Ch+I/HCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script >
+            var reviews = {num :"{{count($reviews)}}"};
+            var messages = {num :"{{count($messages)}}"};
+            var myChart = document.getElementById('myChart').getContext('2d');
+            var massPopChart = new Chart(myChart, {
+                type: 'bar',
+                data: {
+                    labels:['N. Recensioni', 'N. Messaggi'],
+                    datasets:[{
+                        label: 'Statistiche',
+                        data:[
+                            reviews.num,
+                            messages.num,
+                        ],  
+                        backgroundColor: ['#20d754cc', '#f9d608cc']                        
+                    }],
+                },
+                options: {
+                },
+            });
+
+
+            //seconda statistica 
+            var ctx = document.getElementById('userChart').getContext('2d');
+
+            var chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: {!!json_encode($chart->date)!!},
+                    datasets: [
+                        {
+                            label : 'Voti',
+                            data: {!!json_encode($chart->voti)!!},
+                            borderColor: "#20d754cc",
+                            fill: true,
+                            tension: 0.01,
+                        },
+                    ]
+                },
+                options: {
+
+                },
+            })
+
+        </script>
         @if (Session::has('record_updated'))
                 <script>
                     toastr.options = {
@@ -168,38 +219,5 @@
                     toastr.success("{!!Session::get('record_updated')!!}");
                 </script>
         @endif
-            {{-- Braintree script --}}
-            <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
-            <script>
-                var form = document.querySelector('#payment-form');
-                var client_token = "{{ $token }}";
-        
-                braintree.dropin.create({
-                    authorization: client_token,
-                    selector: '#bt-dropin',
-                    paypal: {
-                    flow: 'vault'
-                    }
-                }, function (createErr, instance) {
-                    if (createErr) {
-                    console.log('Create Error', createErr);
-                    return;
-                    }
-                    form.addEventListener('submit', function (event) {
-                        event.preventDefault();
-        
-                        instance.requestPaymentMethod(function (err, payload) {
-                            if (err) {
-                                console.log('Request Payment Method Error', err);
-                                return;
-                            }
-                            console.log(payload);
-                            // Add the nonce to the form and submit
-                            document.querySelector('#nonce').value = payload.nonce;
-                            form.submit();
-                        });
-                    });
-                });
-            </script>
     </body>
 </html>
