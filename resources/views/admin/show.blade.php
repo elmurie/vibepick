@@ -10,6 +10,13 @@
                     </div>
                     <div class="card-right d-flex flex-column bg-dark-blue">
                         <h1>{{$user['firstname']}} {{$user['lastname']}}</h1>
+                        <div class="sponsorhip {{$user->is_sponsored == false ? 'd-none' : 'd-block'}}">
+                            <h3>Hai una sponsorizzazione attiva <img src="{{$user->is_sponsored == false ? 'd-none' : asset('../storage/img/sponsor_logo_'.$sponsorship->id.'.png')}}" alt=""> </h3>
+                            <h3>Dal: {{$user->is_sponsored == false ? 'd-none' : $sponsorship->pivot->start_time}}</h3>
+                            <h3>Al: {{$user->is_sponsored == false ? 'd-none' : $sponsorship->pivot->end_time}}</h3>
+                            <h3>Acquista il {{$user->is_sponsored == false ? 'd-none' : $sponsorship->pivot->sale_time}}</h3>
+
+                        </div>
                         <ul class="info">
                             <li><strong>Indirizzo : </strong>{{$user['address']}}</li>
                             <li><strong>Telefono : </strong>{{$user['phone_number']}}</li>

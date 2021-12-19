@@ -27,7 +27,6 @@ class SponsorshipController extends Controller
         //Recupero della data odierna
         date_default_timezone_set('Europe/Rome');
         $nowD = date("Y-m-d H:i:s");
-        // $nowD = "2021-12-26 12:00:00";
 
         $nowDate = new DateTime($nowD);
         
@@ -38,7 +37,7 @@ class SponsorshipController extends Controller
             $end_time = new DateTime($spons['pivot']['end_time']);
             $created_at = $spons['pivot']['created_at'];
             $created_at = $created_at->format("d-m-Y h:i");
-            // dd($created_at);
+            
             //Assegnazione di una classe per l'eventuale sponsorizzazione attiva
             if($start_time < $nowDate && $end_time > $nowDate){
                 $spons['now_active'] = 'active';
