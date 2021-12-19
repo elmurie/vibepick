@@ -263,6 +263,150 @@ export default {
 			})
 			.add({
 				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
+				height : function() {
+					return Math.floor(Math.random() * (250 - 20) + 20);
+				}
+			})
+			.add({
+				targets : '.bar', 
                 opacity: 0,
 				height : function() {
 					return Math.floor(Math.random() * (250 - 20) + 20);
