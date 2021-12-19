@@ -11,6 +11,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 	<header>
@@ -74,59 +75,57 @@
 					</div>
 					@endguest
 				</div>
+
 				<div id="myLinksMobile">
+					{{-- se non sei registrato vedi questo --}}
 					@guest
-					<div>
-						<ul class="d-flex align-center">
+					<div class="box-links-mobile">
+						<ul class="d-flex align-center border-link-top">
 							<li>
+								<i class="fas fa-sign-in-alt"></i>
 								<a href="{{ route('login') }}">{{ __('Login') }}</a>
 							</li>
 							@if (Route::has('register'))
-							<li>
-								<a href="{{ route('register') }}">{{ __('Registrati') }}</a>
-							</li>
+								<li>
+									<i class="fas fa-user-plus"></i>
+									<a href="{{ route('register') }}">{{ __('Register') }}</a>
+								</li>
 							@endif
 						</ul>
 					</div>                           
 					@else
-					{{-- link --}}
-					<div>
-						<ul class="d-flex align-center">
+					{{-- altrimenti se sei registrato vedi questo --}}
+					<div class="box-links-mobile">
+						<ul class="d-flex align-center border-link-top">
 							@if (@isset($user))
-							<li>
-								<a href="{{ route('admin.users.show') }}">
-									{{ __('Profilo') }}
-								</a>
-							</li>
+								<li>
+									<i class="fas fa-user"></i>
+									<a href="{{ route('admin.users.show') }}">
+										{{ __('Profilo') }}
+									</a>
+								</li>
 							@endif
 							<li>
+								<i class="fas fa-chart-line"></i>
 								<a href="{{ route('admin.home') }}">
 									{{ __('Dashboard') }}
 								</a>
 							</li>
-						</ul>
-					</div>
-					
-					<div>
-						<ul class="d-flex align-center">
-							{{-- <li>
-								<a href="#">
-									{{ Auth::user()->firstname }}
-								</a>
-							</li> --}}
 							<li>
+								<i class="fas fa-sign-out-alt"></i>
 								<a href="{{ route('logout') }}"
-								onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-								{{ __('Logout') }}
-							</a>
-						</li>
-						<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-							@csrf
-						</form>
-					</ul>
+									onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+									{{ __('Logout') }}
+								</a>
+							</li>
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+								@csrf
+							</form>
+						</ul>
 					</div>
 					@endguest
 				</div>
+
 				<div class="menu-btn">
 					<div class="menu-btn_burger"></div>
 				</div>
