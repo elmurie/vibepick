@@ -194,7 +194,7 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
                 $startDay = date_format($nextSponsorStart, "d-m-Y");
 
                 //Si ritorna alla pagina con tutte le sponsorizzazioni disponibili con un messaggio 
-                return redirect()->route('admin.sponsorship')->with('success_message', "Acquisto completato. Avrai la sponsor " . $sponsorship->name . " per " . $sponsorship->duration*24 . "ore. A partire dalle " . $startHour . " del " . $startDay . "\n" . ". Identificativo della transazione: ". $transaction->id);
+                return redirect()->route('admin.sponsorship')->with('success_message', "Acquisto completato. Avrai la sponsor " . $sponsorship->name . " per " . $sponsorship->duration*24 . " ore. A partire dalle " . $startHour . " del " . $startDay . "\n" . ". Identificativo della transazione: ". $transaction->id);
             } else {
                 //Transazione fallita
                 $errorString = "";
