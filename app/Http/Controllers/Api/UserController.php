@@ -56,7 +56,7 @@ class UserController extends Controller
         
         $usersNotActiveSponsor = User::with('instruments')
         ->whereHas('sponsorships', function(Builder $query) use($nowDate){
-            $query->where('end_time', '<', $nowDate)->orWhere('start_time', '<', $nowDate);
+            $query->where('end_time', '<', $nowDate)->orWhere('start_time', '>', $nowDate);
         })
         ->withCount('reviews')
         ->with('reviews')
