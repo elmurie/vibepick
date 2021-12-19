@@ -208,7 +208,52 @@
                 options: {
 
                 },
-            })
+            });
+
+            //terza stats
+
+            var terza = document.getElementById('newChart').getContext('2d');
+
+            var nuovo = new Chart(terza, {
+                type: 'line',
+                data: {
+                    labels: {!!json_encode($reviewsMonth->mesi)!!},
+                    datasets: [
+                        {
+                            label : 'Numero Recensioni 2021',
+                            data: {!!json_encode($reviewsMonth->tot)!!},
+                            borderColor: "#20d754cc",
+                            fill: true,
+                            tension: 0.01,
+                        },
+                    ]
+                },
+                options: {
+
+                },
+            });
+
+             //quarta stats
+            var quarta = document.getElementById('newerChart').getContext('2d');
+
+            var nuova = new Chart(quarta, {
+                type: 'line',
+                data: {
+                    labels: {!!json_encode($messagesMonth->mesi)!!},
+                    datasets: [
+                        {
+                            label : 'Numero Messaggi 2021',
+                            data: {!!json_encode($messagesMonth->tot)!!},
+                            borderColor: "#20d754cc",
+                            fill: true,
+                            tension: 0.01,
+                        },
+                    ]
+                },
+                options: {
+
+                },
+            });
 
         </script>
         @if (Session::has('record_updated'))
