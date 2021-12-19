@@ -48,7 +48,7 @@
                 <textarea
                     name="text"
                     id="text"
-                    v-on:keyup="contCharText(250)"
+                    v-on:keyup="contCharText(1500)"
                     rows="10"
                     placeholder="Inserisci il contenuto del tuo messaggio"
                     oninvalid="setCustomValidity('Messaggio obbligatorio. Max: 1500 caratteri')"
