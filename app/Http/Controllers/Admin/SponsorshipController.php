@@ -36,7 +36,7 @@ class SponsorshipController extends Controller
             $start_time = new DateTime($spons['pivot']['start_time']);
             $end_time = new DateTime($spons['pivot']['end_time']);
             $created_at = $spons['pivot']['created_at'];
-            $created_at = $created_at->format("d-m-Y h:i");
+            $created_at = $created_at->format("d-m-Y H:i");
             
             //Assegnazione di una classe per l'eventuale sponsorizzazione attiva
             if($start_time < $nowDate && $end_time > $nowDate){
