@@ -51,7 +51,7 @@
                                     <div class="col-md-8">
                                         <input id="phone_number" 
                                                 type="tel"
-                                                pattern="^(00|\+)39[ ][0-9]{10,10}" 
+                                                {{-- pattern="^(00|\+)39[ ][0-9]{10,10}"  --}}
                                                 minlength="10" 
                                                 maxlength="16" 
                                                 class="form-control @error('phone_number') is-invalid @enderror" 
