@@ -171,8 +171,8 @@ export default {
         align-items: center;
 }
     .box {
-            // height: calc(100vh - 120px);
-            height: 100%;
+            height: calc(100vh - 120px);
+            // height: 100%;
         max-width: 1200px;
         margin: auto;
         display: flex;
@@ -182,6 +182,9 @@ export default {
 
         .l-col {
             width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
             height: 100%;
             // background-color: rgba(0, 0, 0, 0.11);
             padding: 4.375rem 0;
@@ -194,9 +197,10 @@ export default {
                 list-style-type: circle;
                 margin-left: 20px;
                 margin-top: 5px;
+                margin-bottom: 15px;
             }
             p {
-                margin: 15px 0;
+                margin:0 0  15px 0;
                 font-size: 20px;
                 font-weight: 500;
             }
@@ -253,7 +257,8 @@ export default {
 
         .reviews{
             overflow-y: auto;
-            height: 200px;
+            height: 150px;
+            flex-grow: 1;
             p{
                 margin-bottom: 2px;
                 overflow-wrap: break-word;
