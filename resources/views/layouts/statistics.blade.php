@@ -35,6 +35,7 @@
                         {{-- logo --}}                       
                         <a  class="logo" href="{{url('/')}}">
                             <img src="{{asset('storage/img/logo_pick.png')}}" alt="VibePick Logo">
+                            <h3 class="logo-title">Vibe<span>Pick</span></h3>
                         </a>
                         {{-- link --}}
                         <div id="myLinks">
