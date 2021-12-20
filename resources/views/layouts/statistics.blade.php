@@ -201,7 +201,7 @@
                             stacked:true,
                             grid:{
                                 display: true,
-                                color: "rgb(255,255,255)"
+                                color: "rgba(255,255,255, 0.5)"
                             },
                             ticks: {
                             color: "white",
@@ -213,7 +213,7 @@
                         x: {
                             grid:{
                                 display: true,
-                                color: "rgb(255,255,255)"
+                                color: "rgba(255,255,255, 0.5)"
                             },
                             ticks: {
                             color: "white",
@@ -288,6 +288,8 @@
 
             var terza = document.getElementById('newChart').getContext('2d');
 
+            let revMax = Math.max(...{!!json_encode($reviewsMonth->tot)!!});
+
             var nuovo = new Chart(terza, {
                 type: 'line',
                 data: {
@@ -296,19 +298,57 @@
                         {
                             label : 'Numero Recensioni 2021',
                             data: {!!json_encode($reviewsMonth->tot)!!},
-                            borderColor: "#20d754cc",
+                            borderColor: "#f39200",
+                            backgroundColor: "rgba(144,144,144,0.3)",
                             fill: true,
                             tension: 0.01,
                         },
                     ]
                 },
                 options: {
+                    plugins: {  // 'legend' now within object 'plugins 
+                        legend: {
+                            labels: {
+                            color: 'white',  // not 'fontColor:' anymore
+                            }
+                        }
+                    },
+                    maintainAspectRatio: false,
+                    scales:{
+                        y:{
+                            stacked:true,
+                            grid:{
+                                display: true,
+                                color: "rgba(255,255,255, 0.5)"
+                            },
+                            ticks: {
+                            color: "white",
+                            beginAtZero: true,
+                            scale: 15,
+                            stepSize: 2
+                            },
+                            suggestedMax: revMax + 2,
+                            
+                        },
+                        x: {
+                            grid:{
+                                display: true,
+                                color: "rgba(255,255,255, 0.5)"
+                            },
+                            ticks: {
+                            color: "white",
+                            beginAtZero: true
+                            }
+                        }
+                    }
 
                 },
             });
 
              //quarta stats
             var quarta = document.getElementById('newerChart').getContext('2d');
+            let voteMax = Math.max(...{!!json_encode($messagesMonth->tot)!!});
+
 
             var nuova = new Chart(quarta, {
                 type: 'line',
@@ -318,14 +358,49 @@
                         {
                             label : 'Numero Messaggi 2021',
                             data: {!!json_encode($messagesMonth->tot)!!},
-                            borderColor: "#20d754cc",
+                            borderColor: "#f39200",
+                            backgroundColor: "rgba(144,144,144,0.3)",
                             fill: true,
                             tension: 0.01,
                         },
                     ]
                 },
                 options: {
-
+                    plugins: {  // 'legend' now within object 'plugins 
+                        legend: {
+                            labels: {
+                            color: 'white',  // not 'fontColor:' anymore
+                            }
+                        }
+                    },
+                    maintainAspectRatio: false,
+                    scales:{
+                        y:{
+                            stacked:true,
+                            grid:{
+                                display: true,
+                                color: "rgba(255,255,255, 0.5)"
+                            },
+                            ticks: {
+                            color: "white",
+                            beginAtZero: true,
+                            stepSize: 1,
+                            // scale: 15
+                            },
+                            suggestedMax: voteMax + 2,
+                            
+                        },
+                        x: {
+                            grid:{
+                                display: true,
+                                color: "rgba(255,255,255, 0.5)"
+                            },
+                            ticks: {
+                            color: "white",
+                            beginAtZero: true
+                            }
+                        }
+                    }
                 },
             });
 
