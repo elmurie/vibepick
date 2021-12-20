@@ -62,9 +62,15 @@ header {
 }
 .logo {
     height: 60%;
-}
-.logo img{
-    height: 100%;
+    display: flex;
+    align-items: center;
+    img{
+        height: 100%;
+        margin-right: 5px;
+    }
+    .logo-title span {
+        color: #3d9edf;
+    }
 }
 
 // FlexBox

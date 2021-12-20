@@ -47,9 +47,15 @@ header {
 }
 .logo {
     height: 60%;
-}
-.logo img{
-    height: 100%;
+    display: flex;
+    align-items: center;
+    img{
+        height: 100%;
+        margin-right: 5px;
+    }
+    .logo-title span {
+        color: #3d9edf;
+    }
 }
 //main 
 
@@ -389,7 +395,7 @@ footer {
     padding : 15px 20px;
 
     .active{
-        border: 5px solid rgb(22, 173, 22);
+        border: 5px solid #ffa600;
     }
     .sponsor-card {
         background-color: #0095d1;
