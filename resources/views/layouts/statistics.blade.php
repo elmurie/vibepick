@@ -170,6 +170,7 @@
             var reviews = {num :"{{count($reviews)}}"};
             var messages = {num :"{{count($messages)}}"};
             var myChart = document.getElementById('myChart').getContext('2d');
+            let maxDataValue = parseInt(reviews.num) + 2 ;
             var massPopChart = new Chart(myChart, {
                 type: 'bar',
                 data: {
@@ -180,10 +181,46 @@
                             reviews.num,
                             messages.num,
                         ],  
-                        backgroundColor: ['#20d754cc', '#f9d608cc']                        
+                        backgroundColor: ['#20d754cc', '#f9d608cc'],
+                        borderColor:['#ffffff'],                       
+                        borderWidth:2,
+                        barPercentage: 0.4,
                     }],
                 },
                 options: {
+                    plugins: {  // 'legend' now within object 'plugins 
+                        legend: {
+                            labels: {
+                            color: 'white',  // not 'fontColor:' anymore
+                            }
+                        }
+                    },
+                    maintainAspectRatio: false,
+                    scales:{
+                        y:{
+                            stacked:true,
+                            grid:{
+                                display: true,
+                                color: "rgb(255,255,255)"
+                            },
+                            ticks: {
+                            color: "white",
+                            beginAtZero: true,
+                            scale: 15
+                            },
+                            suggestedMax: maxDataValue
+                        },
+                        x: {
+                            grid:{
+                                display: true,
+                                color: "rgb(255,255,255)"
+                            },
+                            ticks: {
+                            color: "white",
+                            beginAtZero: true
+                            }
+                        }
+                    }
                 },
             });
 
