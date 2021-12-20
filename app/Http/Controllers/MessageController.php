@@ -27,6 +27,6 @@ class MessageController extends Controller
         $newMessage->text=ucfirst($request->text);
         $newMessage->save();
 
-        return redirect('/showartist'.'/'.$newMessage->user_id)->with('message_sent','Il messagio è stato inviato');
+        return redirect('/showartist'.'/'.$newMessage->user_id)->with('message_sent','Il messaggio è stato inviato');
     }
 }
