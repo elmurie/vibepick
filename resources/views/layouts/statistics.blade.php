@@ -335,7 +335,7 @@
                             color: "white",
                             beginAtZero: true,
                             scale: 15,
-                            stepSize: 2
+                            stepSize: 1
                             },
                             suggestedMax: revMax + 2,
                             
