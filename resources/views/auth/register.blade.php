@@ -138,9 +138,7 @@
                                                     value="{{$instrument->id}}" 
                                                     type="checkbox" 
                                                     class="custom-control-input @error('instrument_id') is-invalid @enderror checkValidation" 
-                                                    id="instrument-{{$instrument->id}}" 
-                                                    {{-- Richiamo della funzione per validare le checkbox al click --}}
-                                                    onclick="deRequireCb('checkValidation')" required>
+                                                    id="instrument-{{$instrument->id}}">
                                         @else
                                             <input name="instruments[]" 
                                                     value="{{$instrument->id}}" 
