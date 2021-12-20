@@ -52,7 +52,7 @@ class InstrumentController extends Controller
             $query->where('slug', $slug);
         })
         ->whereHas('sponsorships', function(Builder $query) use($nowDate){
-            $query->where('end_time', '<', $nowDate)->orWhere('start_time', '<', $nowDate);
+            $query->where('end_time', '<', $nowDate)->orWhere('start_time', '>', $nowDate);
         })
         //conto il numero di review
         ->withCount('reviews')
