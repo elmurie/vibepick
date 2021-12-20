@@ -18,7 +18,8 @@ class StatisticsController extends Controller
     {   
         $user = Auth::user();
         $messages = Message::where('user_id', $user->id)->get();
-        $reviews = Review::where('user_id', $user->id)->get();
+        $reviews = Review::where('user_id', $user->id)->orderBy('created_at', 'asc')
+        ->get();
 
         $chart = new Chart;
         $voti = [];

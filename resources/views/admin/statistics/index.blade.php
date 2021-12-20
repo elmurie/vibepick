@@ -8,13 +8,13 @@
                     <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center dashboard-box chart-container " style="background-color: #0a5a90; padding:40px">
                         <canvas id="myChart"></canvas>
                     </div>
-                    <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center dashboard-box chart-container" style="background-color: rgba(148, 144, 144, 0.5);; margin-top:-10px; padding:40px">
+                    <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center dashboard-box chart-container" style="background-color: #0a5a90; margin-top:-10px; padding:40px">
                         <canvas id="userChart"></canvas>
                     </div>
-                    <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center dashboard-box chart-container" style="background-color: rgba(148, 144, 144, 0.5);; margin-top:-10px; padding:40px">
+                    <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center dashboard-box chart-container" style="background-color: #0a5a90; margin-top:-10px; padding:40px">
                         <canvas id="newChart"></canvas>
                     </div>
-                    <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center dashboard-box chart-container" style="background-color: rgba(148, 144, 144, 0.5);; margin-top:-10px; padding:40px">
+                    <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center dashboard-box chart-container" style="background-color: #0a5a90; margin-top:-10px; padding:40px">
                         <canvas id="newerChart"></canvas>
                     </div>
                 </div>

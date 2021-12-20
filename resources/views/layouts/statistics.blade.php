@@ -176,14 +176,14 @@
                 data: {
                     labels:['N. Recensioni', 'N. Messaggi'],
                     datasets:[{
-                        label: 'Statistiche',
+                        label: 'Recensioni e Messaggi',
                         data:[
                             reviews.num,
                             messages.num,
                         ],  
-                        backgroundColor: ['#20d754cc', '#f9d608cc'],
-                        borderColor:['#ffffff'],                       
-                        borderWidth:2,
+                        backgroundColor: ['rgba(144,144,144,0.3)'],
+                        borderColor:['#f39200'],                       
+                        borderWidth:3,
                         barPercentage: 0.4,
                     }],
                 },
@@ -236,13 +236,50 @@
                         {
                             label : 'Voti',
                             data: {!!json_encode($chart->voti)!!},
-                            borderColor: "#20d754cc",
+                            borderColor: "#f39200",
+                            backgroundColor: "rgba(144,144,144,0.3)",
                             fill: true,
                             tension: 0.01,
                         },
                     ]
                 },
                 options: {
+                    plugins: {  // 'legend' now within object 'plugins 
+                        legend: {
+                            labels: {
+                            color: 'white',  // not 'fontColor:' anymore
+                            }
+                        }
+                    },
+                    maintainAspectRatio: false,
+                    scales:{
+                        y:{
+                            stacked:true,
+                            grid:{
+                                display: true,
+                                color: "rgba(255,255,255, 0.5)"
+                            },
+                            ticks: {
+                            color: "white",
+                            beginAtZero: true,
+                            scale: 15,
+                            stepSize: 1
+                        },
+                        suggestedMax:5
+                        },
+                        x: {
+                            grid:{
+                                display: true,
+                                color: "rgba(255,255,255, 0.5)"
+                            },
+                            ticks: {
+                            color: "white",
+                            beginAtZero: true,
+                            maxRotation: 90,
+                            minRotation: 90
+                            }
+                        }
+                    }
 
                 },
             });
