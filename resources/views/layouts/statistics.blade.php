@@ -176,7 +176,7 @@
                 data: {
                     labels:['N. Recensioni', 'N. Messaggi'],
                     datasets:[{
-                        label: 'Recensioni e Messaggi',
+                        label: 'Recensioni e Messaggi 2021',
                         data:[
                             reviews.num,
                             messages.num,
@@ -225,19 +225,22 @@
             });
 
 
-            //seconda statistica 
-            var ctx = document.getElementById('userChart').getContext('2d');
+            
+            //seconda statistica mod
+            var average = document.getElementById('avgChart').getContext('2d');
 
-            var chart = new Chart(ctx, {
-                type: 'line',
+
+            var averageVote = new Chart(average, {
+                type: 'bar',
                 data: {
-                    labels: {!!json_encode($chart->date)!!},
+                    labels: {!!json_encode($avgMonth->mesi)!!},
                     datasets: [
                         {
-                            label : 'Voti',
-                            data: {!!json_encode($chart->voti)!!},
+                            label : 'Media Voto 2021',
+                            data: {!!json_encode($avgMonth->tot)!!},
                             borderColor: "#f39200",
                             backgroundColor: "rgba(144,144,144,0.3)",
+                            borderWidth: 3,
                             fill: true,
                             tension: 0.01,
                         },
@@ -263,9 +266,11 @@
                             color: "white",
                             beginAtZero: true,
                             scale: 15,
-                            stepSize: 1
-                        },
-                        suggestedMax:5
+                            stepSize: 0.5,
+                            
+                            },
+                            suggestedMax: 5,
+                            
                         },
                         x: {
                             grid:{
@@ -275,12 +280,14 @@
                             ticks: {
                             color: "white",
                             beginAtZero: true,
+                            font:{
+                                size: 9,
+                            },
                             maxRotation: 90,
                             minRotation: 90
                             }
                         }
                     }
-
                 },
             });
 
@@ -289,6 +296,8 @@
             var terza = document.getElementById('newChart').getContext('2d');
 
             let revMax = Math.max(...{!!json_encode($reviewsMonth->tot)!!});
+            // console.log({!!json_encode($avgMonth->mesi)!!});
+
 
             var nuovo = new Chart(terza, {
                 type: 'line',
@@ -337,7 +346,12 @@
                             },
                             ticks: {
                             color: "white",
-                            beginAtZero: true
+                            beginAtZero: true,
+                            font:{
+                                size: 9,
+                            },
+                            maxRotation: 90,
+                            minRotation: 90
                             }
                         }
                     }
@@ -397,7 +411,12 @@
                             },
                             ticks: {
                             color: "white",
-                            beginAtZero: true
+                            beginAtZero: true,
+                            font:{
+                                size: 9,
+                            },
+                            maxRotation: 90,
+                            minRotation: 90
                             }
                         }
                     }

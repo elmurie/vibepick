@@ -21,22 +21,7 @@ class StatisticsController extends Controller
         $reviews = Review::where('user_id', $user->id)->orderBy('created_at', 'asc')
         ->get();
 
-        $chart = new Chart;
-        $voti = [];
-        foreach ($reviews as $value){
-            $voti[] = $value->vote;
-        };
-        $chart['voti'] = $voti;
 
-
-        $date = [];
-        foreach ($reviews as $value){
-            $date[] = date_format($value->created_at, "d-m-Y H:i:s");
-        };
-        $chart['date'] = $date;
-
-        //count review diviso per mese 
-        $reviewsMonth = new Chart;
         $monthsArray = [
             0 => 'Gennaio', 
             1 => 'Febbraio', 
@@ -50,13 +35,7 @@ class StatisticsController extends Controller
             9 => 'Ottobre', 
             10 => 'Novembre', 
             11 => 'Dicembre'
-       ];
-
-        $monthly_uploaded_product = DB::table('reviews')
-        ->where('user_id', $user->id)
-        ->select(DB::raw('count(id) as total'), DB::raw('MONTH(created_at) as month'))
-        ->groupBy('month')
-        ->get();
+        ];
 
         $year = [
             0 => 0,
@@ -72,11 +51,53 @@ class StatisticsController extends Controller
             10 => 0,
             11 => 0,
         
-        ];//initialize all months to 0
+        ];
+        $avgMonth = new Chart;
+        // $voti = [];
+        // foreach ($reviews as $value){
+        //     $voti[] = $value->vote;
+        // };
+        // $chart['voti'] = $voti;
+
+        $monthly_avgVotes = DB::table('reviews')
+        ->where('user_id', $user->id)
+        ->select(DB::raw('avg(vote) as voto'), DB::raw('MONTH(created_at) as month'))
+        ->groupBy('month')
+        ->get();
+
+
+        foreach($monthly_avgVotes as $key => $value) {
+            $year[$value->month-1] = $value->voto;//update each month with the total value
+            };
+    
+            $avgMonth['mesi'] = $monthsArray;
+            $avgMonth['tot'] = $year;
+
+        // dd($monthly_avgVotes);
+
+        // $date = [];
+        // foreach ($reviews as $value){
+        //     $date[] = date_format($value->created_at, "d-m-Y H:i:s");
+        // };
+        // $chart['date'] = $date;
+
+        //count review diviso per mese 
+        $reviewsMonth = new Chart;
+        
+
+        $monthly_uploaded_product = DB::table('reviews')
+        ->where('user_id', $user->id)
+        ->select(DB::raw('count(id) as total'), DB::raw('MONTH(created_at) as month'))
+        ->groupBy('month')
+        ->get();
+
+        ;//initialize all months to 0
 
         foreach($monthly_uploaded_product as $key => $value) {
         $year[$value->month-1] = $value->total;//update each month with the total value
         };
+
+        // dd($monthly_uploaded_product);
 
         $reviewsMonth['mesi'] = $monthsArray;
         $reviewsMonth['tot'] = $year;
@@ -114,6 +135,6 @@ class StatisticsController extends Controller
         $messagesMonth['tot'] = $year_messages;
 
 
-        return view('admin.statistics.index', compact('user', 'messages', 'reviews', 'chart', 'reviewsMonth', 'messagesMonth'));
+        return view('admin.statistics.index', compact('user', 'messages', 'reviews', 'reviewsMonth', 'messagesMonth', 'avgMonth'));
     }
 }

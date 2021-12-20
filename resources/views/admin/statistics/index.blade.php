@@ -9,7 +9,7 @@
                         <canvas id="myChart"></canvas>
                     </div>
                     <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center dashboard-box chart-container" style="background-color: #0a5a90; margin-top:-10px; padding:40px">
-                        <canvas id="userChart"></canvas>
+                        <canvas id="avgChart"></canvas>
                     </div>
                     <div class="card-body padding-card bg-light-blue b-radius-body d-flex justify-center dashboard-box chart-container" style="background-color: #0a5a90; margin-top:-10px; padding:40px">
                         <canvas id="newChart"></canvas>
