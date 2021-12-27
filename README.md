@@ -10,11 +10,11 @@ Technologies: **Laravel**, **Vue.js**, **Vue Router**, **Anime.js**.</br>
 
 <details>
   <summary>Screenshots</summary>
-  <img src="https://i.imgur.com/PDH2j2W.png">
-  <img src="https://i.imgur.com/iIDFsWV.png">
-  <img src="https://i.imgur.com/ESUH8Sm.png">
-  <img src="https://i.imgur.com/B99oqIm.png">
-  <img src="https://i.imgur.com/ImQImJm.png">
-  <img src="https://i.imgur.com/CSpKToE.png">
-  <img src="https://i.imgur.com/XXbDUO7.png">
+  <img src="https://i.imgur.com/kgkXThD.png">
+  <img src="https://i.imgur.com/ukm91pH.png">
+  <img src="https://i.imgur.com/cz2vbFT.png">
+  <img src="https://i.imgur.com/mASapcb.png">
+  <img src="https://i.imgur.com/DnMSYJG.png">
+  <img src="https://i.imgur.com/8ozuKB9.png">
+  <img src="https://i.imgur.com/rTEOOKk.png">
 </details>
