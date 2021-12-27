@@ -57,11 +57,11 @@
                             <div>
                                 <ul class="d-flex align-center">
                                 @if (@isset($user))
-                                    <li>
+                                    {{-- <li>
                                         <a href="{{ route('admin.users.show') }}">
                                             {{ __('Profilo') }}
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 @endif
                                     <li>
                                         <a href="{{ route('admin.home') }}">
@@ -110,11 +110,11 @@
                             <div>
                                 <ul class="d-flex align-center">
                                 @if (@isset($user))
-                                    <li>
+                                    {{-- <li>
                                         <a href="{{ route('admin.users.show') }}">
                                             {{ __('Profilo') }}
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 @endif
                                     <li>
                                         <a href="{{ route('admin.home') }}">

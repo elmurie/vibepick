@@ -56,11 +56,11 @@
                             <div>
                                 <ul class="d-flex align-center">
                                 @if (@isset($user))
-                                    <li>
+                                    {{-- <li>
                                         <a href="{{ route('admin.users.show') }}">
                                             {{ __('Profilo') }}
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 @endif
                                     <li>
                                         <a href="{{ route('admin.home') }}">
@@ -109,11 +109,11 @@
                             <div>
                                 <ul class="d-flex align-center">
                                 @if (@isset($user))
-                                    <li>
+                                    {{-- <li>
                                         <a href="{{ route('admin.users.show') }}">
                                             {{ __('Profilo') }}
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 @endif
                                     <li>
                                         <a href="{{ route('admin.home') }}">
@@ -153,8 +153,11 @@
                 @yield('content')
             </main>
             <footer>
-                <div>
-                    | Copyright &copy; VibePick 2021
+                <div class="box-footer">
+                    <div class="box-logo-footer">
+                        <img src="{{asset('storage/img/logo_pick_white.png')}}" alt="">
+                    </div>
+                    <div>| Copyright &copy; VibePick 2021</div>
                 </div>
             </footer>
         </div>
