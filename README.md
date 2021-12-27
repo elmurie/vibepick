@@ -8,4 +8,13 @@ Musicians can register to the website and have access to the backoffice where th
 
 Technologies: **Laravel**, **Vue.js**, **Vue Router**, **Anime.js**.</br>
 
-
+<details>
+  <summary>Screenshots</summary>
+  <img src="https://i.imgur.com/PDH2j2W.png">
+  <img src="https://i.imgur.com/iIDFsWV.png">
+  <img src="https://i.imgur.com/ESUH8Sm.png">
+  <img src="https://i.imgur.com/B99oqIm.png">
+  <img src="https://i.imgur.com/ImQImJm.png">
+  <img src="https://i.imgur.com/CSpKToE.png">
+  <img src="https://i.imgur.com/XXbDUO7.png">
+</details>
