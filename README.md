@@ -18,3 +18,20 @@ Technologies: **Laravel**, **Vue.js**, **Vue Router**, **Anime.js**.</br>
   <img src="https://i.imgur.com/8ozuKB9.png">
   <img src="https://i.imgur.com/rTEOOKk.png">
 </details>
+
+## Project setup
+```
+composer install
+```
+
+```
+npm install
+```
+
+```
+php artisan migrate
+```
+
+```
+php artisan db:seed
+```
