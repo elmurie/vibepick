@@ -4,6 +4,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 checkout">
+            @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+            @endif
             <div class="card checkout d-flex flex-column justify-content-center">
                 <div class="card-header bg-dark-blue b-radius-header text-center">
                     <h1>Procedi all'acquisto</h1>
@@ -52,7 +61,7 @@
                     </div>
                     @endif
 
-
+{{-- 
                     @if(count($errors) > 0)
                     <div class="alert alert-danger">
                         <ul>
@@ -61,7 +70,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    @endif
+                    @endif --}}
                 </div>
             </div>
         </div>
