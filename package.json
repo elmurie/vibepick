@@ -31,5 +31,11 @@
         "animejs": "^3.2.1",
         "dayjs": "^1.10.7",
         "vue-router": "^3.5.3"
+    },
+    "name": "vibepick",
+    "description": "a really cool app",
+    "version": "1.0.0",
+    "engines": {
+        "node": "16.x"
     }
 }
