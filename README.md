@@ -18,3 +18,5 @@ Technologies: **Laravel**, **Vue.js**, **Vue Router**, **Anime.js**.</br>
   <img src="https://i.imgur.com/CSpKToE.png">
   <img src="https://i.imgur.com/XXbDUO7.png">
 </details>
+
+**Ciao**
