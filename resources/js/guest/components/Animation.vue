@@ -63,357 +63,357 @@
 </template>
 
 <script>
-import anime from 'animejs/lib/anime.min.js';
+// import anime from 'animejs/lib/anime.min.js';
 export default {
     name: 'Animation',
-    mounted(){
-			let tl = anime.timeline({
-				duration: 500,
-				loop: true,
-				easing: 'linear',
-				direction : 'normal'
-			})
-			tl.add({
-                targets : '.bar',
-                rotateX : 180, 
-				opacity : 1,
-				delay : anime.stagger(50)
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				},
-                delay: 500,
-                loop: true
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				}
-			})
-			.add({
-				targets : '.bar', 
-                opacity: 0,
-				height : function() {
-					return Math.floor(Math.random() * (250 - 20) + 20);
-				},
-                delay: anime.stagger(20, {from: 'last'})
-			});
-		}
+    // mounted(){
+	// 		let tl = anime.timeline({
+	// 			duration: 500,
+	// 			loop: true,
+	// 			easing: 'linear',
+	// 			direction : 'normal'
+	// 		})
+	// 		tl.add({
+    //             targets : '.bar',
+    //             rotateX : 180, 
+	// 			opacity : 1,
+	// 			delay : anime.stagger(50)
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			},
+    //             delay: 500,
+    //             loop: true
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			}
+	// 		})
+	// 		.add({
+	// 			targets : '.bar', 
+    //             opacity: 0,
+	// 			height : function() {
+	// 				return Math.floor(Math.random() * (250 - 20) + 20);
+	// 			},
+    //             delay: anime.stagger(20, {from: 'last'})
+	// 		});
+	// 	}
 }
 </script>
 <style lang="scss" scoped>

@@ -8,9 +8,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import anime from 'animejs/lib/anime.min.js';
+// import anime from 'animejs/lib/anime.min.js';
 
-Vue.prototype.$anime = anime;
+// Vue.prototype.$anime = anime;
 
 /**
  * The following block of code may be used to automatically register your
